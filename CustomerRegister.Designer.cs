@@ -244,6 +244,9 @@
             // btnCusRegBackToLogin
             // 
             btnCusRegBackToLogin.BackColor = SystemColors.ControlLightLight;
+            btnCusRegBackToLogin.FlatAppearance.BorderColor = Color.LightGreen;
+            btnCusRegBackToLogin.FlatAppearance.BorderSize = 2;
+            btnCusRegBackToLogin.FlatStyle = FlatStyle.Popup;
             btnCusRegBackToLogin.ForeColor = Color.LimeGreen;
             btnCusRegBackToLogin.Location = new Point(61, 659);
             btnCusRegBackToLogin.Name = "btnCusRegBackToLogin";

@@ -63,9 +63,51 @@ namespace GreenLife_Organic_Store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _293058_middle {
+            get {
+                object obj = ResourceManager.GetObject("293058-middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images__1_ {
             get {
                 object obj = ResourceManager.GetObject("images (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap isolated_green_upward_arrow_depicting_growth_and_success_on_transparent_backdrop_png {
+            get {
+                object obj = ResourceManager.GetObject("isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-" +
+                        "png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paper_cardboard_box_green_png_favpng_xRbZH9Y9aFcMr7tAMPUetKHcu {
+            get {
+                object obj = ResourceManager.GetObject("paper-cardboard-box-green-png-favpng-xRbZH9Y9aFcMr7tAMPUetKHcu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_multi_user_end_user_users_group_information_others_miscellaneous_leaf {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf" +
+                        "", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
