@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminForm));
             groupBox1 = new GroupBox();
             btnAdminLogout = new Button();
             lblSubHeading = new Label();
@@ -58,9 +59,24 @@
             label2 = new Label();
             label1 = new Label();
             tabAdminProducts = new TabPage();
+            panel1 = new Panel();
+            tblProducts = new DataGridView();
+            button3 = new Button();
+            button2 = new Button();
+            btnProductSearch = new Button();
+            txtProductSearch = new TextBox();
+            button1 = new Button();
+            lblManageProductsSub = new Label();
+            lblManageProductsHeading = new Label();
             tabAdminCustomers = new TabPage();
+            lblMangeCustomersSub = new Label();
+            lblManageCustomersHeading = new Label();
             tabAdminOrders = new TabPage();
+            lblManageOrdersSub = new Label();
+            lblManageOrdersHeading = new Label();
             tabAdminReports = new TabPage();
+            lblReportsSub = new Label();
+            lblReportsHeadings = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -73,22 +89,30 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            tabAdminProducts.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tblProducts).BeginInit();
+            tabAdminCustomers.SuspendLayout();
+            tabAdminOrders.SuspendLayout();
+            tabAdminReports.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnAdminLogout);
             groupBox1.Controls.Add(lblSubHeading);
             groupBox1.Controls.Add(lblHeading);
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1605, 107);
+            groupBox1.Size = new Size(1565, 107);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
             // btnAdminLogout
             // 
+            btnAdminLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdminLogout.AutoSize = true;
             btnAdminLogout.BackColor = SystemColors.ControlLightLight;
             btnAdminLogout.FlatAppearance.BorderColor = Color.LimeGreen;
@@ -97,7 +121,7 @@
             btnAdminLogout.FlatStyle = FlatStyle.Flat;
             btnAdminLogout.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdminLogout.ForeColor = Color.LimeGreen;
-            btnAdminLogout.Location = new Point(1441, 40);
+            btnAdminLogout.Location = new Point(1401, 40);
             btnAdminLogout.Name = "btnAdminLogout";
             btnAdminLogout.Size = new Size(141, 44);
             btnAdminLogout.TabIndex = 7;
@@ -143,6 +167,7 @@
             // 
             tabControl1.AccessibleRole = AccessibleRole.MenuBar;
             tabControl1.AllowDrop = true;
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Appearance = TabAppearance.Buttons;
             tabControl1.Controls.Add(tabAdminDashboard);
             tabControl1.Controls.Add(tabAdminProducts);
@@ -154,7 +179,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1605, 661);
+            tabControl1.Size = new Size(1565, 682);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.TabIndex = 1;
             // 
@@ -174,9 +199,10 @@
             tabAdminDashboard.Name = "tabAdminDashboard";
             tabAdminDashboard.Padding = new Padding(10);
             tabAdminDashboard.RightToLeft = RightToLeft.No;
-            tabAdminDashboard.Size = new Size(1597, 625);
+            tabAdminDashboard.Size = new Size(1557, 646);
             tabAdminDashboard.TabIndex = 0;
             tabAdminDashboard.Text = "Dashboard";
+            tabAdminDashboard.Click += tabAdminDashboard_Click;
             // 
             // groupBox4
             // 
@@ -413,7 +439,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.LimeGreen;
-            label2.Location = new Point(17, 53);
+            label2.Location = new Point(7, 53);
             label2.Name = "label2";
             label2.Size = new Size(275, 23);
             label2.TabIndex = 8;
@@ -424,7 +450,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.ForestGreen;
-            label1.Location = new Point(13, 10);
+            label1.Location = new Point(3, 10);
             label1.Name = "label1";
             label1.Size = new Size(326, 43);
             label1.TabIndex = 8;
@@ -433,53 +459,264 @@
             // tabAdminProducts
             // 
             tabAdminProducts.BackColor = Color.Honeydew;
+            tabAdminProducts.Controls.Add(panel1);
+            tabAdminProducts.Controls.Add(button1);
+            tabAdminProducts.Controls.Add(lblManageProductsSub);
+            tabAdminProducts.Controls.Add(lblManageProductsHeading);
             tabAdminProducts.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabAdminProducts.Location = new Point(4, 32);
             tabAdminProducts.Name = "tabAdminProducts";
             tabAdminProducts.Padding = new Padding(3);
-            tabAdminProducts.Size = new Size(1597, 625);
+            tabAdminProducts.Size = new Size(1557, 646);
             tabAdminProducts.TabIndex = 1;
             tabAdminProducts.Text = "Products";
+            tabAdminProducts.Click += tabAdminProducts_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(tblProducts);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnProductSearch);
+            panel1.Controls.Add(txtProductSearch);
+            panel1.Location = new Point(27, 97);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1498, 525);
+            panel1.TabIndex = 11;
+            panel1.Paint += panel1_Paint;
+            // 
+            // tblProducts
+            // 
+            tblProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tblProducts.BackgroundColor = SystemColors.ControlLightLight;
+            tblProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblProducts.Cursor = Cursors.Hand;
+            tblProducts.GridColor = Color.LightGreen;
+            tblProducts.Location = new Point(23, 94);
+            tblProducts.MultiSelect = false;
+            tblProducts.Name = "tblProducts";
+            tblProducts.RowHeadersWidth = 51;
+            tblProducts.Size = new Size(1466, 419);
+            tblProducts.TabIndex = 4;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = Color.Green;
+            button3.FlatAppearance.BorderColor = Color.Green;
+            button3.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            button3.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(1235, 21);
+            button3.Name = "button3";
+            button3.Size = new Size(119, 33);
+            button3.TabIndex = 3;
+            button3.Text = "Edit";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.OrangeRed;
+            button2.FlatAppearance.BorderColor = Color.OrangeRed;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.Red;
+            button2.FlatAppearance.MouseOverBackColor = Color.Red;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(1370, 21);
+            button2.Name = "button2";
+            button2.Size = new Size(119, 33);
+            button2.TabIndex = 2;
+            button2.Text = "Delete";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // btnProductSearch
+            // 
+            btnProductSearch.BackColor = Color.Green;
+            btnProductSearch.FlatAppearance.BorderColor = Color.Green;
+            btnProductSearch.FlatAppearance.BorderSize = 0;
+            btnProductSearch.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnProductSearch.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnProductSearch.FlatStyle = FlatStyle.Popup;
+            btnProductSearch.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProductSearch.ForeColor = Color.White;
+            btnProductSearch.Location = new Point(561, 24);
+            btnProductSearch.Name = "btnProductSearch";
+            btnProductSearch.Size = new Size(119, 33);
+            btnProductSearch.TabIndex = 1;
+            btnProductSearch.Text = "Search";
+            btnProductSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtProductSearch
+            // 
+            txtProductSearch.BackColor = SystemColors.MenuBar;
+            txtProductSearch.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProductSearch.Location = new Point(23, 23);
+            txtProductSearch.Name = "txtProductSearch";
+            txtProductSearch.PlaceholderText = "Search products by name or category...";
+            txtProductSearch.Size = new Size(514, 31);
+            txtProductSearch.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.AutoSize = true;
+            button1.BackColor = Color.DarkGreen;
+            button1.FlatAppearance.BorderColor = Color.DarkGreen;
+            button1.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            button1.FlatAppearance.MouseOverBackColor = Color.Green;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1298, 23);
+            button1.Name = "button1";
+            button1.Size = new Size(227, 44);
+            button1.TabIndex = 8;
+            button1.Text = "+  Add New Product";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // lblManageProductsSub
+            // 
+            lblManageProductsSub.AutoSize = true;
+            lblManageProductsSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblManageProductsSub.ForeColor = Color.LimeGreen;
+            lblManageProductsSub.Location = new Point(7, 53);
+            lblManageProductsSub.Name = "lblManageProductsSub";
+            lblManageProductsSub.Size = new Size(398, 23);
+            lblManageProductsSub.TabIndex = 9;
+            lblManageProductsSub.Text = "Add, edit, or remove products from inventory";
+            // 
+            // lblManageProductsHeading
+            // 
+            lblManageProductsHeading.AutoSize = true;
+            lblManageProductsHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblManageProductsHeading.ForeColor = Color.ForestGreen;
+            lblManageProductsHeading.Location = new Point(3, 10);
+            lblManageProductsHeading.Name = "lblManageProductsHeading";
+            lblManageProductsHeading.Size = new Size(311, 43);
+            lblManageProductsHeading.TabIndex = 10;
+            lblManageProductsHeading.Text = "Manage Products";
             // 
             // tabAdminCustomers
             // 
             tabAdminCustomers.BackColor = Color.Honeydew;
+            tabAdminCustomers.Controls.Add(lblMangeCustomersSub);
+            tabAdminCustomers.Controls.Add(lblManageCustomersHeading);
             tabAdminCustomers.Location = new Point(4, 32);
             tabAdminCustomers.Name = "tabAdminCustomers";
-            tabAdminCustomers.Size = new Size(1597, 625);
+            tabAdminCustomers.Size = new Size(1557, 646);
             tabAdminCustomers.TabIndex = 2;
             tabAdminCustomers.Text = "Customers";
+            tabAdminCustomers.Click += tabAdminCustomers_Click;
+            // 
+            // lblMangeCustomersSub
+            // 
+            lblMangeCustomersSub.AutoSize = true;
+            lblMangeCustomersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMangeCustomersSub.ForeColor = Color.LimeGreen;
+            lblMangeCustomersSub.Location = new Point(7, 53);
+            lblMangeCustomersSub.Name = "lblMangeCustomersSub";
+            lblMangeCustomersSub.Size = new Size(355, 23);
+            lblMangeCustomersSub.TabIndex = 11;
+            lblMangeCustomersSub.Text = "View and manage customer information";
+            // 
+            // lblManageCustomersHeading
+            // 
+            lblManageCustomersHeading.AutoSize = true;
+            lblManageCustomersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblManageCustomersHeading.ForeColor = Color.ForestGreen;
+            lblManageCustomersHeading.Location = new Point(3, 10);
+            lblManageCustomersHeading.Name = "lblManageCustomersHeading";
+            lblManageCustomersHeading.Size = new Size(340, 43);
+            lblManageCustomersHeading.TabIndex = 12;
+            lblManageCustomersHeading.Text = "Manage Customers";
             // 
             // tabAdminOrders
             // 
             tabAdminOrders.BackColor = Color.Honeydew;
+            tabAdminOrders.Controls.Add(lblManageOrdersSub);
+            tabAdminOrders.Controls.Add(lblManageOrdersHeading);
             tabAdminOrders.Location = new Point(4, 32);
             tabAdminOrders.Name = "tabAdminOrders";
-            tabAdminOrders.Size = new Size(1597, 625);
+            tabAdminOrders.Size = new Size(1557, 646);
             tabAdminOrders.TabIndex = 3;
             tabAdminOrders.Text = "Orders";
+            // 
+            // lblManageOrdersSub
+            // 
+            lblManageOrdersSub.AutoSize = true;
+            lblManageOrdersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblManageOrdersSub.ForeColor = Color.LimeGreen;
+            lblManageOrdersSub.Location = new Point(7, 53);
+            lblManageOrdersSub.Name = "lblManageOrdersSub";
+            lblManageOrdersSub.Size = new Size(267, 23);
+            lblManageOrdersSub.TabIndex = 13;
+            lblManageOrdersSub.Text = "Track and update order status";
+            // 
+            // lblManageOrdersHeading
+            // 
+            lblManageOrdersHeading.AutoSize = true;
+            lblManageOrdersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblManageOrdersHeading.ForeColor = Color.ForestGreen;
+            lblManageOrdersHeading.Location = new Point(3, 10);
+            lblManageOrdersHeading.Name = "lblManageOrdersHeading";
+            lblManageOrdersHeading.Size = new Size(277, 43);
+            lblManageOrdersHeading.TabIndex = 14;
+            lblManageOrdersHeading.Text = "Manage Orders";
             // 
             // tabAdminReports
             // 
             tabAdminReports.BackColor = Color.Honeydew;
+            tabAdminReports.Controls.Add(lblReportsSub);
+            tabAdminReports.Controls.Add(lblReportsHeadings);
             tabAdminReports.Location = new Point(4, 32);
             tabAdminReports.Name = "tabAdminReports";
-            tabAdminReports.Size = new Size(1597, 625);
+            tabAdminReports.Size = new Size(1557, 646);
             tabAdminReports.TabIndex = 4;
             tabAdminReports.Text = "Reports";
+            // 
+            // lblReportsSub
+            // 
+            lblReportsSub.AutoSize = true;
+            lblReportsSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblReportsSub.ForeColor = Color.LimeGreen;
+            lblReportsSub.Location = new Point(7, 52);
+            lblReportsSub.Name = "lblReportsSub";
+            lblReportsSub.Size = new Size(358, 23);
+            lblReportsSub.TabIndex = 15;
+            lblReportsSub.Text = "Generate business insights and analytics";
+            // 
+            // lblReportsHeadings
+            // 
+            lblReportsHeadings.AutoSize = true;
+            lblReportsHeadings.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblReportsHeadings.ForeColor = Color.ForestGreen;
+            lblReportsHeadings.Location = new Point(3, 9);
+            lblReportsHeadings.Name = "lblReportsHeadings";
+            lblReportsHeadings.Size = new Size(153, 43);
+            lblReportsHeadings.TabIndex = 16;
+            lblReportsHeadings.Text = "Reports";
             // 
             // frmAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1629, 798);
+            ClientSize = new Size(1578, 805);
             Controls.Add(tabControl1);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmAdminForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin";
+            Load += frmAdminForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -498,6 +735,17 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            tabAdminProducts.ResumeLayout(false);
+            tabAdminProducts.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tblProducts).EndInit();
+            tabAdminCustomers.ResumeLayout(false);
+            tabAdminCustomers.PerformLayout();
+            tabAdminOrders.ResumeLayout(false);
+            tabAdminOrders.PerformLayout();
+            tabAdminReports.ResumeLayout(false);
+            tabAdminReports.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -536,5 +784,20 @@
         private PictureBox pictureBox5;
         private Label lblActiveOrders;
         private Label lblActiveOrdersHeading;
+        private Label lblManageProductsSub;
+        private Label lblManageProductsHeading;
+        private Label lblMangeCustomersSub;
+        private Label lblManageCustomersHeading;
+        private Label lblManageOrdersSub;
+        private Label lblManageOrdersHeading;
+        private Label lblReportsSub;
+        private Label lblReportsHeadings;
+        private Button button1;
+        private Panel panel1;
+        private Button btnProductSearch;
+        private TextBox txtProductSearch;
+        private Button button3;
+        private Button button2;
+        private DataGridView tblProducts;
     }
 }

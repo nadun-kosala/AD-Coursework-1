@@ -30,5 +30,30 @@ namespace GreenLife_Organic_Store
         {
 
         }
+
+        private void tabAdminDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabAdminCustomers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabAdminProducts_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
