@@ -83,6 +83,11 @@
             tabAdminReports = new TabPage();
             lblReportsSub = new Label();
             lblReportsHeadings = new Label();
+            panel3 = new Panel();
+            tblOrders = new DataGridView();
+            btnUpdateOrderStatus = new Button();
+            btnOrderSearch = new Button();
+            txtOrderSearch = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -103,6 +108,8 @@
             ((System.ComponentModel.ISupportInitialize)tblCustomers).BeginInit();
             tabAdminOrders.SuspendLayout();
             tabAdminReports.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tblOrders).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -738,6 +745,7 @@
             // tabAdminOrders
             // 
             tabAdminOrders.BackColor = Color.Honeydew;
+            tabAdminOrders.Controls.Add(panel3);
             tabAdminOrders.Controls.Add(lblManageOrdersSub);
             tabAdminOrders.Controls.Add(lblManageOrdersHeading);
             tabAdminOrders.Location = new Point(4, 32);
@@ -801,6 +809,76 @@
             lblReportsHeadings.TabIndex = 16;
             lblReportsHeadings.Text = "Reports";
             // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.ControlLightLight;
+            panel3.Controls.Add(tblOrders);
+            panel3.Controls.Add(btnUpdateOrderStatus);
+            panel3.Controls.Add(btnOrderSearch);
+            panel3.Controls.Add(txtOrderSearch);
+            panel3.Location = new Point(23, 93);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1461, 543);
+            panel3.TabIndex = 15;
+            // 
+            // tblOrders
+            // 
+            tblOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tblOrders.BackgroundColor = SystemColors.ControlLightLight;
+            tblOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblOrders.Cursor = Cursors.Hand;
+            tblOrders.GridColor = Color.LightGreen;
+            tblOrders.Location = new Point(17, 97);
+            tblOrders.MultiSelect = false;
+            tblOrders.Name = "tblOrders";
+            tblOrders.RowHeadersWidth = 51;
+            tblOrders.Size = new Size(1426, 423);
+            tblOrders.TabIndex = 14;
+            // 
+            // btnUpdateOrderStatus
+            // 
+            btnUpdateOrderStatus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnUpdateOrderStatus.BackColor = Color.Green;
+            btnUpdateOrderStatus.FlatAppearance.BorderColor = Color.Green;
+            btnUpdateOrderStatus.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnUpdateOrderStatus.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnUpdateOrderStatus.FlatStyle = FlatStyle.Popup;
+            btnUpdateOrderStatus.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateOrderStatus.ForeColor = Color.White;
+            btnUpdateOrderStatus.Location = new Point(1162, 26);
+            btnUpdateOrderStatus.Name = "btnUpdateOrderStatus";
+            btnUpdateOrderStatus.Size = new Size(281, 33);
+            btnUpdateOrderStatus.TabIndex = 13;
+            btnUpdateOrderStatus.Text = "Update Order Status";
+            btnUpdateOrderStatus.UseVisualStyleBackColor = false;
+            // 
+            // btnOrderSearch
+            // 
+            btnOrderSearch.BackColor = Color.Green;
+            btnOrderSearch.FlatAppearance.BorderColor = Color.Green;
+            btnOrderSearch.FlatAppearance.BorderSize = 0;
+            btnOrderSearch.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnOrderSearch.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnOrderSearch.FlatStyle = FlatStyle.Popup;
+            btnOrderSearch.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOrderSearch.ForeColor = Color.White;
+            btnOrderSearch.Location = new Point(555, 25);
+            btnOrderSearch.Name = "btnOrderSearch";
+            btnOrderSearch.Size = new Size(119, 33);
+            btnOrderSearch.TabIndex = 11;
+            btnOrderSearch.Text = "Search";
+            btnOrderSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtOrderSearch
+            // 
+            txtOrderSearch.BackColor = SystemColors.MenuBar;
+            txtOrderSearch.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOrderSearch.Location = new Point(17, 26);
+            txtOrderSearch.Name = "txtOrderSearch";
+            txtOrderSearch.PlaceholderText = "Search orders by order ID...";
+            txtOrderSearch.Size = new Size(514, 31);
+            txtOrderSearch.TabIndex = 10;
+            // 
             // frmAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -847,6 +925,9 @@
             tabAdminOrders.PerformLayout();
             tabAdminReports.ResumeLayout(false);
             tabAdminReports.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tblOrders).EndInit();
             ResumeLayout(false);
         }
 
@@ -906,5 +987,10 @@
         private Button btnCustomerDelete;
         private Button btnCustomerSearch;
         private TextBox txtCustomerSearch;
+        private Panel panel3;
+        private DataGridView tblOrders;
+        private Button btnUpdateOrderStatus;
+        private Button btnOrderSearch;
+        private TextBox txtOrderSearch;
     }
 }
