@@ -61,14 +61,20 @@
             tabAdminProducts = new TabPage();
             panel1 = new Panel();
             tblProducts = new DataGridView();
-            button3 = new Button();
-            button2 = new Button();
+            btnEditProducts = new Button();
+            btnDeleteProducts = new Button();
             btnProductSearch = new Button();
             txtProductSearch = new TextBox();
             button1 = new Button();
             lblManageProductsSub = new Label();
             lblManageProductsHeading = new Label();
             tabAdminCustomers = new TabPage();
+            panel2 = new Panel();
+            tblCustomers = new DataGridView();
+            btnCustomerEdit = new Button();
+            btnCustomerDelete = new Button();
+            btnCustomerSearch = new Button();
+            txtCustomerSearch = new TextBox();
             lblMangeCustomersSub = new Label();
             lblManageCustomersHeading = new Label();
             tabAdminOrders = new TabPage();
@@ -93,6 +99,8 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblProducts).BeginInit();
             tabAdminCustomers.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tblCustomers).BeginInit();
             tabAdminOrders.SuspendLayout();
             tabAdminReports.SuspendLayout();
             SuspendLayout();
@@ -106,7 +114,7 @@
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1565, 107);
+            groupBox1.Size = new Size(1521, 107);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
@@ -121,7 +129,7 @@
             btnAdminLogout.FlatStyle = FlatStyle.Flat;
             btnAdminLogout.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdminLogout.ForeColor = Color.LimeGreen;
-            btnAdminLogout.Location = new Point(1401, 40);
+            btnAdminLogout.Location = new Point(1357, 40);
             btnAdminLogout.Name = "btnAdminLogout";
             btnAdminLogout.Size = new Size(141, 44);
             btnAdminLogout.TabIndex = 7;
@@ -179,7 +187,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1565, 682);
+            tabControl1.Size = new Size(1521, 682);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.TabIndex = 1;
             // 
@@ -199,7 +207,7 @@
             tabAdminDashboard.Name = "tabAdminDashboard";
             tabAdminDashboard.Padding = new Padding(10);
             tabAdminDashboard.RightToLeft = RightToLeft.No;
-            tabAdminDashboard.Size = new Size(1557, 646);
+            tabAdminDashboard.Size = new Size(1513, 646);
             tabAdminDashboard.TabIndex = 0;
             tabAdminDashboard.Text = "Dashboard";
             tabAdminDashboard.Click += tabAdminDashboard_Click;
@@ -467,7 +475,7 @@
             tabAdminProducts.Location = new Point(4, 32);
             tabAdminProducts.Name = "tabAdminProducts";
             tabAdminProducts.Padding = new Padding(3);
-            tabAdminProducts.Size = new Size(1557, 646);
+            tabAdminProducts.Size = new Size(1513, 646);
             tabAdminProducts.TabIndex = 1;
             tabAdminProducts.Text = "Products";
             tabAdminProducts.Click += tabAdminProducts_Click;
@@ -477,13 +485,13 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(tblProducts);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnEditProducts);
+            panel1.Controls.Add(btnDeleteProducts);
             panel1.Controls.Add(btnProductSearch);
             panel1.Controls.Add(txtProductSearch);
             panel1.Location = new Point(27, 97);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1498, 525);
+            panel1.Size = new Size(1454, 525);
             panel1.TabIndex = 11;
             panel1.Paint += panel1_Paint;
             // 
@@ -498,43 +506,43 @@
             tblProducts.MultiSelect = false;
             tblProducts.Name = "tblProducts";
             tblProducts.RowHeadersWidth = 51;
-            tblProducts.Size = new Size(1466, 419);
+            tblProducts.Size = new Size(1422, 419);
             tblProducts.TabIndex = 4;
             // 
-            // button3
+            // btnEditProducts
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.BackColor = Color.Green;
-            button3.FlatAppearance.BorderColor = Color.Green;
-            button3.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
-            button3.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(1235, 21);
-            button3.Name = "button3";
-            button3.Size = new Size(119, 33);
-            button3.TabIndex = 3;
-            button3.Text = "Edit";
-            button3.UseVisualStyleBackColor = false;
+            btnEditProducts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditProducts.BackColor = Color.Green;
+            btnEditProducts.FlatAppearance.BorderColor = Color.Green;
+            btnEditProducts.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnEditProducts.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnEditProducts.FlatStyle = FlatStyle.Popup;
+            btnEditProducts.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditProducts.ForeColor = Color.White;
+            btnEditProducts.Location = new Point(1191, 21);
+            btnEditProducts.Name = "btnEditProducts";
+            btnEditProducts.Size = new Size(119, 33);
+            btnEditProducts.TabIndex = 3;
+            btnEditProducts.Text = "Edit";
+            btnEditProducts.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnDeleteProducts
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.OrangeRed;
-            button2.FlatAppearance.BorderColor = Color.OrangeRed;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = Color.Red;
-            button2.FlatAppearance.MouseOverBackColor = Color.Red;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(1370, 21);
-            button2.Name = "button2";
-            button2.Size = new Size(119, 33);
-            button2.TabIndex = 2;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
+            btnDeleteProducts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDeleteProducts.BackColor = Color.OrangeRed;
+            btnDeleteProducts.FlatAppearance.BorderColor = Color.OrangeRed;
+            btnDeleteProducts.FlatAppearance.BorderSize = 0;
+            btnDeleteProducts.FlatAppearance.MouseDownBackColor = Color.Red;
+            btnDeleteProducts.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnDeleteProducts.FlatStyle = FlatStyle.Popup;
+            btnDeleteProducts.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteProducts.ForeColor = Color.White;
+            btnDeleteProducts.Location = new Point(1326, 21);
+            btnDeleteProducts.Name = "btnDeleteProducts";
+            btnDeleteProducts.Size = new Size(119, 33);
+            btnDeleteProducts.TabIndex = 2;
+            btnDeleteProducts.Text = "Delete";
+            btnDeleteProducts.UseVisualStyleBackColor = false;
             // 
             // btnProductSearch
             // 
@@ -574,7 +582,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1298, 23);
+            button1.Location = new Point(1254, 23);
             button1.Name = "button1";
             button1.Size = new Size(227, 44);
             button1.TabIndex = 8;
@@ -606,14 +614,104 @@
             // tabAdminCustomers
             // 
             tabAdminCustomers.BackColor = Color.Honeydew;
+            tabAdminCustomers.Controls.Add(panel2);
             tabAdminCustomers.Controls.Add(lblMangeCustomersSub);
             tabAdminCustomers.Controls.Add(lblManageCustomersHeading);
             tabAdminCustomers.Location = new Point(4, 32);
             tabAdminCustomers.Name = "tabAdminCustomers";
-            tabAdminCustomers.Size = new Size(1557, 646);
+            tabAdminCustomers.Size = new Size(1513, 646);
             tabAdminCustomers.TabIndex = 2;
             tabAdminCustomers.Text = "Customers";
             tabAdminCustomers.Click += tabAdminCustomers_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlLightLight;
+            panel2.Controls.Add(tblCustomers);
+            panel2.Controls.Add(btnCustomerEdit);
+            panel2.Controls.Add(btnCustomerDelete);
+            panel2.Controls.Add(btnCustomerSearch);
+            panel2.Controls.Add(txtCustomerSearch);
+            panel2.Location = new Point(20, 95);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1463, 541);
+            panel2.TabIndex = 13;
+            // 
+            // tblCustomers
+            // 
+            tblCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tblCustomers.BackgroundColor = SystemColors.ControlLightLight;
+            tblCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblCustomers.Cursor = Cursors.Hand;
+            tblCustomers.GridColor = Color.LightGreen;
+            tblCustomers.Location = new Point(25, 97);
+            tblCustomers.MultiSelect = false;
+            tblCustomers.Name = "tblCustomers";
+            tblCustomers.RowHeadersWidth = 51;
+            tblCustomers.Size = new Size(1426, 423);
+            tblCustomers.TabIndex = 9;
+            // 
+            // btnCustomerEdit
+            // 
+            btnCustomerEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCustomerEdit.BackColor = Color.Green;
+            btnCustomerEdit.FlatAppearance.BorderColor = Color.Green;
+            btnCustomerEdit.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnCustomerEdit.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnCustomerEdit.FlatStyle = FlatStyle.Popup;
+            btnCustomerEdit.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerEdit.ForeColor = Color.White;
+            btnCustomerEdit.Location = new Point(1197, 23);
+            btnCustomerEdit.Name = "btnCustomerEdit";
+            btnCustomerEdit.Size = new Size(119, 33);
+            btnCustomerEdit.TabIndex = 8;
+            btnCustomerEdit.Text = "Edit";
+            btnCustomerEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnCustomerDelete
+            // 
+            btnCustomerDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCustomerDelete.BackColor = Color.OrangeRed;
+            btnCustomerDelete.FlatAppearance.BorderColor = Color.OrangeRed;
+            btnCustomerDelete.FlatAppearance.BorderSize = 0;
+            btnCustomerDelete.FlatAppearance.MouseDownBackColor = Color.Red;
+            btnCustomerDelete.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnCustomerDelete.FlatStyle = FlatStyle.Popup;
+            btnCustomerDelete.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerDelete.ForeColor = Color.White;
+            btnCustomerDelete.Location = new Point(1332, 23);
+            btnCustomerDelete.Name = "btnCustomerDelete";
+            btnCustomerDelete.Size = new Size(119, 33);
+            btnCustomerDelete.TabIndex = 7;
+            btnCustomerDelete.Text = "Delete";
+            btnCustomerDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnCustomerSearch
+            // 
+            btnCustomerSearch.BackColor = Color.Green;
+            btnCustomerSearch.FlatAppearance.BorderColor = Color.Green;
+            btnCustomerSearch.FlatAppearance.BorderSize = 0;
+            btnCustomerSearch.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnCustomerSearch.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnCustomerSearch.FlatStyle = FlatStyle.Popup;
+            btnCustomerSearch.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerSearch.ForeColor = Color.White;
+            btnCustomerSearch.Location = new Point(563, 25);
+            btnCustomerSearch.Name = "btnCustomerSearch";
+            btnCustomerSearch.Size = new Size(119, 33);
+            btnCustomerSearch.TabIndex = 6;
+            btnCustomerSearch.Text = "Search";
+            btnCustomerSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtCustomerSearch
+            // 
+            txtCustomerSearch.BackColor = SystemColors.MenuBar;
+            txtCustomerSearch.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCustomerSearch.Location = new Point(25, 26);
+            txtCustomerSearch.Name = "txtCustomerSearch";
+            txtCustomerSearch.PlaceholderText = "Search customers by name or email...";
+            txtCustomerSearch.Size = new Size(514, 31);
+            txtCustomerSearch.TabIndex = 5;
             // 
             // lblMangeCustomersSub
             // 
@@ -644,7 +742,7 @@
             tabAdminOrders.Controls.Add(lblManageOrdersHeading);
             tabAdminOrders.Location = new Point(4, 32);
             tabAdminOrders.Name = "tabAdminOrders";
-            tabAdminOrders.Size = new Size(1557, 646);
+            tabAdminOrders.Size = new Size(1513, 646);
             tabAdminOrders.TabIndex = 3;
             tabAdminOrders.Text = "Orders";
             // 
@@ -677,7 +775,7 @@
             tabAdminReports.Controls.Add(lblReportsHeadings);
             tabAdminReports.Location = new Point(4, 32);
             tabAdminReports.Name = "tabAdminReports";
-            tabAdminReports.Size = new Size(1557, 646);
+            tabAdminReports.Size = new Size(1513, 646);
             tabAdminReports.TabIndex = 4;
             tabAdminReports.Text = "Reports";
             // 
@@ -708,7 +806,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1578, 805);
+            ClientSize = new Size(1534, 805);
             Controls.Add(tabControl1);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -742,6 +840,9 @@
             ((System.ComponentModel.ISupportInitialize)tblProducts).EndInit();
             tabAdminCustomers.ResumeLayout(false);
             tabAdminCustomers.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tblCustomers).EndInit();
             tabAdminOrders.ResumeLayout(false);
             tabAdminOrders.PerformLayout();
             tabAdminReports.ResumeLayout(false);
@@ -796,8 +897,14 @@
         private Panel panel1;
         private Button btnProductSearch;
         private TextBox txtProductSearch;
-        private Button button3;
-        private Button button2;
+        private Button btnEditProducts;
+        private Button btnDeleteProducts;
         private DataGridView tblProducts;
+        private Panel panel2;
+        private DataGridView tblCustomers;
+        private Button btnCustomerEdit;
+        private Button btnCustomerDelete;
+        private Button btnCustomerSearch;
+        private TextBox txtCustomerSearch;
     }
 }
