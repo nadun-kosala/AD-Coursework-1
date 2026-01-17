@@ -36,5 +36,20 @@ namespace GreenLife_Organic_Store
         {
 
         }
+
+        private void lblSubTotalHead_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDiscountApply_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabCustomerCart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

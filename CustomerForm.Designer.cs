@@ -64,28 +64,8 @@
             pictureBox2 = new PictureBox();
             lblDashboardSearch = new Label();
             tabCustomerSearch = new TabPage();
-            tabCustomerCart = new TabPage();
-            lblMangeCustomersSub = new Label();
-            lblManageCustomersHeading = new Label();
-            tabCustomerOrders = new TabPage();
-            lblManageOrdersSub = new Label();
-            lblManageOrdersHeading = new Label();
-            tabCustomerProfile = new TabPage();
-            panel4 = new Panel();
-            button2 = new Button();
-            label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label5 = new Label();
-            label6 = new Label();
-            comboBox1 = new ComboBox();
-            button3 = new Button();
-            textBox3 = new TextBox();
-            label7 = new Label();
-            lblReportsSub = new Label();
-            lblReportsHeadings = new Label();
-            lblCustomerSearchProductSubHading = new Label();
-            lblCustomerSearchProducts = new Label();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            lblFoundedProductCount = new Label();
             panel3 = new Panel();
             button1 = new Button();
             label1 = new Label();
@@ -97,6 +77,44 @@
             button4 = new Button();
             textBox6 = new TextBox();
             label9 = new Label();
+            lblCustomerSearchProductSubHading = new Label();
+            lblCustomerSearchProducts = new Label();
+            tabCustomerCart = new TabPage();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            panel5 = new Panel();
+            button5 = new Button();
+            btnPlaceOrder = new Button();
+            lblDiscountCodeShow = new Label();
+            btnDiscountApply = new Button();
+            txtDiscountCode = new TextBox();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            lblSubTotal = new Label();
+            lblSubTotalHead = new Label();
+            lblOrderSummary = new Label();
+            lblShoppingCartSub = new Label();
+            lblShoppingCartHeading = new Label();
+            tabCustomerOrders = new TabPage();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            lblTrackOrdersSub = new Label();
+            lblTrackOrdersHeading = new Label();
+            tabCustomerProfile = new TabPage();
+            panel4 = new Panel();
+            lblProfileEmail = new Label();
+            lblProfilEmail = new Label();
+            pictureBox7 = new PictureBox();
+            lblProfileName = new Label();
+            lblMyProfilesSub = new Label();
+            lblMyProfileHeadings = new Label();
+            lblProfilePhoneNumber = new Label();
+            lblProfileAddress = new Label();
+            pictureBox8 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            panel6 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -112,11 +130,16 @@
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabCustomerSearch.SuspendLayout();
+            panel3.SuspendLayout();
             tabCustomerCart.SuspendLayout();
+            panel5.SuspendLayout();
             tabCustomerOrders.SuspendLayout();
             tabCustomerProfile.SuspendLayout();
             panel4.SuspendLayout();
-            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -253,7 +276,7 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(57, 23);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1420, 124);
+            panel2.Size = new Size(1252, 124);
             panel2.TabIndex = 15;
             // 
             // lblWelcomeHeadingUsername
@@ -568,6 +591,8 @@
             // tabCustomerSearch
             // 
             tabCustomerSearch.BackColor = Color.Honeydew;
+            tabCustomerSearch.Controls.Add(flowLayoutPanel2);
+            tabCustomerSearch.Controls.Add(lblFoundedProductCount);
             tabCustomerSearch.Controls.Add(panel3);
             tabCustomerSearch.Controls.Add(lblCustomerSearchProductSubHading);
             tabCustomerSearch.Controls.Add(lblCustomerSearchProducts);
@@ -577,264 +602,24 @@
             tabCustomerSearch.TabIndex = 5;
             tabCustomerSearch.Text = "Search";
             // 
-            // tabCustomerCart
+            // flowLayoutPanel2
             // 
-            tabCustomerCart.BackColor = Color.Honeydew;
-            tabCustomerCart.Controls.Add(lblMangeCustomersSub);
-            tabCustomerCart.Controls.Add(lblManageCustomersHeading);
-            tabCustomerCart.Location = new Point(4, 32);
-            tabCustomerCart.Name = "tabCustomerCart";
-            tabCustomerCart.Size = new Size(1636, 632);
-            tabCustomerCart.TabIndex = 2;
-            tabCustomerCart.Text = "Cart";
+            flowLayoutPanel2.Location = new Point(12, 375);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1596, 225);
+            flowLayoutPanel2.TabIndex = 20;
             // 
-            // lblMangeCustomersSub
+            // lblFoundedProductCount
             // 
-            lblMangeCustomersSub.AutoSize = true;
-            lblMangeCustomersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMangeCustomersSub.ForeColor = Color.LimeGreen;
-            lblMangeCustomersSub.Location = new Point(7, 53);
-            lblMangeCustomersSub.Name = "lblMangeCustomersSub";
-            lblMangeCustomersSub.Size = new Size(355, 23);
-            lblMangeCustomersSub.TabIndex = 11;
-            lblMangeCustomersSub.Text = "View and manage customer information";
-            // 
-            // lblManageCustomersHeading
-            // 
-            lblManageCustomersHeading.AutoSize = true;
-            lblManageCustomersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblManageCustomersHeading.ForeColor = Color.ForestGreen;
-            lblManageCustomersHeading.Location = new Point(3, 10);
-            lblManageCustomersHeading.Name = "lblManageCustomersHeading";
-            lblManageCustomersHeading.Size = new Size(340, 43);
-            lblManageCustomersHeading.TabIndex = 12;
-            lblManageCustomersHeading.Text = "Manage Customers";
-            // 
-            // tabCustomerOrders
-            // 
-            tabCustomerOrders.BackColor = Color.Honeydew;
-            tabCustomerOrders.Controls.Add(lblManageOrdersSub);
-            tabCustomerOrders.Controls.Add(lblManageOrdersHeading);
-            tabCustomerOrders.Location = new Point(4, 32);
-            tabCustomerOrders.Name = "tabCustomerOrders";
-            tabCustomerOrders.Size = new Size(1636, 632);
-            tabCustomerOrders.TabIndex = 3;
-            tabCustomerOrders.Text = "Orders";
-            // 
-            // lblManageOrdersSub
-            // 
-            lblManageOrdersSub.AutoSize = true;
-            lblManageOrdersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblManageOrdersSub.ForeColor = Color.LimeGreen;
-            lblManageOrdersSub.Location = new Point(7, 53);
-            lblManageOrdersSub.Name = "lblManageOrdersSub";
-            lblManageOrdersSub.Size = new Size(267, 23);
-            lblManageOrdersSub.TabIndex = 13;
-            lblManageOrdersSub.Text = "Track and update order status";
-            // 
-            // lblManageOrdersHeading
-            // 
-            lblManageOrdersHeading.AutoSize = true;
-            lblManageOrdersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblManageOrdersHeading.ForeColor = Color.ForestGreen;
-            lblManageOrdersHeading.Location = new Point(3, 10);
-            lblManageOrdersHeading.Name = "lblManageOrdersHeading";
-            lblManageOrdersHeading.Size = new Size(277, 43);
-            lblManageOrdersHeading.TabIndex = 14;
-            lblManageOrdersHeading.Text = "Manage Orders";
-            // 
-            // tabCustomerProfile
-            // 
-            tabCustomerProfile.BackColor = Color.Honeydew;
-            tabCustomerProfile.Controls.Add(panel4);
-            tabCustomerProfile.Controls.Add(lblReportsSub);
-            tabCustomerProfile.Controls.Add(lblReportsHeadings);
-            tabCustomerProfile.Location = new Point(4, 32);
-            tabCustomerProfile.Name = "tabCustomerProfile";
-            tabCustomerProfile.Size = new Size(1636, 632);
-            tabCustomerProfile.TabIndex = 4;
-            tabCustomerProfile.Text = "Profile";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ControlLightLight;
-            panel4.Controls.Add(button2);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(textBox1);
-            panel4.Controls.Add(textBox2);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(label6);
-            panel4.Controls.Add(comboBox1);
-            panel4.Controls.Add(button3);
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(label7);
-            panel4.Location = new Point(19, 213);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1598, 206);
-            panel4.TabIndex = 17;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Green;
-            button2.FlatAppearance.BorderColor = Color.Green;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
-            button2.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(1457, 144);
-            button2.Name = "button2";
-            button2.Size = new Size(119, 33);
-            button2.TabIndex = 29;
-            button2.Text = "Filter";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.ForestGreen;
-            label4.Location = new Point(492, 111);
-            label4.Name = "label4";
-            label4.Size = new Size(147, 23);
-            label4.TabIndex = 28;
-            label4.Text = "Min Price (LKR)";
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.MenuBar;
-            textBox1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(964, 146);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "100.00";
-            textBox1.Size = new Size(439, 31);
-            textBox1.TabIndex = 25;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = SystemColors.MenuBar;
-            textBox2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(492, 146);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "0.00";
-            textBox2.Size = new Size(439, 31);
-            textBox2.TabIndex = 27;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.ForestGreen;
-            label5.Location = new Point(964, 111);
-            label5.Name = "label5";
-            label5.Size = new Size(150, 23);
-            label5.TabIndex = 26;
-            label5.Text = "Max Price (LKR)";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.ForestGreen;
-            label6.Location = new Point(20, 111);
-            label6.Name = "label6";
-            label6.Size = new Size(87, 23);
-            label6.TabIndex = 24;
-            label6.Text = "Category";
-            // 
-            // comboBox1
-            // 
-            comboBox1.BackColor = SystemColors.InactiveBorder;
-            comboBox1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Fruits", "Vegitable", "Grains", "Dairy", "Dairy Alternatives", "Sweeteners" });
-            comboBox1.Location = new Point(20, 146);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(439, 31);
-            comboBox1.TabIndex = 23;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.Green;
-            button3.FlatAppearance.BorderColor = Color.Green;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
-            button3.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(1457, 59);
-            button3.Name = "button3";
-            button3.Size = new Size(119, 33);
-            button3.TabIndex = 14;
-            button3.Text = "Search";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            textBox3.BackColor = SystemColors.MenuBar;
-            textBox3.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(20, 61);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Search products by name...";
-            textBox3.Size = new Size(1383, 31);
-            textBox3.TabIndex = 13;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.ForestGreen;
-            label7.Location = new Point(20, 19);
-            label7.Name = "label7";
-            label7.Size = new Size(168, 23);
-            label7.TabIndex = 12;
-            label7.Text = "Search And FIlter";
-            // 
-            // lblReportsSub
-            // 
-            lblReportsSub.AutoSize = true;
-            lblReportsSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblReportsSub.ForeColor = Color.LimeGreen;
-            lblReportsSub.Location = new Point(7, 52);
-            lblReportsSub.Name = "lblReportsSub";
-            lblReportsSub.Size = new Size(358, 23);
-            lblReportsSub.TabIndex = 15;
-            lblReportsSub.Text = "Generate business insights and analytics";
-            // 
-            // lblReportsHeadings
-            // 
-            lblReportsHeadings.AutoSize = true;
-            lblReportsHeadings.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblReportsHeadings.ForeColor = Color.ForestGreen;
-            lblReportsHeadings.Location = new Point(3, 9);
-            lblReportsHeadings.Name = "lblReportsHeadings";
-            lblReportsHeadings.Size = new Size(153, 43);
-            lblReportsHeadings.TabIndex = 16;
-            lblReportsHeadings.Text = "Reports";
-            // 
-            // lblCustomerSearchProductSubHading
-            // 
-            lblCustomerSearchProductSubHading.AutoSize = true;
-            lblCustomerSearchProductSubHading.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCustomerSearchProductSubHading.ForeColor = Color.LimeGreen;
-            lblCustomerSearchProductSubHading.Location = new Point(12, 54);
-            lblCustomerSearchProductSubHading.Name = "lblCustomerSearchProductSubHading";
-            lblCustomerSearchProductSubHading.Size = new Size(361, 23);
-            lblCustomerSearchProductSubHading.TabIndex = 13;
-            lblCustomerSearchProductSubHading.Text = "Find the perfect organic products for you";
-            // 
-            // lblCustomerSearchProducts
-            // 
-            lblCustomerSearchProducts.AutoSize = true;
-            lblCustomerSearchProducts.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCustomerSearchProducts.ForeColor = Color.ForestGreen;
-            lblCustomerSearchProducts.Location = new Point(8, 11);
-            lblCustomerSearchProducts.Name = "lblCustomerSearchProducts";
-            lblCustomerSearchProducts.Size = new Size(293, 43);
-            lblCustomerSearchProducts.TabIndex = 14;
-            lblCustomerSearchProducts.Text = "Search Products";
+            lblFoundedProductCount.AutoSize = true;
+            lblFoundedProductCount.FlatStyle = FlatStyle.Popup;
+            lblFoundedProductCount.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFoundedProductCount.ForeColor = SystemColors.GrayText;
+            lblFoundedProductCount.Location = new Point(12, 332);
+            lblFoundedProductCount.Name = "lblFoundedProductCount";
+            lblFoundedProductCount.Size = new Size(156, 23);
+            lblFoundedProductCount.TabIndex = 19;
+            lblFoundedProductCount.Text = "8 products found";
             // 
             // panel3
             // 
@@ -861,7 +646,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
             button1.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            button1.FlatStyle = FlatStyle.Popup;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.Location = new Point(1457, 144);
@@ -942,7 +727,7 @@
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
             button4.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            button4.FlatStyle = FlatStyle.Popup;
+            button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
             button4.Location = new Point(1457, 59);
@@ -972,6 +757,439 @@
             label9.Size = new Size(168, 23);
             label9.TabIndex = 12;
             label9.Text = "Search And FIlter";
+            // 
+            // lblCustomerSearchProductSubHading
+            // 
+            lblCustomerSearchProductSubHading.AutoSize = true;
+            lblCustomerSearchProductSubHading.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCustomerSearchProductSubHading.ForeColor = Color.LimeGreen;
+            lblCustomerSearchProductSubHading.Location = new Point(12, 54);
+            lblCustomerSearchProductSubHading.Name = "lblCustomerSearchProductSubHading";
+            lblCustomerSearchProductSubHading.Size = new Size(361, 23);
+            lblCustomerSearchProductSubHading.TabIndex = 13;
+            lblCustomerSearchProductSubHading.Text = "Find the perfect organic products for you";
+            // 
+            // lblCustomerSearchProducts
+            // 
+            lblCustomerSearchProducts.AutoSize = true;
+            lblCustomerSearchProducts.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCustomerSearchProducts.ForeColor = Color.ForestGreen;
+            lblCustomerSearchProducts.Location = new Point(8, 11);
+            lblCustomerSearchProducts.Name = "lblCustomerSearchProducts";
+            lblCustomerSearchProducts.Size = new Size(293, 43);
+            lblCustomerSearchProducts.TabIndex = 14;
+            lblCustomerSearchProducts.Text = "Search Products";
+            // 
+            // tabCustomerCart
+            // 
+            tabCustomerCart.BackColor = Color.Honeydew;
+            tabCustomerCart.Controls.Add(flowLayoutPanel3);
+            tabCustomerCart.Controls.Add(panel5);
+            tabCustomerCart.Controls.Add(lblShoppingCartSub);
+            tabCustomerCart.Controls.Add(lblShoppingCartHeading);
+            tabCustomerCart.Location = new Point(4, 32);
+            tabCustomerCart.Name = "tabCustomerCart";
+            tabCustomerCart.Size = new Size(1636, 632);
+            tabCustomerCart.TabIndex = 2;
+            tabCustomerCart.Text = "Cart";
+            tabCustomerCart.Click += tabCustomerCart_Click;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Location = new Point(11, 94);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(1189, 473);
+            flowLayoutPanel3.TabIndex = 14;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = SystemColors.ControlLightLight;
+            panel5.Controls.Add(button5);
+            panel5.Controls.Add(btnPlaceOrder);
+            panel5.Controls.Add(lblDiscountCodeShow);
+            panel5.Controls.Add(btnDiscountApply);
+            panel5.Controls.Add(txtDiscountCode);
+            panel5.Controls.Add(label14);
+            panel5.Controls.Add(label13);
+            panel5.Controls.Add(label12);
+            panel5.Controls.Add(label11);
+            panel5.Controls.Add(label10);
+            panel5.Controls.Add(lblSubTotal);
+            panel5.Controls.Add(lblSubTotalHead);
+            panel5.Controls.Add(lblOrderSummary);
+            panel5.Location = new Point(1216, 94);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(403, 473);
+            panel5.TabIndex = 13;
+            // 
+            // button5
+            // 
+            button5.BackColor = SystemColors.ControlLightLight;
+            button5.FlatAppearance.BorderColor = Color.LimeGreen;
+            button5.FlatAppearance.MouseDownBackColor = Color.Chartreuse;
+            button5.FlatAppearance.MouseOverBackColor = Color.Honeydew;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.ForeColor = Color.Green;
+            button5.Location = new Point(19, 390);
+            button5.Name = "button5";
+            button5.Size = new Size(364, 51);
+            button5.TabIndex = 33;
+            button5.Text = "Continue Shopping";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // btnPlaceOrder
+            // 
+            btnPlaceOrder.BackColor = Color.Green;
+            btnPlaceOrder.FlatAppearance.BorderColor = Color.Green;
+            btnPlaceOrder.FlatAppearance.BorderSize = 0;
+            btnPlaceOrder.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnPlaceOrder.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnPlaceOrder.FlatStyle = FlatStyle.Flat;
+            btnPlaceOrder.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPlaceOrder.ForeColor = Color.White;
+            btnPlaceOrder.Location = new Point(19, 311);
+            btnPlaceOrder.Name = "btnPlaceOrder";
+            btnPlaceOrder.Size = new Size(364, 51);
+            btnPlaceOrder.TabIndex = 32;
+            btnPlaceOrder.Text = "Place Order";
+            btnPlaceOrder.UseVisualStyleBackColor = false;
+            // 
+            // lblDiscountCodeShow
+            // 
+            lblDiscountCodeShow.AutoSize = true;
+            lblDiscountCodeShow.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDiscountCodeShow.ForeColor = SystemColors.ControlDark;
+            lblDiscountCodeShow.Location = new Point(19, 261);
+            lblDiscountCodeShow.Name = "lblDiscountCodeShow";
+            lblDiscountCodeShow.Size = new Size(277, 23);
+            lblDiscountCodeShow.TabIndex = 31;
+            lblDiscountCodeShow.Text = "Try code: GREEN10 for 10% off";
+            // 
+            // btnDiscountApply
+            // 
+            btnDiscountApply.BackColor = SystemColors.ControlLightLight;
+            btnDiscountApply.FlatAppearance.BorderColor = Color.LimeGreen;
+            btnDiscountApply.FlatAppearance.MouseDownBackColor = Color.Chartreuse;
+            btnDiscountApply.FlatAppearance.MouseOverBackColor = Color.Honeydew;
+            btnDiscountApply.FlatStyle = FlatStyle.Flat;
+            btnDiscountApply.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDiscountApply.ForeColor = Color.DarkGreen;
+            btnDiscountApply.Location = new Point(264, 213);
+            btnDiscountApply.Name = "btnDiscountApply";
+            btnDiscountApply.Size = new Size(119, 33);
+            btnDiscountApply.TabIndex = 30;
+            btnDiscountApply.Text = "Apply";
+            btnDiscountApply.UseVisualStyleBackColor = false;
+            btnDiscountApply.Click += btnDiscountApply_Click;
+            // 
+            // txtDiscountCode
+            // 
+            txtDiscountCode.BackColor = SystemColors.MenuBar;
+            txtDiscountCode.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDiscountCode.Location = new Point(19, 214);
+            txtDiscountCode.Name = "txtDiscountCode";
+            txtDiscountCode.PlaceholderText = "Discount code";
+            txtDiscountCode.Size = new Size(228, 31);
+            txtDiscountCode.TabIndex = 28;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.Green;
+            label14.Location = new Point(289, 105);
+            label14.Name = "label14";
+            label14.Size = new Size(94, 23);
+            label14.TabIndex = 21;
+            label14.Text = "-1.35 LKR";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.Green;
+            label13.Location = new Point(19, 105);
+            label13.Name = "label13";
+            label13.Size = new Size(87, 23);
+            label13.TabIndex = 20;
+            label13.Text = "Discount";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.ForestGreen;
+            label12.Location = new Point(264, 151);
+            label12.Name = "label12";
+            label12.Size = new Size(122, 27);
+            label12.TabIndex = 19;
+            label12.Text = "12.12 LKR";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.ControlText;
+            label11.Location = new Point(19, 151);
+            label11.Name = "label11";
+            label11.Size = new Size(65, 27);
+            label11.TabIndex = 18;
+            label11.Text = "Total";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.ControlDark;
+            label10.Location = new Point(19, 122);
+            label10.Name = "label10";
+            label10.Size = new Size(367, 23);
+            label10.TabIndex = 17;
+            label10.Text = "___________________________________________________";
+            // 
+            // lblSubTotal
+            // 
+            lblSubTotal.AutoSize = true;
+            lblSubTotal.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSubTotal.ForeColor = SystemColors.ControlDark;
+            lblSubTotal.Location = new Point(285, 72);
+            lblSubTotal.Name = "lblSubTotal";
+            lblSubTotal.Size = new Size(98, 23);
+            lblSubTotal.TabIndex = 16;
+            lblSubTotal.Text = "13.47 LKR";
+            // 
+            // lblSubTotalHead
+            // 
+            lblSubTotalHead.AutoSize = true;
+            lblSubTotalHead.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSubTotalHead.ForeColor = SystemColors.ControlDark;
+            lblSubTotalHead.Location = new Point(19, 72);
+            lblSubTotalHead.Name = "lblSubTotalHead";
+            lblSubTotalHead.Size = new Size(82, 23);
+            lblSubTotalHead.TabIndex = 15;
+            lblSubTotalHead.Text = "Subtotal";
+            lblSubTotalHead.Click += lblSubTotalHead_Click;
+            // 
+            // lblOrderSummary
+            // 
+            lblOrderSummary.AutoSize = true;
+            lblOrderSummary.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOrderSummary.ForeColor = Color.ForestGreen;
+            lblOrderSummary.Location = new Point(19, 15);
+            lblOrderSummary.Name = "lblOrderSummary";
+            lblOrderSummary.Size = new Size(158, 23);
+            lblOrderSummary.TabIndex = 14;
+            lblOrderSummary.Text = "Order Summary";
+            // 
+            // lblShoppingCartSub
+            // 
+            lblShoppingCartSub.AutoSize = true;
+            lblShoppingCartSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblShoppingCartSub.ForeColor = Color.LimeGreen;
+            lblShoppingCartSub.Location = new Point(7, 53);
+            lblShoppingCartSub.Name = "lblShoppingCartSub";
+            lblShoppingCartSub.Size = new Size(177, 23);
+            lblShoppingCartSub.TabIndex = 11;
+            lblShoppingCartSub.Text = "2 items in your cart";
+            // 
+            // lblShoppingCartHeading
+            // 
+            lblShoppingCartHeading.AutoSize = true;
+            lblShoppingCartHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblShoppingCartHeading.ForeColor = Color.ForestGreen;
+            lblShoppingCartHeading.Location = new Point(3, 10);
+            lblShoppingCartHeading.Name = "lblShoppingCartHeading";
+            lblShoppingCartHeading.Size = new Size(258, 43);
+            lblShoppingCartHeading.TabIndex = 12;
+            lblShoppingCartHeading.Text = "Shopping Cart";
+            // 
+            // tabCustomerOrders
+            // 
+            tabCustomerOrders.BackColor = Color.Honeydew;
+            tabCustomerOrders.Controls.Add(flowLayoutPanel4);
+            tabCustomerOrders.Controls.Add(lblTrackOrdersSub);
+            tabCustomerOrders.Controls.Add(lblTrackOrdersHeading);
+            tabCustomerOrders.Location = new Point(4, 32);
+            tabCustomerOrders.Name = "tabCustomerOrders";
+            tabCustomerOrders.Size = new Size(1636, 632);
+            tabCustomerOrders.TabIndex = 3;
+            tabCustomerOrders.Text = "Orders";
+            // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.Location = new Point(8, 101);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(1600, 280);
+            flowLayoutPanel4.TabIndex = 15;
+            // 
+            // lblTrackOrdersSub
+            // 
+            lblTrackOrdersSub.AutoSize = true;
+            lblTrackOrdersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTrackOrdersSub.ForeColor = Color.LimeGreen;
+            lblTrackOrdersSub.Location = new Point(7, 53);
+            lblTrackOrdersSub.Name = "lblTrackOrdersSub";
+            lblTrackOrdersSub.Size = new Size(308, 23);
+            lblTrackOrdersSub.TabIndex = 13;
+            lblTrackOrdersSub.Text = "View your order history and status";
+            // 
+            // lblTrackOrdersHeading
+            // 
+            lblTrackOrdersHeading.AutoSize = true;
+            lblTrackOrdersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrackOrdersHeading.ForeColor = Color.ForestGreen;
+            lblTrackOrdersHeading.Location = new Point(3, 10);
+            lblTrackOrdersHeading.Name = "lblTrackOrdersHeading";
+            lblTrackOrdersHeading.Size = new Size(243, 43);
+            lblTrackOrdersHeading.TabIndex = 14;
+            lblTrackOrdersHeading.Text = "Track Orders";
+            // 
+            // tabCustomerProfile
+            // 
+            tabCustomerProfile.BackColor = Color.Honeydew;
+            tabCustomerProfile.Controls.Add(panel6);
+            tabCustomerProfile.Controls.Add(panel4);
+            tabCustomerProfile.Controls.Add(lblMyProfilesSub);
+            tabCustomerProfile.Controls.Add(lblMyProfileHeadings);
+            tabCustomerProfile.Location = new Point(4, 32);
+            tabCustomerProfile.Name = "tabCustomerProfile";
+            tabCustomerProfile.Size = new Size(1636, 632);
+            tabCustomerProfile.TabIndex = 4;
+            tabCustomerProfile.Text = "Profile";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = SystemColors.ControlLightLight;
+            panel4.Controls.Add(pictureBox10);
+            panel4.Controls.Add(pictureBox9);
+            panel4.Controls.Add(pictureBox8);
+            panel4.Controls.Add(lblProfileAddress);
+            panel4.Controls.Add(lblProfilePhoneNumber);
+            panel4.Controls.Add(lblProfileEmail);
+            panel4.Controls.Add(lblProfilEmail);
+            panel4.Controls.Add(pictureBox7);
+            panel4.Controls.Add(lblProfileName);
+            panel4.Location = new Point(21, 98);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(368, 528);
+            panel4.TabIndex = 17;
+            // 
+            // lblProfileEmail
+            // 
+            lblProfileEmail.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfileEmail.ForeColor = SystemColors.GrayText;
+            lblProfileEmail.Location = new Point(52, 296);
+            lblProfileEmail.Name = "lblProfileEmail";
+            lblProfileEmail.Size = new Size(300, 37);
+            lblProfileEmail.TabIndex = 21;
+            lblProfileEmail.Text = "emily.j@email.com";
+            lblProfileEmail.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblProfilEmail
+            // 
+            lblProfilEmail.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfilEmail.ForeColor = SystemColors.ControlDark;
+            lblProfilEmail.Location = new Point(3, 236);
+            lblProfilEmail.Name = "lblProfilEmail";
+            lblProfilEmail.Size = new Size(362, 30);
+            lblProfilEmail.TabIndex = 20;
+            lblProfilEmail.Text = "emily.j@email.com";
+            lblProfilEmail.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Location = new Point(114, 36);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(151, 145);
+            pictureBox7.TabIndex = 19;
+            pictureBox7.TabStop = false;
+            // 
+            // lblProfileName
+            // 
+            lblProfileName.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProfileName.ForeColor = Color.ForestGreen;
+            lblProfileName.Location = new Point(3, 193);
+            lblProfileName.Name = "lblProfileName";
+            lblProfileName.Size = new Size(362, 43);
+            lblProfileName.TabIndex = 18;
+            lblProfileName.Text = "Emily Johnson";
+            lblProfileName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblMyProfilesSub
+            // 
+            lblMyProfilesSub.AutoSize = true;
+            lblMyProfilesSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMyProfilesSub.ForeColor = Color.LimeGreen;
+            lblMyProfilesSub.Location = new Point(7, 52);
+            lblMyProfilesSub.Name = "lblMyProfilesSub";
+            lblMyProfilesSub.Size = new Size(301, 23);
+            lblMyProfilesSub.TabIndex = 15;
+            lblMyProfilesSub.Text = "Manage your account information";
+            // 
+            // lblMyProfileHeadings
+            // 
+            lblMyProfileHeadings.AutoSize = true;
+            lblMyProfileHeadings.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMyProfileHeadings.ForeColor = Color.ForestGreen;
+            lblMyProfileHeadings.Location = new Point(3, 9);
+            lblMyProfileHeadings.Name = "lblMyProfileHeadings";
+            lblMyProfileHeadings.Size = new Size(193, 43);
+            lblMyProfileHeadings.TabIndex = 16;
+            lblMyProfileHeadings.Text = "My Profile";
+            // 
+            // lblProfilePhoneNumber
+            // 
+            lblProfilePhoneNumber.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfilePhoneNumber.ForeColor = SystemColors.GrayText;
+            lblProfilePhoneNumber.Location = new Point(52, 342);
+            lblProfilePhoneNumber.Name = "lblProfilePhoneNumber";
+            lblProfilePhoneNumber.Size = new Size(300, 37);
+            lblProfilePhoneNumber.TabIndex = 22;
+            lblProfilePhoneNumber.Text = "+94 77 123-4567";
+            lblProfilePhoneNumber.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblProfileAddress
+            // 
+            lblProfileAddress.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfileAddress.ForeColor = SystemColors.GrayText;
+            lblProfileAddress.Location = new Point(52, 379);
+            lblProfileAddress.Name = "lblProfileAddress";
+            lblProfileAddress.Size = new Size(300, 91);
+            lblProfileAddress.TabIndex = 23;
+            lblProfileAddress.Text = "123 Green Street, Portland, OR 97201";
+            lblProfileAddress.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Location = new Point(10, 295);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(39, 38);
+            pictureBox8.TabIndex = 18;
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Location = new Point(10, 342);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(39, 38);
+            pictureBox9.TabIndex = 24;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Location = new Point(10, 396);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(39, 38);
+            pictureBox10.TabIndex = 25;
+            pictureBox10.TabStop = false;
+            // 
+            // panel6
+            // 
+            panel6.Location = new Point(426, 98);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1182, 460);
+            panel6.TabIndex = 18;
             // 
             // frmCustomerForm
             // 
@@ -1008,16 +1226,21 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabCustomerSearch.ResumeLayout(false);
             tabCustomerSearch.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             tabCustomerCart.ResumeLayout(false);
             tabCustomerCart.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             tabCustomerOrders.ResumeLayout(false);
             tabCustomerOrders.PerformLayout();
             tabCustomerProfile.ResumeLayout(false);
             tabCustomerProfile.PerformLayout();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
         }
 
@@ -1044,14 +1267,14 @@
         private Label label2;
         private Label lblWelcomeHeading;
         private TabPage tabCustomerCart;
-        private Label lblMangeCustomersSub;
-        private Label lblManageCustomersHeading;
+        private Label lblShoppingCartSub;
+        private Label lblShoppingCartHeading;
         private TabPage tabCustomerOrders;
-        private Label lblManageOrdersSub;
-        private Label lblManageOrdersHeading;
+        private Label lblTrackOrdersSub;
+        private Label lblTrackOrdersHeading;
         private TabPage tabCustomerProfile;
-        private Label lblReportsSub;
-        private Label lblReportsHeadings;
+        private Label lblMyProfilesSub;
+        private Label lblMyProfileHeadings;
         private Panel panel2;
         private PictureBox pictureBox6;
         private Label lblWelcomeHeadingUsername;
@@ -1066,17 +1289,6 @@
         private Label lblDashboardMyProfile;
         private Button btnDashboardTrackOrdersNav;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel4;
-        private Button button2;
-        private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label5;
-        private Label label6;
-        private ComboBox comboBox1;
-        private Button button3;
-        private TextBox textBox3;
-        private Label label7;
         private TabPage tabCustomerSearch;
         private Panel panel3;
         private Button button1;
@@ -1091,5 +1303,34 @@
         private Label label9;
         private Label lblCustomerSearchProductSubHading;
         private Label lblCustomerSearchProducts;
+        private Label lblFoundedProductCount;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel5;
+        private Label lblSubTotal;
+        private Label lblSubTotalHead;
+        private Label lblOrderSummary;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Button btnDiscountApply;
+        private TextBox txtDiscountCode;
+        private Label label14;
+        private Label label13;
+        private Label lblDiscountCodeShow;
+        private Button button5;
+        private Button btnPlaceOrder;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private Panel panel4;
+        private Label lblProfileEmail;
+        private Label lblProfilEmail;
+        private PictureBox pictureBox7;
+        private Label lblProfileName;
+        private Panel panel6;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox8;
+        private Label lblProfileAddress;
+        private Label lblProfilePhoneNumber;
     }
 }
