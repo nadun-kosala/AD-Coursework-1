@@ -292,7 +292,6 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.MediumSeaGreen;
             panel2.BackgroundImageLayout = ImageLayout.Center;
             panel2.Controls.Add(lblWelcomeHeadingUsername);
@@ -301,7 +300,7 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(57, 23);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1042, 124);
+            panel2.Size = new Size(1525, 124);
             panel2.TabIndex = 15;
             // 
             // lblWelcomeHeadingUsername
@@ -318,8 +317,7 @@
             // pictureBox6
             // 
             pictureBox6.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox6.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox6.Image = Properties.Resources.images__1_;
+            pictureBox6.Image = Properties.Resources._9309051;
             pictureBox6.Location = new Point(1420, 23);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(84, 85);
@@ -594,7 +592,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.isolated_green_upward_arrow_depicting_growth_and_success_on_transparent_backdrop_png;
+            pictureBox2.Image = Properties.Resources.images__7_;
             pictureBox2.Location = new Point(23, 35);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(67, 66);

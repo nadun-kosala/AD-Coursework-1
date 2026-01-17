@@ -93,6 +93,16 @@ namespace GreenLife_Organic_Store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _9309051 {
+            get {
+                object obj = ResourceManager.GetObject("9309051", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images__1_ {
             get {
                 object obj = ResourceManager.GetObject("images (1)", resourceCulture);
@@ -136,6 +146,26 @@ namespace GreenLife_Organic_Store.Properties {
         internal static System.Drawing.Bitmap images__5_ {
             get {
                 object obj = ResourceManager.GetObject("images (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__7_ {
+            get {
+                object obj = ResourceManager.GetObject("images (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__8_ {
+            get {
+                object obj = ResourceManager.GetObject("images (8)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

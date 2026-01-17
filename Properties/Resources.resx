@@ -118,20 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="3da7b352e0afb625e50ee95a6470c2e7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3da7b352e0afb625e50ee95a6470c2e7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person-user-avatar-user-profile-system-green-plant-symbol-png-clipart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person-user-avatar-user-profile-system-green-plant-symbol-png-clipart.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,22 +127,43 @@
   <data name="images (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="663-6632602_green-address-icon-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\663-6632602_green-address-icon-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngtree-vector-location-icon-png-image_994727" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-vector-location-icon-png-image_994727.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="293058-middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\293058-middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3da7b352e0afb625e50ee95a6470c2e7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3da7b352e0afb625e50ee95a6470c2e7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paper-cardboard-box-green-png-favpng-xRbZH9Y9aFcMr7tAMPUetKHcu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper-cardboard-box-green-png-favpng-xRbZH9Y9aFcMr7tAMPUetKHcu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="663-6632602_green-address-icon-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\663-6632602_green-address-icon-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="293058-middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\293058-middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9309051" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9309051.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
