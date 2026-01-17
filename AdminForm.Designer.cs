@@ -36,6 +36,7 @@
             pictureBox1 = new PictureBox();
             tabControl1 = new TabControl();
             tabAdminDashboard = new TabPage();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox4 = new GroupBox();
             lblTotalCustomersSub = new Label();
             pictureBox4 = new PictureBox();
@@ -78,16 +79,25 @@
             lblMangeCustomersSub = new Label();
             lblManageCustomersHeading = new Label();
             tabAdminOrders = new TabPage();
-            lblManageOrdersSub = new Label();
-            lblManageOrdersHeading = new Label();
-            tabAdminReports = new TabPage();
-            lblReportsSub = new Label();
-            lblReportsHeadings = new Label();
             panel3 = new Panel();
             tblOrders = new DataGridView();
             btnUpdateOrderStatus = new Button();
             btnOrderSearch = new Button();
             txtOrderSearch = new TextBox();
+            lblManageOrdersSub = new Label();
+            lblManageOrdersHeading = new Label();
+            tabAdminReports = new TabPage();
+            panel4 = new Panel();
+            btnGenerateReport = new Button();
+            lblEndDate = new Label();
+            dtEndDate = new DateTimePicker();
+            lblStartDate = new Label();
+            dtStartDate = new DateTimePicker();
+            cmbReportType = new ComboBox();
+            lblReportType = new Label();
+            label3 = new Label();
+            lblReportsSub = new Label();
+            lblReportsHeadings = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -107,9 +117,10 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblCustomers).BeginInit();
             tabAdminOrders.SuspendLayout();
-            tabAdminReports.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblOrders).BeginInit();
+            tabAdminReports.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -202,6 +213,7 @@
             // 
             tabAdminDashboard.AutoScroll = true;
             tabAdminDashboard.BackColor = Color.Honeydew;
+            tabAdminDashboard.Controls.Add(flowLayoutPanel1);
             tabAdminDashboard.Controls.Add(groupBox4);
             tabAdminDashboard.Controls.Add(groupBox3);
             tabAdminDashboard.Controls.Add(groupBox5);
@@ -218,6 +230,13 @@
             tabAdminDashboard.TabIndex = 0;
             tabAdminDashboard.Text = "Dashboard";
             tabAdminDashboard.Click += tabAdminDashboard_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(17, 328);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1149, 190);
+            flowLayoutPanel1.TabIndex = 15;
             // 
             // groupBox4
             // 
@@ -754,61 +773,6 @@
             tabAdminOrders.TabIndex = 3;
             tabAdminOrders.Text = "Orders";
             // 
-            // lblManageOrdersSub
-            // 
-            lblManageOrdersSub.AutoSize = true;
-            lblManageOrdersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblManageOrdersSub.ForeColor = Color.LimeGreen;
-            lblManageOrdersSub.Location = new Point(7, 53);
-            lblManageOrdersSub.Name = "lblManageOrdersSub";
-            lblManageOrdersSub.Size = new Size(267, 23);
-            lblManageOrdersSub.TabIndex = 13;
-            lblManageOrdersSub.Text = "Track and update order status";
-            // 
-            // lblManageOrdersHeading
-            // 
-            lblManageOrdersHeading.AutoSize = true;
-            lblManageOrdersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblManageOrdersHeading.ForeColor = Color.ForestGreen;
-            lblManageOrdersHeading.Location = new Point(3, 10);
-            lblManageOrdersHeading.Name = "lblManageOrdersHeading";
-            lblManageOrdersHeading.Size = new Size(277, 43);
-            lblManageOrdersHeading.TabIndex = 14;
-            lblManageOrdersHeading.Text = "Manage Orders";
-            // 
-            // tabAdminReports
-            // 
-            tabAdminReports.BackColor = Color.Honeydew;
-            tabAdminReports.Controls.Add(lblReportsSub);
-            tabAdminReports.Controls.Add(lblReportsHeadings);
-            tabAdminReports.Location = new Point(4, 32);
-            tabAdminReports.Name = "tabAdminReports";
-            tabAdminReports.Size = new Size(1513, 646);
-            tabAdminReports.TabIndex = 4;
-            tabAdminReports.Text = "Reports";
-            // 
-            // lblReportsSub
-            // 
-            lblReportsSub.AutoSize = true;
-            lblReportsSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblReportsSub.ForeColor = Color.LimeGreen;
-            lblReportsSub.Location = new Point(7, 52);
-            lblReportsSub.Name = "lblReportsSub";
-            lblReportsSub.Size = new Size(358, 23);
-            lblReportsSub.TabIndex = 15;
-            lblReportsSub.Text = "Generate business insights and analytics";
-            // 
-            // lblReportsHeadings
-            // 
-            lblReportsHeadings.AutoSize = true;
-            lblReportsHeadings.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblReportsHeadings.ForeColor = Color.ForestGreen;
-            lblReportsHeadings.Location = new Point(3, 9);
-            lblReportsHeadings.Name = "lblReportsHeadings";
-            lblReportsHeadings.Size = new Size(153, 43);
-            lblReportsHeadings.TabIndex = 16;
-            lblReportsHeadings.Text = "Reports";
-            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlLightLight;
@@ -879,6 +843,174 @@
             txtOrderSearch.Size = new Size(514, 31);
             txtOrderSearch.TabIndex = 10;
             // 
+            // lblManageOrdersSub
+            // 
+            lblManageOrdersSub.AutoSize = true;
+            lblManageOrdersSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblManageOrdersSub.ForeColor = Color.LimeGreen;
+            lblManageOrdersSub.Location = new Point(7, 53);
+            lblManageOrdersSub.Name = "lblManageOrdersSub";
+            lblManageOrdersSub.Size = new Size(267, 23);
+            lblManageOrdersSub.TabIndex = 13;
+            lblManageOrdersSub.Text = "Track and update order status";
+            // 
+            // lblManageOrdersHeading
+            // 
+            lblManageOrdersHeading.AutoSize = true;
+            lblManageOrdersHeading.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblManageOrdersHeading.ForeColor = Color.ForestGreen;
+            lblManageOrdersHeading.Location = new Point(3, 10);
+            lblManageOrdersHeading.Name = "lblManageOrdersHeading";
+            lblManageOrdersHeading.Size = new Size(277, 43);
+            lblManageOrdersHeading.TabIndex = 14;
+            lblManageOrdersHeading.Text = "Manage Orders";
+            // 
+            // tabAdminReports
+            // 
+            tabAdminReports.BackColor = Color.Honeydew;
+            tabAdminReports.Controls.Add(panel4);
+            tabAdminReports.Controls.Add(lblReportsSub);
+            tabAdminReports.Controls.Add(lblReportsHeadings);
+            tabAdminReports.Location = new Point(4, 32);
+            tabAdminReports.Name = "tabAdminReports";
+            tabAdminReports.Size = new Size(1513, 646);
+            tabAdminReports.TabIndex = 4;
+            tabAdminReports.Text = "Reports";
+            // 
+            // panel4
+            // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel4.BackColor = SystemColors.ControlLightLight;
+            panel4.Controls.Add(btnGenerateReport);
+            panel4.Controls.Add(lblEndDate);
+            panel4.Controls.Add(dtEndDate);
+            panel4.Controls.Add(lblStartDate);
+            panel4.Controls.Add(dtStartDate);
+            panel4.Controls.Add(cmbReportType);
+            panel4.Controls.Add(lblReportType);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(21, 99);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(990, 269);
+            panel4.TabIndex = 17;
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.BackColor = Color.Green;
+            btnGenerateReport.FlatAppearance.BorderColor = Color.Green;
+            btnGenerateReport.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnGenerateReport.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnGenerateReport.FlatStyle = FlatStyle.Popup;
+            btnGenerateReport.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerateReport.ForeColor = Color.White;
+            btnGenerateReport.Location = new Point(20, 184);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(281, 33);
+            btnGenerateReport.TabIndex = 14;
+            btnGenerateReport.Text = "Generate Report";
+            btnGenerateReport.UseVisualStyleBackColor = false;
+            // 
+            // lblEndDate
+            // 
+            lblEndDate.AutoSize = true;
+            lblEndDate.Font = new Font("Cambria", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEndDate.ForeColor = SystemColors.ActiveCaptionText;
+            lblEndDate.Location = new Point(663, 72);
+            lblEndDate.Name = "lblEndDate";
+            lblEndDate.Size = new Size(79, 20);
+            lblEndDate.TabIndex = 6;
+            lblEndDate.Text = "End Date";
+            // 
+            // dtEndDate
+            // 
+            dtEndDate.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtEndDate.CalendarMonthBackground = SystemColors.Menu;
+            dtEndDate.CalendarTrailingForeColor = SystemColors.Menu;
+            dtEndDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtEndDate.Location = new Point(663, 109);
+            dtEndDate.Name = "dtEndDate";
+            dtEndDate.Size = new Size(250, 30);
+            dtEndDate.TabIndex = 5;
+            // 
+            // lblStartDate
+            // 
+            lblStartDate.AutoSize = true;
+            lblStartDate.Font = new Font("Cambria", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStartDate.ForeColor = SystemColors.ActiveCaptionText;
+            lblStartDate.Location = new Point(360, 72);
+            lblStartDate.Name = "lblStartDate";
+            lblStartDate.Size = new Size(87, 20);
+            lblStartDate.TabIndex = 4;
+            lblStartDate.Text = "Start Date";
+            // 
+            // dtStartDate
+            // 
+            dtStartDate.CalendarFont = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtStartDate.CalendarMonthBackground = SystemColors.Menu;
+            dtStartDate.CalendarTrailingForeColor = SystemColors.Menu;
+            dtStartDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtStartDate.Location = new Point(360, 109);
+            dtStartDate.Name = "dtStartDate";
+            dtStartDate.Size = new Size(250, 30);
+            dtStartDate.TabIndex = 3;
+            // 
+            // cmbReportType
+            // 
+            cmbReportType.BackColor = SystemColors.Menu;
+            cmbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbReportType.FlatStyle = FlatStyle.Popup;
+            cmbReportType.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbReportType.FormattingEnabled = true;
+            cmbReportType.Items.AddRange(new object[] { "Sales Report", "Stock Report", "Customer Order History" });
+            cmbReportType.Location = new Point(25, 109);
+            cmbReportType.Name = "cmbReportType";
+            cmbReportType.Size = new Size(282, 31);
+            cmbReportType.TabIndex = 2;
+            // 
+            // lblReportType
+            // 
+            lblReportType.AutoSize = true;
+            lblReportType.Font = new Font("Cambria", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblReportType.ForeColor = SystemColors.ActiveCaptionText;
+            lblReportType.Location = new Point(25, 72);
+            lblReportType.Name = "lblReportType";
+            lblReportType.Size = new Size(106, 20);
+            lblReportType.TabIndex = 1;
+            lblReportType.Text = "Report Type";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.ForestGreen;
+            label3.Location = new Point(25, 17);
+            label3.Name = "label3";
+            label3.Size = new Size(162, 23);
+            label3.TabIndex = 0;
+            label3.Text = "Generate Report";
+            // 
+            // lblReportsSub
+            // 
+            lblReportsSub.AutoSize = true;
+            lblReportsSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblReportsSub.ForeColor = Color.LimeGreen;
+            lblReportsSub.Location = new Point(7, 52);
+            lblReportsSub.Name = "lblReportsSub";
+            lblReportsSub.Size = new Size(358, 23);
+            lblReportsSub.TabIndex = 15;
+            lblReportsSub.Text = "Generate business insights and analytics";
+            // 
+            // lblReportsHeadings
+            // 
+            lblReportsHeadings.AutoSize = true;
+            lblReportsHeadings.Font = new Font("Cambria", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblReportsHeadings.ForeColor = Color.ForestGreen;
+            lblReportsHeadings.Location = new Point(3, 9);
+            lblReportsHeadings.Name = "lblReportsHeadings";
+            lblReportsHeadings.Size = new Size(153, 43);
+            lblReportsHeadings.TabIndex = 16;
+            lblReportsHeadings.Text = "Reports";
+            // 
             // frmAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -923,11 +1055,13 @@
             ((System.ComponentModel.ISupportInitialize)tblCustomers).EndInit();
             tabAdminOrders.ResumeLayout(false);
             tabAdminOrders.PerformLayout();
-            tabAdminReports.ResumeLayout(false);
-            tabAdminReports.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tblOrders).EndInit();
+            tabAdminReports.ResumeLayout(false);
+            tabAdminReports.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -992,5 +1126,15 @@
         private Button btnUpdateOrderStatus;
         private Button btnOrderSearch;
         private TextBox txtOrderSearch;
+        private Panel panel4;
+        private Label lblReportType;
+        private Label label3;
+        private ComboBox cmbReportType;
+        private DateTimePicker dtStartDate;
+        private Label lblStartDate;
+        private Label lblEndDate;
+        private DateTimePicker dtEndDate;
+        private Button btnGenerateReport;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
