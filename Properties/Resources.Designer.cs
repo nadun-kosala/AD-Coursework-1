@@ -104,6 +104,16 @@ namespace GreenLife_Organic_Store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap person_user_avatar_user_profile_system_green_plant_symbol_png_clipart {
+            get {
+                object obj = ResourceManager.GetObject("person-user-avatar-user-profile-system-green-plant-symbol-png-clipart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_clipart_multi_user_end_user_users_group_information_others_miscellaneous_leaf {
             get {
                 object obj = ResourceManager.GetObject("png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf" +

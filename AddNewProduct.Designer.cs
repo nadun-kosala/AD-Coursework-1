@@ -37,7 +37,6 @@
             cmbCategory = new ComboBox();
             txtPrice = new TextBox();
             lblPrice = new Label();
-            txtStockQuantity = new TextBox();
             lblStockQuantity = new Label();
             txtSupplier = new TextBox();
             lblSupplier = new Label();
@@ -45,6 +44,8 @@
             lblDescription = new Label();
             btnProductCancel = new Button();
             btnAddProduct = new Button();
+            numericStockQuantity = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericStockQuantity).BeginInit();
             SuspendLayout();
             // 
             // lblSubHeading
@@ -134,16 +135,6 @@
             lblPrice.TabIndex = 23;
             lblPrice.Text = "Price (LKR) *";
             // 
-            // txtStockQuantity
-            // 
-            txtStockQuantity.BackColor = SystemColors.InactiveBorder;
-            txtStockQuantity.BorderStyle = BorderStyle.FixedSingle;
-            txtStockQuantity.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtStockQuantity.Location = new Point(387, 245);
-            txtStockQuantity.Name = "txtStockQuantity";
-            txtStockQuantity.Size = new Size(320, 31);
-            txtStockQuantity.TabIndex = 26;
-            // 
             // lblStockQuantity
             // 
             lblStockQuantity.AutoSize = true;
@@ -231,19 +222,29 @@
             btnAddProduct.UseVisualStyleBackColor = false;
             btnAddProduct.Click += btnAddProduct_Click;
             // 
+            // numericStockQuantity
+            // 
+            numericStockQuantity.BackColor = SystemColors.InactiveBorder;
+            numericStockQuantity.BorderStyle = BorderStyle.FixedSingle;
+            numericStockQuantity.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericStockQuantity.Location = new Point(387, 245);
+            numericStockQuantity.Name = "numericStockQuantity";
+            numericStockQuantity.Size = new Size(320, 31);
+            numericStockQuantity.TabIndex = 33;
+            // 
             // frmAddNewProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(735, 562);
+            Controls.Add(numericStockQuantity);
             Controls.Add(btnProductCancel);
             Controls.Add(btnAddProduct);
             Controls.Add(txtDescription);
             Controls.Add(lblDescription);
             Controls.Add(txtSupplier);
             Controls.Add(lblSupplier);
-            Controls.Add(txtStockQuantity);
             Controls.Add(lblStockQuantity);
             Controls.Add(txtPrice);
             Controls.Add(lblPrice);
@@ -260,6 +261,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add New Product";
             Load += frmAddNewProduct_Load;
+            ((System.ComponentModel.ISupportInitialize)numericStockQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -282,6 +284,6 @@
         private Label lblDescription;
         private Button btnProductCancel;
         private Button btnAddProduct;
-
+        private NumericUpDown numericStockQuantity;
     }
 }
