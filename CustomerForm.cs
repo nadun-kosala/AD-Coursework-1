@@ -51,5 +51,35 @@ namespace GreenLife_Organic_Store
         {
 
         }
+
+        private void txtCusRegFullName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCusRegPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCusRegUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProfileInformationSub_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

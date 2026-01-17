@@ -102,19 +102,42 @@
             lblTrackOrdersSub = new Label();
             lblTrackOrdersHeading = new Label();
             tabCustomerProfile = new TabPage();
+            panel7 = new Panel();
+            btnUpdatePassword = new Button();
+            txtConfirmNewPassword = new TextBox();
+            lblConfirmNewPassword = new Label();
+            txtNewPassword = new TextBox();
+            lblNewPassword = new Label();
+            txtCurrentPassword = new TextBox();
+            lblCurrentPassword = new Label();
+            lblChangePasswordSub = new Label();
+            lblChangePassword = new Label();
+            panel6 = new Panel();
+            button2 = new Button();
+            txtProfileAddress = new TextBox();
+            lblCusRegAddress = new Label();
+            txtProfileUsername = new TextBox();
+            lblCusRegUsername = new Label();
+            txtProfilePhone = new TextBox();
+            label4 = new Label();
+            txtProfileEmail = new TextBox();
+            lblCusRegEmail = new Label();
+            txtProfileFullName = new TextBox();
+            lblCusRegFullName = new Label();
+            lblProfileInformationSub = new Label();
+            lblProfileInformation = new Label();
             panel4 = new Panel();
+            pictureBox10 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            lblProfileAddress = new Label();
+            lblProfilePhoneNumber = new Label();
             lblProfileEmail = new Label();
             lblProfilEmail = new Label();
             pictureBox7 = new PictureBox();
             lblProfileName = new Label();
             lblMyProfilesSub = new Label();
             lblMyProfileHeadings = new Label();
-            lblProfilePhoneNumber = new Label();
-            lblProfileAddress = new Label();
-            pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
-            pictureBox10 = new PictureBox();
-            panel6 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -135,11 +158,13 @@
             panel5.SuspendLayout();
             tabCustomerOrders.SuspendLayout();
             tabCustomerProfile.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -172,7 +197,7 @@
             btnAdminLogout.AutoSize = true;
             btnAdminLogout.BackColor = SystemColors.ControlLightLight;
             btnAdminLogout.FlatAppearance.BorderColor = Color.LimeGreen;
-            btnAdminLogout.FlatAppearance.MouseDownBackColor = Color.Chartreuse;
+            btnAdminLogout.FlatAppearance.MouseDownBackColor = Color.Ivory;
             btnAdminLogout.FlatAppearance.MouseOverBackColor = Color.Honeydew;
             btnAdminLogout.FlatStyle = FlatStyle.Flat;
             btnAdminLogout.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -276,7 +301,7 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(57, 23);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1252, 124);
+            panel2.Size = new Size(1042, 124);
             panel2.TabIndex = 15;
             // 
             // lblWelcomeHeadingUsername
@@ -347,7 +372,7 @@
             btnDashboardEditProfileNav.AutoSize = true;
             btnDashboardEditProfileNav.BackColor = Color.MediumSeaGreen;
             btnDashboardEditProfileNav.FlatAppearance.BorderColor = Color.MediumSeaGreen;
-            btnDashboardEditProfileNav.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnDashboardEditProfileNav.FlatAppearance.MouseDownBackColor = Color.Green;
             btnDashboardEditProfileNav.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnDashboardEditProfileNav.FlatStyle = FlatStyle.Flat;
             btnDashboardEditProfileNav.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -412,7 +437,7 @@
             btnDashboardViewCartNav.AutoSize = true;
             btnDashboardViewCartNav.BackColor = Color.MediumSeaGreen;
             btnDashboardViewCartNav.FlatAppearance.BorderColor = Color.MediumSeaGreen;
-            btnDashboardViewCartNav.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnDashboardViewCartNav.FlatAppearance.MouseDownBackColor = Color.Green;
             btnDashboardViewCartNav.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnDashboardViewCartNav.FlatStyle = FlatStyle.Flat;
             btnDashboardViewCartNav.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -479,7 +504,7 @@
             btnDashboardTrackOrdersNav.AutoSize = true;
             btnDashboardTrackOrdersNav.BackColor = Color.MediumSeaGreen;
             btnDashboardTrackOrdersNav.FlatAppearance.BorderColor = Color.MediumSeaGreen;
-            btnDashboardTrackOrdersNav.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnDashboardTrackOrdersNav.FlatAppearance.MouseDownBackColor = Color.Green;
             btnDashboardTrackOrdersNav.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnDashboardTrackOrdersNav.FlatStyle = FlatStyle.Flat;
             btnDashboardTrackOrdersNav.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -544,7 +569,7 @@
             btnDashboardSearchNav.AutoSize = true;
             btnDashboardSearchNav.BackColor = Color.MediumSeaGreen;
             btnDashboardSearchNav.FlatAppearance.BorderColor = Color.MediumSeaGreen;
-            btnDashboardSearchNav.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnDashboardSearchNav.FlatAppearance.MouseDownBackColor = Color.Green;
             btnDashboardSearchNav.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnDashboardSearchNav.FlatStyle = FlatStyle.Flat;
             btnDashboardSearchNav.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -644,7 +669,7 @@
             button1.BackColor = Color.Green;
             button1.FlatAppearance.BorderColor = Color.Green;
             button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            button1.FlatAppearance.MouseDownBackColor = Color.Green;
             button1.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -725,7 +750,7 @@
             button4.BackColor = Color.Green;
             button4.FlatAppearance.BorderColor = Color.Green;
             button4.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            button4.FlatAppearance.MouseDownBackColor = Color.Green;
             button4.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -826,7 +851,7 @@
             // 
             button5.BackColor = SystemColors.ControlLightLight;
             button5.FlatAppearance.BorderColor = Color.LimeGreen;
-            button5.FlatAppearance.MouseDownBackColor = Color.Chartreuse;
+            button5.FlatAppearance.MouseDownBackColor = Color.Ivory;
             button5.FlatAppearance.MouseOverBackColor = Color.Honeydew;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -843,7 +868,7 @@
             btnPlaceOrder.BackColor = Color.Green;
             btnPlaceOrder.FlatAppearance.BorderColor = Color.Green;
             btnPlaceOrder.FlatAppearance.BorderSize = 0;
-            btnPlaceOrder.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnPlaceOrder.FlatAppearance.MouseDownBackColor = Color.Green;
             btnPlaceOrder.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnPlaceOrder.FlatStyle = FlatStyle.Flat;
             btnPlaceOrder.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -870,7 +895,7 @@
             // 
             btnDiscountApply.BackColor = SystemColors.ControlLightLight;
             btnDiscountApply.FlatAppearance.BorderColor = Color.LimeGreen;
-            btnDiscountApply.FlatAppearance.MouseDownBackColor = Color.Chartreuse;
+            btnDiscountApply.FlatAppearance.MouseDownBackColor = Color.Ivory;
             btnDiscountApply.FlatAppearance.MouseOverBackColor = Color.Honeydew;
             btnDiscountApply.FlatStyle = FlatStyle.Flat;
             btnDiscountApply.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -1047,7 +1072,9 @@
             // 
             // tabCustomerProfile
             // 
+            tabCustomerProfile.AutoScroll = true;
             tabCustomerProfile.BackColor = Color.Honeydew;
+            tabCustomerProfile.Controls.Add(panel7);
             tabCustomerProfile.Controls.Add(panel6);
             tabCustomerProfile.Controls.Add(panel4);
             tabCustomerProfile.Controls.Add(lblMyProfilesSub);
@@ -1057,6 +1084,313 @@
             tabCustomerProfile.Size = new Size(1636, 632);
             tabCustomerProfile.TabIndex = 4;
             tabCustomerProfile.Text = "Profile";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = SystemColors.ControlLightLight;
+            panel7.Controls.Add(btnUpdatePassword);
+            panel7.Controls.Add(txtConfirmNewPassword);
+            panel7.Controls.Add(lblConfirmNewPassword);
+            panel7.Controls.Add(txtNewPassword);
+            panel7.Controls.Add(lblNewPassword);
+            panel7.Controls.Add(txtCurrentPassword);
+            panel7.Controls.Add(lblCurrentPassword);
+            panel7.Controls.Add(lblChangePasswordSub);
+            panel7.Controls.Add(lblChangePassword);
+            panel7.Location = new Point(426, 511);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(893, 456);
+            panel7.TabIndex = 19;
+            // 
+            // btnUpdatePassword
+            // 
+            btnUpdatePassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnUpdatePassword.AutoSize = true;
+            btnUpdatePassword.BackColor = Color.Green;
+            btnUpdatePassword.FlatAppearance.BorderColor = Color.Green;
+            btnUpdatePassword.FlatAppearance.MouseDownBackColor = Color.Green;
+            btnUpdatePassword.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnUpdatePassword.FlatStyle = FlatStyle.Flat;
+            btnUpdatePassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdatePassword.ForeColor = SystemColors.ControlLightLight;
+            btnUpdatePassword.Location = new Point(18, 388);
+            btnUpdatePassword.Name = "btnUpdatePassword";
+            btnUpdatePassword.Size = new Size(198, 44);
+            btnUpdatePassword.TabIndex = 36;
+            btnUpdatePassword.Text = "Update Password";
+            btnUpdatePassword.UseVisualStyleBackColor = false;
+            // 
+            // txtConfirmNewPassword
+            // 
+            txtConfirmNewPassword.BackColor = SystemColors.InactiveBorder;
+            txtConfirmNewPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtConfirmNewPassword.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmNewPassword.Location = new Point(18, 326);
+            txtConfirmNewPassword.Name = "txtConfirmNewPassword";
+            txtConfirmNewPassword.PasswordChar = '*';
+            txtConfirmNewPassword.ReadOnly = true;
+            txtConfirmNewPassword.Size = new Size(813, 31);
+            txtConfirmNewPassword.TabIndex = 35;
+            // 
+            // lblConfirmNewPassword
+            // 
+            lblConfirmNewPassword.AutoSize = true;
+            lblConfirmNewPassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConfirmNewPassword.ForeColor = Color.ForestGreen;
+            lblConfirmNewPassword.Location = new Point(18, 290);
+            lblConfirmNewPassword.Name = "lblConfirmNewPassword";
+            lblConfirmNewPassword.Size = new Size(222, 23);
+            lblConfirmNewPassword.TabIndex = 34;
+            lblConfirmNewPassword.Text = "Confirm New Password";
+            // 
+            // txtNewPassword
+            // 
+            txtNewPassword.BackColor = SystemColors.InactiveBorder;
+            txtNewPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtNewPassword.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNewPassword.Location = new Point(18, 226);
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.PasswordChar = '*';
+            txtNewPassword.ReadOnly = true;
+            txtNewPassword.Size = new Size(813, 31);
+            txtNewPassword.TabIndex = 33;
+            // 
+            // lblNewPassword
+            // 
+            lblNewPassword.AutoSize = true;
+            lblNewPassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNewPassword.ForeColor = Color.ForestGreen;
+            lblNewPassword.Location = new Point(18, 190);
+            lblNewPassword.Name = "lblNewPassword";
+            lblNewPassword.Size = new Size(144, 23);
+            lblNewPassword.TabIndex = 32;
+            lblNewPassword.Text = "New Password";
+            // 
+            // txtCurrentPassword
+            // 
+            txtCurrentPassword.BackColor = SystemColors.InactiveBorder;
+            txtCurrentPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtCurrentPassword.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCurrentPassword.Location = new Point(18, 135);
+            txtCurrentPassword.Name = "txtCurrentPassword";
+            txtCurrentPassword.PasswordChar = '*';
+            txtCurrentPassword.ReadOnly = true;
+            txtCurrentPassword.Size = new Size(813, 31);
+            txtCurrentPassword.TabIndex = 31;
+            // 
+            // lblCurrentPassword
+            // 
+            lblCurrentPassword.AutoSize = true;
+            lblCurrentPassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCurrentPassword.ForeColor = Color.ForestGreen;
+            lblCurrentPassword.Location = new Point(18, 99);
+            lblCurrentPassword.Name = "lblCurrentPassword";
+            lblCurrentPassword.Size = new Size(174, 23);
+            lblCurrentPassword.TabIndex = 30;
+            lblCurrentPassword.Text = "Current Password";
+            // 
+            // lblChangePasswordSub
+            // 
+            lblChangePasswordSub.AutoSize = true;
+            lblChangePasswordSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblChangePasswordSub.ForeColor = SystemColors.ControlDark;
+            lblChangePasswordSub.Location = new Point(18, 44);
+            lblChangePasswordSub.Name = "lblChangePasswordSub";
+            lblChangePasswordSub.Size = new Size(307, 23);
+            lblChangePasswordSub.TabIndex = 20;
+            lblChangePasswordSub.Text = "Update your password for security";
+            // 
+            // lblChangePassword
+            // 
+            lblChangePassword.AutoSize = true;
+            lblChangePassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChangePassword.ForeColor = Color.ForestGreen;
+            lblChangePassword.Location = new Point(17, 18);
+            lblChangePassword.Name = "lblChangePassword";
+            lblChangePassword.Size = new Size(170, 23);
+            lblChangePassword.TabIndex = 21;
+            lblChangePassword.Text = "Change Password";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ControlLightLight;
+            panel6.Controls.Add(button2);
+            panel6.Controls.Add(txtProfileAddress);
+            panel6.Controls.Add(lblCusRegAddress);
+            panel6.Controls.Add(txtProfileUsername);
+            panel6.Controls.Add(lblCusRegUsername);
+            panel6.Controls.Add(txtProfilePhone);
+            panel6.Controls.Add(label4);
+            panel6.Controls.Add(txtProfileEmail);
+            panel6.Controls.Add(lblCusRegEmail);
+            panel6.Controls.Add(txtProfileFullName);
+            panel6.Controls.Add(lblCusRegFullName);
+            panel6.Controls.Add(lblProfileInformationSub);
+            panel6.Controls.Add(lblProfileInformation);
+            panel6.Location = new Point(426, 98);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(893, 380);
+            panel6.TabIndex = 18;
+            panel6.Paint += panel6_Paint;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.AutoSize = true;
+            button2.BackColor = SystemColors.ControlLightLight;
+            button2.FlatAppearance.BorderColor = Color.LimeGreen;
+            button2.FlatAppearance.MouseDownBackColor = Color.Ivory;
+            button2.FlatAppearance.MouseOverBackColor = Color.Honeydew;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.LimeGreen;
+            button2.Location = new Point(730, 17);
+            button2.Name = "button2";
+            button2.Size = new Size(143, 44);
+            button2.TabIndex = 13;
+            button2.Text = "Edit Profile";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // txtProfileAddress
+            // 
+            txtProfileAddress.BackColor = SystemColors.InactiveBorder;
+            txtProfileAddress.BorderStyle = BorderStyle.FixedSingle;
+            txtProfileAddress.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProfileAddress.Location = new Point(18, 310);
+            txtProfileAddress.Name = "txtProfileAddress";
+            txtProfileAddress.PlaceholderText = "123 Green St, City, State 12345";
+            txtProfileAddress.ReadOnly = true;
+            txtProfileAddress.Size = new Size(813, 31);
+            txtProfileAddress.TabIndex = 29;
+            // 
+            // lblCusRegAddress
+            // 
+            lblCusRegAddress.AutoSize = true;
+            lblCusRegAddress.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCusRegAddress.ForeColor = Color.ForestGreen;
+            lblCusRegAddress.Location = new Point(18, 274);
+            lblCusRegAddress.Name = "lblCusRegAddress";
+            lblCusRegAddress.Size = new Size(85, 23);
+            lblCusRegAddress.TabIndex = 28;
+            lblCusRegAddress.Text = "Address";
+            // 
+            // txtProfileUsername
+            // 
+            txtProfileUsername.BackColor = SystemColors.InactiveBorder;
+            txtProfileUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtProfileUsername.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProfileUsername.Location = new Point(450, 217);
+            txtProfileUsername.Name = "txtProfileUsername";
+            txtProfileUsername.PlaceholderText = "johndoe";
+            txtProfileUsername.ReadOnly = true;
+            txtProfileUsername.Size = new Size(381, 31);
+            txtProfileUsername.TabIndex = 27;
+            // 
+            // lblCusRegUsername
+            // 
+            lblCusRegUsername.AutoSize = true;
+            lblCusRegUsername.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCusRegUsername.ForeColor = Color.ForestGreen;
+            lblCusRegUsername.Location = new Point(450, 181);
+            lblCusRegUsername.Name = "lblCusRegUsername";
+            lblCusRegUsername.Size = new Size(105, 23);
+            lblCusRegUsername.TabIndex = 26;
+            lblCusRegUsername.Text = "Username";
+            lblCusRegUsername.Click += lblCusRegUsername_Click;
+            // 
+            // txtProfilePhone
+            // 
+            txtProfilePhone.BackColor = SystemColors.InactiveBorder;
+            txtProfilePhone.BorderStyle = BorderStyle.FixedSingle;
+            txtProfilePhone.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProfilePhone.Location = new Point(18, 217);
+            txtProfilePhone.Name = "txtProfilePhone";
+            txtProfilePhone.PlaceholderText = "+94 77-1234-567";
+            txtProfilePhone.ReadOnly = true;
+            txtProfilePhone.Size = new Size(381, 31);
+            txtProfilePhone.TabIndex = 25;
+            txtProfilePhone.TextChanged += txtCusRegPhone_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.ForestGreen;
+            label4.Location = new Point(18, 181);
+            label4.Name = "label4";
+            label4.Size = new Size(68, 23);
+            label4.TabIndex = 24;
+            label4.Text = "Phone";
+            // 
+            // txtProfileEmail
+            // 
+            txtProfileEmail.BackColor = SystemColors.InactiveBorder;
+            txtProfileEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtProfileEmail.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProfileEmail.Location = new Point(450, 125);
+            txtProfileEmail.Name = "txtProfileEmail";
+            txtProfileEmail.PlaceholderText = "john@example.com";
+            txtProfileEmail.ReadOnly = true;
+            txtProfileEmail.Size = new Size(381, 31);
+            txtProfileEmail.TabIndex = 23;
+            // 
+            // lblCusRegEmail
+            // 
+            lblCusRegEmail.AutoSize = true;
+            lblCusRegEmail.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCusRegEmail.ForeColor = Color.ForestGreen;
+            lblCusRegEmail.Location = new Point(450, 89);
+            lblCusRegEmail.Name = "lblCusRegEmail";
+            lblCusRegEmail.Size = new Size(63, 23);
+            lblCusRegEmail.TabIndex = 22;
+            lblCusRegEmail.Text = "Email";
+            // 
+            // txtProfileFullName
+            // 
+            txtProfileFullName.BackColor = SystemColors.InactiveBorder;
+            txtProfileFullName.BorderStyle = BorderStyle.FixedSingle;
+            txtProfileFullName.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProfileFullName.Location = new Point(18, 125);
+            txtProfileFullName.Name = "txtProfileFullName";
+            txtProfileFullName.PlaceholderText = "John Doe";
+            txtProfileFullName.ReadOnly = true;
+            txtProfileFullName.Size = new Size(381, 31);
+            txtProfileFullName.TabIndex = 21;
+            txtProfileFullName.TextChanged += txtCusRegFullName_TextChanged;
+            // 
+            // lblCusRegFullName
+            // 
+            lblCusRegFullName.AutoSize = true;
+            lblCusRegFullName.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCusRegFullName.ForeColor = Color.ForestGreen;
+            lblCusRegFullName.Location = new Point(18, 89);
+            lblCusRegFullName.Name = "lblCusRegFullName";
+            lblCusRegFullName.Size = new Size(103, 23);
+            lblCusRegFullName.TabIndex = 20;
+            lblCusRegFullName.Text = "Full Name";
+            // 
+            // lblProfileInformationSub
+            // 
+            lblProfileInformationSub.AutoSize = true;
+            lblProfileInformationSub.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfileInformationSub.ForeColor = SystemColors.ControlDark;
+            lblProfileInformationSub.Location = new Point(18, 44);
+            lblProfileInformationSub.Name = "lblProfileInformationSub";
+            lblProfileInformationSub.Size = new Size(257, 23);
+            lblProfileInformationSub.TabIndex = 19;
+            lblProfileInformationSub.Text = "Update your personal details";
+            lblProfileInformationSub.Click += lblProfileInformationSub_Click;
+            // 
+            // lblProfileInformation
+            // 
+            lblProfileInformation.AutoSize = true;
+            lblProfileInformation.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProfileInformation.ForeColor = Color.ForestGreen;
+            lblProfileInformation.Location = new Point(18, 17);
+            lblProfileInformation.Name = "lblProfileInformation";
+            lblProfileInformation.Size = new Size(187, 23);
+            lblProfileInformation.TabIndex = 19;
+            lblProfileInformation.Text = "Profile Information";
             // 
             // panel4
             // 
@@ -1072,8 +1406,63 @@
             panel4.Controls.Add(lblProfileName);
             panel4.Location = new Point(21, 98);
             panel4.Name = "panel4";
-            panel4.Size = new Size(368, 528);
+            panel4.Size = new Size(368, 869);
             panel4.TabIndex = 17;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox10.Image = Properties.Resources.images__5_;
+            pictureBox10.Location = new Point(6, 394);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(43, 41);
+            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 25;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox9.Image = Properties.Resources._3da7b352e0afb625e50ee95a6470c2e7;
+            pictureBox9.Location = new Point(6, 338);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(46, 48);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 24;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox8.Image = Properties.Resources.images__4_;
+            pictureBox8.Location = new Point(10, 295);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(39, 38);
+            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 18;
+            pictureBox8.TabStop = false;
+            // 
+            // lblProfileAddress
+            // 
+            lblProfileAddress.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfileAddress.ForeColor = SystemColors.GrayText;
+            lblProfileAddress.Location = new Point(52, 379);
+            lblProfileAddress.Name = "lblProfileAddress";
+            lblProfileAddress.Size = new Size(300, 91);
+            lblProfileAddress.TabIndex = 23;
+            lblProfileAddress.Text = "123 Green Street, Portland, OR 97201";
+            lblProfileAddress.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblProfilePhoneNumber
+            // 
+            lblProfilePhoneNumber.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfilePhoneNumber.ForeColor = SystemColors.GrayText;
+            lblProfilePhoneNumber.Location = new Point(52, 342);
+            lblProfilePhoneNumber.Name = "lblProfilePhoneNumber";
+            lblProfilePhoneNumber.Size = new Size(300, 37);
+            lblProfilePhoneNumber.TabIndex = 22;
+            lblProfilePhoneNumber.Text = "+94 77 123-4567";
+            lblProfilePhoneNumber.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblProfileEmail
             // 
@@ -1099,9 +1488,12 @@
             // 
             // pictureBox7
             // 
+            pictureBox7.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox7.Image = Properties.Resources.images__3_;
             pictureBox7.Location = new Point(114, 36);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(151, 145);
+            pictureBox7.Size = new Size(150, 154);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 19;
             pictureBox7.TabStop = false;
             // 
@@ -1138,63 +1530,11 @@
             lblMyProfileHeadings.TabIndex = 16;
             lblMyProfileHeadings.Text = "My Profile";
             // 
-            // lblProfilePhoneNumber
-            // 
-            lblProfilePhoneNumber.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblProfilePhoneNumber.ForeColor = SystemColors.GrayText;
-            lblProfilePhoneNumber.Location = new Point(52, 342);
-            lblProfilePhoneNumber.Name = "lblProfilePhoneNumber";
-            lblProfilePhoneNumber.Size = new Size(300, 37);
-            lblProfilePhoneNumber.TabIndex = 22;
-            lblProfilePhoneNumber.Text = "+94 77 123-4567";
-            lblProfilePhoneNumber.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblProfileAddress
-            // 
-            lblProfileAddress.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblProfileAddress.ForeColor = SystemColors.GrayText;
-            lblProfileAddress.Location = new Point(52, 379);
-            lblProfileAddress.Name = "lblProfileAddress";
-            lblProfileAddress.Size = new Size(300, 91);
-            lblProfileAddress.TabIndex = 23;
-            lblProfileAddress.Text = "123 Green Street, Portland, OR 97201";
-            lblProfileAddress.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Location = new Point(10, 295);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(39, 38);
-            pictureBox8.TabIndex = 18;
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Location = new Point(10, 342);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(39, 38);
-            pictureBox9.TabIndex = 24;
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            pictureBox10.Location = new Point(10, 396);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(39, 38);
-            pictureBox10.TabIndex = 25;
-            pictureBox10.TabStop = false;
-            // 
-            // panel6
-            // 
-            panel6.Location = new Point(426, 98);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1182, 460);
-            panel6.TabIndex = 18;
-            // 
             // frmCustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1647, 776);
             Controls.Add(tabControl1);
@@ -1236,11 +1576,15 @@
             tabCustomerOrders.PerformLayout();
             tabCustomerProfile.ResumeLayout(false);
             tabCustomerProfile.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -1332,5 +1676,28 @@
         private PictureBox pictureBox8;
         private Label lblProfileAddress;
         private Label lblProfilePhoneNumber;
+        private Label lblProfileInformationSub;
+        private Label lblProfileInformation;
+        private Button button2;
+        private TextBox txtProfileAddress;
+        private Label lblCusRegAddress;
+        private TextBox txtProfileUsername;
+        private Label lblCusRegUsername;
+        private TextBox txtProfilePhone;
+        private Label label4;
+        private TextBox txtProfileEmail;
+        private Label lblCusRegEmail;
+        private TextBox txtProfileFullName;
+        private Label lblCusRegFullName;
+        private Panel panel7;
+        private TextBox txtConfirmNewPassword;
+        private Label lblConfirmNewPassword;
+        private TextBox txtNewPassword;
+        private Label lblNewPassword;
+        private TextBox txtCurrentPassword;
+        private Label lblCurrentPassword;
+        private Label lblChangePasswordSub;
+        private Label lblChangePassword;
+        private Button btnUpdatePassword;
     }
 }

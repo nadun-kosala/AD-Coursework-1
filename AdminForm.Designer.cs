@@ -132,7 +132,7 @@
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1521, 107);
+            groupBox1.Size = new Size(1500, 107);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
@@ -147,7 +147,7 @@
             btnAdminLogout.FlatStyle = FlatStyle.Flat;
             btnAdminLogout.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdminLogout.ForeColor = Color.LimeGreen;
-            btnAdminLogout.Location = new Point(1357, 40);
+            btnAdminLogout.Location = new Point(1336, 40);
             btnAdminLogout.Name = "btnAdminLogout";
             btnAdminLogout.Size = new Size(141, 44);
             btnAdminLogout.TabIndex = 7;
@@ -205,7 +205,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1521, 682);
+            tabControl1.Size = new Size(1500, 682);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.TabIndex = 1;
             // 
@@ -226,7 +226,7 @@
             tabAdminDashboard.Name = "tabAdminDashboard";
             tabAdminDashboard.Padding = new Padding(10);
             tabAdminDashboard.RightToLeft = RightToLeft.No;
-            tabAdminDashboard.Size = new Size(1513, 646);
+            tabAdminDashboard.Size = new Size(1492, 646);
             tabAdminDashboard.TabIndex = 0;
             tabAdminDashboard.Text = "Dashboard";
             tabAdminDashboard.Click += tabAdminDashboard_Click;
@@ -1015,6 +1015,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1534, 805);
             Controls.Add(tabControl1);

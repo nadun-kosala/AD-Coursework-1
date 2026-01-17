@@ -270,6 +270,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(829, 730);
             Controls.Add(btnCusRegBackToLogin);

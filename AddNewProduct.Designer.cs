@@ -193,7 +193,7 @@
             btnProductCancel.BackColor = SystemColors.ControlLightLight;
             btnProductCancel.FlatAppearance.BorderColor = Color.Lime;
             btnProductCancel.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
-            btnProductCancel.FlatAppearance.MouseOverBackColor = Color.Gainsboro;
+            btnProductCancel.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             btnProductCancel.FlatStyle = FlatStyle.Popup;
             btnProductCancel.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProductCancel.ForeColor = SystemColors.ControlText;
@@ -209,9 +209,9 @@
             // 
             btnAddProduct.BackColor = Color.LimeGreen;
             btnAddProduct.FlatAppearance.BorderColor = Color.LimeGreen;
-            btnAddProduct.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnAddProduct.FlatAppearance.MouseDownBackColor = Color.Green;
             btnAddProduct.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            btnAddProduct.FlatStyle = FlatStyle.Popup;
+            btnAddProduct.FlatStyle = FlatStyle.Flat;
             btnAddProduct.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddProduct.ForeColor = Color.White;
             btnAddProduct.Location = new Point(527, 496);
@@ -236,6 +236,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(735, 562);
             Controls.Add(numericStockQuantity);
