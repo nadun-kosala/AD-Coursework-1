@@ -41,7 +41,7 @@
             txtCustomerUsername = new TextBox();
             lblUsername = new Label();
             tabAdmin = new TabPage();
-            button2 = new Button();
+            btnAdminLogin = new Button();
             txtAdminPassword = new TextBox();
             label1 = new Label();
             txtAdminUsername = new TextBox();
@@ -125,6 +125,10 @@
             // btnCustomerRegister
             // 
             btnCustomerRegister.BackColor = SystemColors.ControlLightLight;
+            btnCustomerRegister.FlatAppearance.BorderColor = Color.LimeGreen;
+            btnCustomerRegister.FlatAppearance.MouseDownBackColor = Color.Ivory;
+            btnCustomerRegister.FlatAppearance.MouseOverBackColor = Color.LightYellow;
+            btnCustomerRegister.FlatStyle = FlatStyle.Flat;
             btnCustomerRegister.ForeColor = Color.LimeGreen;
             btnCustomerRegister.Location = new Point(28, 321);
             btnCustomerRegister.Name = "btnCustomerRegister";
@@ -136,6 +140,10 @@
             // btnCustomerLogin
             // 
             btnCustomerLogin.BackColor = Color.LimeGreen;
+            btnCustomerLogin.FlatAppearance.BorderColor = Color.LimeGreen;
+            btnCustomerLogin.FlatAppearance.MouseDownBackColor = Color.Lime;
+            btnCustomerLogin.FlatAppearance.MouseOverBackColor = Color.Green;
+            btnCustomerLogin.FlatStyle = FlatStyle.Flat;
             btnCustomerLogin.ForeColor = Color.White;
             btnCustomerLogin.Location = new Point(28, 263);
             btnCustomerLogin.Name = "btnCustomerLogin";
@@ -192,7 +200,7 @@
             // tabAdmin
             // 
             tabAdmin.BackColor = SystemColors.ButtonHighlight;
-            tabAdmin.Controls.Add(button2);
+            tabAdmin.Controls.Add(btnAdminLogin);
             tabAdmin.Controls.Add(txtAdminPassword);
             tabAdmin.Controls.Add(label1);
             tabAdmin.Controls.Add(txtAdminUsername);
@@ -207,18 +215,22 @@
             tabAdmin.UseVisualStyleBackColor = true;
             tabAdmin.Click += tabAdmin_Click;
             // 
-            // button2
+            // btnAdminLogin
             // 
-            button2.BackColor = Color.LimeGreen;
-            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(28, 278);
-            button2.Name = "button2";
-            button2.Size = new Size(438, 43);
-            button2.TabIndex = 10;
-            button2.Text = "Login";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnAdminLogin.BackColor = Color.LimeGreen;
+            btnAdminLogin.FlatAppearance.BorderColor = Color.LimeGreen;
+            btnAdminLogin.FlatAppearance.MouseDownBackColor = Color.Lime;
+            btnAdminLogin.FlatAppearance.MouseOverBackColor = Color.Green;
+            btnAdminLogin.FlatStyle = FlatStyle.Flat;
+            btnAdminLogin.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminLogin.ForeColor = Color.White;
+            btnAdminLogin.Location = new Point(28, 278);
+            btnAdminLogin.Name = "btnAdminLogin";
+            btnAdminLogin.Size = new Size(438, 43);
+            btnAdminLogin.TabIndex = 10;
+            btnAdminLogin.Text = "Login";
+            btnAdminLogin.UseVisualStyleBackColor = false;
+            btnAdminLogin.Click += button2_Click;
             // 
             // txtAdminPassword
             // 
@@ -308,7 +320,7 @@
         private Label lblPassword;
         private Button btnCustomerLogin;
         private Button btnCustomerRegister;
-        private Button button2;
+        private Button btnAdminLogin;
         private TextBox txtAdminPassword;
         private Label label1;
         private TextBox txtAdminUsername;

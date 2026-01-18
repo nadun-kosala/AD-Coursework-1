@@ -12,6 +12,7 @@ namespace GreenLife_Organic_Store
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new frmFirst());
+
         }
     }
 }

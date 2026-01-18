@@ -1,7 +1,10 @@
+using MySql.Data.MySqlClient;
+
 namespace GreenLife_Organic_Store
 {
     public partial class frmFirst : Form
     {
+        string connectionString = "Server=localhost; Port=3306;Database=greenlife_organic_store;Uid=root;Pwd=root;";
         public frmFirst()
         {
             InitializeComponent();
@@ -39,7 +42,62 @@ namespace GreenLife_Organic_Store
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string inputUsername = txtAdminUsername.Text.Trim();
+            string inputPassword = txtAdminPassword.Text.Trim();
 
+            if (string.IsNullOrEmpty(inputUsername) || string.IsNullOrEmpty(inputPassword))
+            {
+                MessageBox.Show("Please enter username and password");
+                return;
+            }
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    string query = @"SELECT COUNT(*) 
+                             FROM users 
+                             WHERE username = @username 
+                             AND password = @password";
+
+
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@username", inputUsername);
+                        cmd.Parameters.AddWithValue("@password", inputPassword);
+
+                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (userCount > 0)
+                        {
+                            frmAdminForm frm = new frmAdminForm();
+                            frm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                "Incorrect Username or Password",
+                                "Login Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error
+                            );
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Something went wrong. Please try again later",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
