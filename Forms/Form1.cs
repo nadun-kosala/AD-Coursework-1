@@ -1,3 +1,4 @@
+using GreenLife_Organic_Store.Forms.Admin;
 using MySql.Data.MySqlClient;
 
 namespace GreenLife_Organic_Store
@@ -57,23 +58,24 @@ namespace GreenLife_Organic_Store
                 {
                     con.Open();
 
-                    string query = @"SELECT COUNT(*) 
-                             FROM users 
-                             WHERE username = @username 
-                             AND password = @password";
-
-
+                    string query = @"SELECT user_id 
+                                     FROM users 
+                                     WHERE username = @username 
+                                     AND password = @password
+                                     LIMIT 1";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@username", inputUsername);
                         cmd.Parameters.AddWithValue("@password", inputPassword);
 
-                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+                        object result = cmd.ExecuteScalar();
 
-                        if (userCount > 0)
+                        if (result != null)
                         {
-                            frmAdminForm frm = new frmAdminForm();
+                            int userId = Convert.ToInt32(result);
+
+                            frmAdminDashboardForm frm = new frmAdminDashboardForm(userId);
                             frm.Show();
                             this.Hide();
                         }
