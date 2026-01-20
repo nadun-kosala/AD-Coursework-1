@@ -43,11 +43,11 @@
             lblMangeCustomersSub = new Label();
             lblManageCustomersHeading = new Label();
             panel3 = new Panel();
+            btnCustomerEdit = new Button();
+            btnCustomerDelete = new Button();
             tblCustomers = new DataGridView();
             btnCustomerSearch = new Button();
             txtCustomerSearch = new TextBox();
-            btnCustomerEdit = new Button();
-            btnCustomerDelete = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -150,6 +150,7 @@
             btnNavigateReports.TabIndex = 24;
             btnNavigateReports.Text = "Reports";
             btnNavigateReports.UseVisualStyleBackColor = false;
+            btnNavigateReports.Click += btnNavigateReports_Click;
             // 
             // btnNavigateOrders
             // 
@@ -168,6 +169,7 @@
             btnNavigateOrders.TabIndex = 23;
             btnNavigateOrders.Text = "Orders";
             btnNavigateOrders.UseVisualStyleBackColor = false;
+            btnNavigateOrders.Click += btnNavigateOrders_Click;
             // 
             // btnNavigateCustomers
             // 
@@ -186,6 +188,7 @@
             btnNavigateCustomers.TabIndex = 22;
             btnNavigateCustomers.Text = "Customers";
             btnNavigateCustomers.UseVisualStyleBackColor = false;
+            btnNavigateCustomers.Click += btnNavigateCustomers_Click;
             // 
             // btnNavigateProducts
             // 
@@ -204,6 +207,7 @@
             btnNavigateProducts.TabIndex = 21;
             btnNavigateProducts.Text = "Products";
             btnNavigateProducts.UseVisualStyleBackColor = false;
+            btnNavigateProducts.Click += btnNavigateProducts_Click;
             // 
             // btnNavigateDashboard
             // 
@@ -222,6 +226,7 @@
             btnNavigateDashboard.TabIndex = 20;
             btnNavigateDashboard.Text = "Dashboard";
             btnNavigateDashboard.UseVisualStyleBackColor = false;
+            btnNavigateDashboard.Click += btnNavigateDashboard_Click;
             // 
             // lblMangeCustomersSub
             // 
@@ -257,6 +262,41 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1379, 557);
             panel3.TabIndex = 15;
+            // 
+            // btnCustomerEdit
+            // 
+            btnCustomerEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCustomerEdit.BackColor = Color.Green;
+            btnCustomerEdit.FlatAppearance.BorderColor = Color.Green;
+            btnCustomerEdit.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnCustomerEdit.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnCustomerEdit.FlatStyle = FlatStyle.Popup;
+            btnCustomerEdit.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerEdit.ForeColor = Color.White;
+            btnCustomerEdit.Location = new Point(1103, 30);
+            btnCustomerEdit.Name = "btnCustomerEdit";
+            btnCustomerEdit.Size = new Size(119, 33);
+            btnCustomerEdit.TabIndex = 12;
+            btnCustomerEdit.Text = "Edit";
+            btnCustomerEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnCustomerDelete
+            // 
+            btnCustomerDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCustomerDelete.BackColor = Color.OrangeRed;
+            btnCustomerDelete.FlatAppearance.BorderColor = Color.OrangeRed;
+            btnCustomerDelete.FlatAppearance.BorderSize = 0;
+            btnCustomerDelete.FlatAppearance.MouseDownBackColor = Color.Red;
+            btnCustomerDelete.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnCustomerDelete.FlatStyle = FlatStyle.Popup;
+            btnCustomerDelete.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerDelete.ForeColor = Color.White;
+            btnCustomerDelete.Location = new Point(1238, 30);
+            btnCustomerDelete.Name = "btnCustomerDelete";
+            btnCustomerDelete.Size = new Size(119, 33);
+            btnCustomerDelete.TabIndex = 11;
+            btnCustomerDelete.Text = "Delete";
+            btnCustomerDelete.UseVisualStyleBackColor = false;
             // 
             // tblCustomers
             // 
@@ -299,41 +339,6 @@
             txtCustomerSearch.Size = new Size(514, 31);
             txtCustomerSearch.TabIndex = 7;
             // 
-            // btnCustomerEdit
-            // 
-            btnCustomerEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCustomerEdit.BackColor = Color.Green;
-            btnCustomerEdit.FlatAppearance.BorderColor = Color.Green;
-            btnCustomerEdit.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
-            btnCustomerEdit.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
-            btnCustomerEdit.FlatStyle = FlatStyle.Popup;
-            btnCustomerEdit.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCustomerEdit.ForeColor = Color.White;
-            btnCustomerEdit.Location = new Point(1103, 30);
-            btnCustomerEdit.Name = "btnCustomerEdit";
-            btnCustomerEdit.Size = new Size(119, 33);
-            btnCustomerEdit.TabIndex = 12;
-            btnCustomerEdit.Text = "Edit";
-            btnCustomerEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnCustomerDelete
-            // 
-            btnCustomerDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCustomerDelete.BackColor = Color.OrangeRed;
-            btnCustomerDelete.FlatAppearance.BorderColor = Color.OrangeRed;
-            btnCustomerDelete.FlatAppearance.BorderSize = 0;
-            btnCustomerDelete.FlatAppearance.MouseDownBackColor = Color.Red;
-            btnCustomerDelete.FlatAppearance.MouseOverBackColor = Color.Red;
-            btnCustomerDelete.FlatStyle = FlatStyle.Popup;
-            btnCustomerDelete.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCustomerDelete.ForeColor = Color.White;
-            btnCustomerDelete.Location = new Point(1238, 30);
-            btnCustomerDelete.Name = "btnCustomerDelete";
-            btnCustomerDelete.Size = new Size(119, 33);
-            btnCustomerDelete.TabIndex = 11;
-            btnCustomerDelete.Text = "Delete";
-            btnCustomerDelete.UseVisualStyleBackColor = false;
-            // 
             // frmAdminCustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -348,6 +353,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAdminCustomerForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Customers";
             Load += frmAdminCustomerForm_Load;
             panel1.ResumeLayout(false);

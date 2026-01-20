@@ -25,11 +25,49 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void btnNavigateProducts_Click(object sender, EventArgs e)
         {
             frmAdminProductFrom frm = new frmAdminProductFrom(_loggedUserId);
             frm.Show();
             this.Hide();
+        }
+
+        private void btnNavigateDashboard_Click_1(object sender, EventArgs e)
+        {
+            frmAdminDashboardForm frm = new frmAdminDashboardForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateCustomers_Click_1(object sender, EventArgs e)
+        {
+            frmAdminCustomerForm frm = new frmAdminCustomerForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateOrders_Click_1(object sender, EventArgs e)
+        {
+            frmAdminOrdersForm frm = new frmAdminOrdersForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+
+        }
+
+        private void btnNavigateReports_Click_1(object sender, EventArgs e)
+        {
+            frmAdminReportsForm frm = new frmAdminReportsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace GreenLife_Organic_Store.Forms.Admin
 {
     public partial class frmAdminReportsForm : Form
     {
-        public frmAdminReportsForm()
+        private int _loggedUserId;
+        public frmAdminReportsForm(int userId)
         {
             InitializeComponent();
+            _loggedUserId = userId;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -29,6 +32,42 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnNavigateCustomers_Click_1(object sender, EventArgs e)
+        {
+            frmAdminCustomerForm frm = new frmAdminCustomerForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateProducts_Click_1(object sender, EventArgs e)
+        {
+            frmAdminProductFrom frm = new frmAdminProductFrom(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateDashboard_Click_1(object sender, EventArgs e)
+        {
+            frmAdminDashboardForm frm = new frmAdminDashboardForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateOrders_Click_1(object sender, EventArgs e)
+        {
+            frmAdminOrdersForm frm = new frmAdminOrdersForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnNavigateReports_Click_1(object sender, EventArgs e)
+        {
+            frmAdminReportsForm frm = new frmAdminReportsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
 
         }
     }

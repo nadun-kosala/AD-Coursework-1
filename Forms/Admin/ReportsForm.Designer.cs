@@ -153,6 +153,7 @@
             btnNavigateReports.TabIndex = 34;
             btnNavigateReports.Text = "Reports";
             btnNavigateReports.UseVisualStyleBackColor = false;
+            btnNavigateReports.Click += btnNavigateReports_Click_1;
             // 
             // btnNavigateOrders
             // 
@@ -171,6 +172,7 @@
             btnNavigateOrders.TabIndex = 33;
             btnNavigateOrders.Text = "Orders";
             btnNavigateOrders.UseVisualStyleBackColor = false;
+            btnNavigateOrders.Click += btnNavigateOrders_Click_1;
             // 
             // btnNavigateCustomers
             // 
@@ -189,6 +191,7 @@
             btnNavigateCustomers.TabIndex = 32;
             btnNavigateCustomers.Text = "Customers";
             btnNavigateCustomers.UseVisualStyleBackColor = false;
+            btnNavigateCustomers.Click += btnNavigateCustomers_Click_1;
             // 
             // btnNavigateProducts
             // 
@@ -207,6 +210,7 @@
             btnNavigateProducts.TabIndex = 31;
             btnNavigateProducts.Text = "Products";
             btnNavigateProducts.UseVisualStyleBackColor = false;
+            btnNavigateProducts.Click += btnNavigateProducts_Click_1;
             // 
             // btnNavigateDashboard
             // 
@@ -225,6 +229,7 @@
             btnNavigateDashboard.TabIndex = 30;
             btnNavigateDashboard.Text = "Dashboard";
             btnNavigateDashboard.UseVisualStyleBackColor = false;
+            btnNavigateDashboard.Click += btnNavigateDashboard_Click_1;
             // 
             // lblReportsSub
             // 

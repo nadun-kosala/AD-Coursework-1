@@ -67,6 +67,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1685, 125);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // btnAdminLogout
             // 
@@ -150,6 +151,7 @@
             btnNavigateReports.TabIndex = 19;
             btnNavigateReports.Text = "Reports";
             btnNavigateReports.UseVisualStyleBackColor = false;
+            btnNavigateReports.Click += btnNavigateReports_Click_1;
             // 
             // btnNavigateOrders
             // 
@@ -168,6 +170,7 @@
             btnNavigateOrders.TabIndex = 18;
             btnNavigateOrders.Text = "Orders";
             btnNavigateOrders.UseVisualStyleBackColor = false;
+            btnNavigateOrders.Click += btnNavigateOrders_Click_1;
             // 
             // btnNavigateCustomers
             // 
@@ -186,6 +189,7 @@
             btnNavigateCustomers.TabIndex = 17;
             btnNavigateCustomers.Text = "Customers";
             btnNavigateCustomers.UseVisualStyleBackColor = false;
+            btnNavigateCustomers.Click += btnNavigateCustomers_Click;
             // 
             // btnNavigateProducts
             // 
@@ -204,6 +208,7 @@
             btnNavigateProducts.TabIndex = 16;
             btnNavigateProducts.Text = "Products";
             btnNavigateProducts.UseVisualStyleBackColor = false;
+            btnNavigateProducts.Click += btnNavigateProducts_Click_1;
             // 
             // btnNavigateDashboard
             // 
@@ -248,7 +253,7 @@
             // 
             // btnAddNewProduct
             // 
-            btnAddNewProduct.Anchor = AnchorStyles.None;
+            btnAddNewProduct.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddNewProduct.BackColor = Color.DarkGreen;
             btnAddNewProduct.FlatAppearance.BorderColor = Color.DarkGreen;
             btnAddNewProduct.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
@@ -256,12 +261,13 @@
             btnAddNewProduct.FlatStyle = FlatStyle.Flat;
             btnAddNewProduct.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddNewProduct.ForeColor = Color.White;
-            btnAddNewProduct.Location = new Point(1393, 162);
+            btnAddNewProduct.Location = new Point(1351, 172);
             btnAddNewProduct.Name = "btnAddNewProduct";
             btnAddNewProduct.Size = new Size(269, 44);
             btnAddNewProduct.TabIndex = 13;
             btnAddNewProduct.Text = "+  Add New Product";
             btnAddNewProduct.UseVisualStyleBackColor = false;
+            btnAddNewProduct.Click += btnAddNewProduct_Click;
             // 
             // panel2
             // 
@@ -278,6 +284,10 @@
             // 
             // tblProducts
             // 
+            tblProducts.AllowUserToAddRows = false;
+            tblProducts.AllowUserToDeleteRows = false;
+            tblProducts.AllowUserToResizeColumns = false;
+            tblProducts.AllowUserToResizeRows = false;
             tblProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tblProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblProducts.BackgroundColor = SystemColors.ControlLightLight;
@@ -292,6 +302,7 @@
             tblProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tblProducts.Size = new Size(1307, 419);
             tblProducts.TabIndex = 6;
+            tblProducts.CellContentClick += tblProducts_CellContentClick;
             // 
             // btnEditProducts
             // 
@@ -309,6 +320,7 @@
             btnEditProducts.TabIndex = 5;
             btnEditProducts.Text = "Edit";
             btnEditProducts.UseVisualStyleBackColor = false;
+            btnEditProducts.Click += btnEditProducts_Click;
             // 
             // btnDeleteProducts
             // 
@@ -327,6 +339,7 @@
             btnDeleteProducts.TabIndex = 4;
             btnDeleteProducts.Text = "Delete";
             btnDeleteProducts.UseVisualStyleBackColor = false;
+            btnDeleteProducts.Click += btnDeleteProducts_Click;
             // 
             // btnProductSearch
             // 
@@ -344,6 +357,7 @@
             btnProductSearch.TabIndex = 3;
             btnProductSearch.Text = "Search";
             btnProductSearch.UseVisualStyleBackColor = false;
+            btnProductSearch.Click += btnProductSearch_Click;
             // 
             // txtProductSearch
             // 
@@ -351,7 +365,7 @@
             txtProductSearch.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtProductSearch.Location = new Point(33, 33);
             txtProductSearch.Name = "txtProductSearch";
-            txtProductSearch.PlaceholderText = "Search products by name or category...";
+            txtProductSearch.PlaceholderText = "Search products by name...";
             txtProductSearch.Size = new Size(514, 31);
             txtProductSearch.TabIndex = 2;
             // 
@@ -361,7 +375,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Honeydew;
-            ClientSize = new Size(1714, 791);
+            ClientSize = new Size(1712, 791);
             Controls.Add(panel2);
             Controls.Add(btnAddNewProduct);
             Controls.Add(lblManageProductsSub);

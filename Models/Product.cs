@@ -10,9 +10,11 @@ namespace GreenLife_Organic_Store.Models
     {
         public int id { get; set; }
         public string productName { get; set; }
+        public int categoryId { get; set; }
         public string category { get; set; }
         public decimal price { get; set; }
         public int stockQuantity { get; set; }
+        public int supplierId { get; set; }
         public string supplierName{ get; set; }
         public string description { get; set; }
 

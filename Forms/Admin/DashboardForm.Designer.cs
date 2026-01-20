@@ -86,6 +86,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1685, 125);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // btnAdminLogout
             // 
@@ -151,6 +152,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(280, 665);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // btnNavigateReports
             // 
@@ -169,6 +171,7 @@
             btnNavigateReports.TabIndex = 34;
             btnNavigateReports.Text = "Reports";
             btnNavigateReports.UseVisualStyleBackColor = false;
+            btnNavigateReports.Click += btnNavigateReports_Click_1;
             // 
             // btnNavigateOrders
             // 
@@ -187,6 +190,7 @@
             btnNavigateOrders.TabIndex = 33;
             btnNavigateOrders.Text = "Orders";
             btnNavigateOrders.UseVisualStyleBackColor = false;
+            btnNavigateOrders.Click += btnNavigateOrders_Click_1;
             // 
             // btnNavigateCustomers
             // 
@@ -205,6 +209,7 @@
             btnNavigateCustomers.TabIndex = 32;
             btnNavigateCustomers.Text = "Customers";
             btnNavigateCustomers.UseVisualStyleBackColor = false;
+            btnNavigateCustomers.Click += btnNavigateCustomers_Click_1;
             // 
             // btnNavigateProducts
             // 
@@ -242,6 +247,7 @@
             btnNavigateDashboard.TabIndex = 30;
             btnNavigateDashboard.Text = "Dashboard";
             btnNavigateDashboard.UseVisualStyleBackColor = false;
+            btnNavigateDashboard.Click += btnNavigateDashboard_Click_1;
             // 
             // label2
             // 
