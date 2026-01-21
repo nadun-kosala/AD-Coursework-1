@@ -102,6 +102,7 @@
             lblProductName.Size = new Size(153, 23);
             lblProductName.TabIndex = 14;
             lblProductName.Text = "Product Name *";
+            lblProductName.Click += lblProductName_Click;
             // 
             // cmbCategory
             // 

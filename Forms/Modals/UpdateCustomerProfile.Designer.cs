@@ -33,8 +33,6 @@
             lblHeading = new Label();
             txtProfileAddress = new TextBox();
             lblCusRegAddress = new Label();
-            txtProfileUsername = new TextBox();
-            lblCusRegUsername = new Label();
             txtProfilePhone = new TextBox();
             label4 = new Label();
             txtProfileEmail = new TextBox();
@@ -76,7 +74,6 @@
             txtProfileAddress.Location = new Point(16, 327);
             txtProfileAddress.Name = "txtProfileAddress";
             txtProfileAddress.PlaceholderText = "123 Green St, City, State 12345";
-            txtProfileAddress.ReadOnly = true;
             txtProfileAddress.Size = new Size(704, 31);
             txtProfileAddress.TabIndex = 39;
             // 
@@ -91,29 +88,6 @@
             lblCusRegAddress.TabIndex = 38;
             lblCusRegAddress.Text = "Address";
             // 
-            // txtProfileUsername
-            // 
-            txtProfileUsername.BackColor = SystemColors.InactiveBorder;
-            txtProfileUsername.BorderStyle = BorderStyle.FixedSingle;
-            txtProfileUsername.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProfileUsername.Location = new Point(404, 234);
-            txtProfileUsername.Name = "txtProfileUsername";
-            txtProfileUsername.PlaceholderText = "johndoe";
-            txtProfileUsername.ReadOnly = true;
-            txtProfileUsername.Size = new Size(316, 31);
-            txtProfileUsername.TabIndex = 37;
-            // 
-            // lblCusRegUsername
-            // 
-            lblCusRegUsername.AutoSize = true;
-            lblCusRegUsername.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegUsername.ForeColor = Color.ForestGreen;
-            lblCusRegUsername.Location = new Point(404, 198);
-            lblCusRegUsername.Name = "lblCusRegUsername";
-            lblCusRegUsername.Size = new Size(105, 23);
-            lblCusRegUsername.TabIndex = 36;
-            lblCusRegUsername.Text = "Username";
-            // 
             // txtProfilePhone
             // 
             txtProfilePhone.BackColor = SystemColors.InactiveBorder;
@@ -122,7 +96,6 @@
             txtProfilePhone.Location = new Point(16, 234);
             txtProfilePhone.Name = "txtProfilePhone";
             txtProfilePhone.PlaceholderText = "+94 77-1234-567";
-            txtProfilePhone.ReadOnly = true;
             txtProfilePhone.Size = new Size(316, 31);
             txtProfilePhone.TabIndex = 35;
             // 
@@ -145,7 +118,6 @@
             txtProfileEmail.Location = new Point(404, 142);
             txtProfileEmail.Name = "txtProfileEmail";
             txtProfileEmail.PlaceholderText = "john@example.com";
-            txtProfileEmail.ReadOnly = true;
             txtProfileEmail.Size = new Size(316, 31);
             txtProfileEmail.TabIndex = 33;
             // 
@@ -168,7 +140,6 @@
             txtProfileFullName.Location = new Point(16, 142);
             txtProfileFullName.Name = "txtProfileFullName";
             txtProfileFullName.PlaceholderText = "John Doe";
-            txtProfileFullName.ReadOnly = true;
             txtProfileFullName.Size = new Size(316, 31);
             txtProfileFullName.TabIndex = 31;
             // 
@@ -199,6 +170,7 @@
             btnUpdateProfileConfirm.TabIndex = 40;
             btnUpdateProfileConfirm.Text = "Edit Profile";
             btnUpdateProfileConfirm.UseVisualStyleBackColor = false;
+            btnUpdateProfileConfirm.Click += btnUpdateProfileConfirm_Click;
             // 
             // btnCancelUpdateProfile
             // 
@@ -216,6 +188,7 @@
             btnCancelUpdateProfile.TabIndex = 41;
             btnCancelUpdateProfile.Text = "Cancel";
             btnCancelUpdateProfile.UseVisualStyleBackColor = false;
+            btnCancelUpdateProfile.Click += btnCancelUpdateProfile_Click;
             // 
             // frmUpdateCustomerProfile
             // 
@@ -228,8 +201,6 @@
             Controls.Add(btnUpdateProfileConfirm);
             Controls.Add(txtProfileAddress);
             Controls.Add(lblCusRegAddress);
-            Controls.Add(txtProfileUsername);
-            Controls.Add(lblCusRegUsername);
             Controls.Add(txtProfilePhone);
             Controls.Add(label4);
             Controls.Add(txtProfileEmail);
@@ -242,7 +213,9 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmUpdateCustomerProfile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Update Customer Profile";
+            Load += frmUpdateCustomerProfile_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,8 +226,6 @@
         private Label lblHeading;
         private TextBox txtProfileAddress;
         private Label lblCusRegAddress;
-        private TextBox txtProfileUsername;
-        private Label lblCusRegUsername;
         private TextBox txtProfilePhone;
         private Label label4;
         private TextBox txtProfileEmail;

@@ -210,5 +210,106 @@ namespace GreenLife_Organic_Store.Repositories
             }
         }
 
+        public int getAllProductCount()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = "SELECT COUNT(*) FROM products";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        return Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving product count: " + ex.ToString());
+            }
+
+            return 0;
+        }
+
+        public int getUniqueProductsInStockCount()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"
+                SELECT COUNT(*) 
+                FROM products
+                WHERE stock_quantity > 0";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        return Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving in-stock product count: " + ex.ToString());
+            }
+
+            return 0;
+        }
+
+
+        public List<Product> getLowStockProducts()
+        {
+            var products = new List<Product>();
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"
+                SELECT 
+                    p.product_id,
+                    p.product_name,
+                    c.category_name,
+                    p.stock_quantity
+                FROM products p
+                INNER JOIN categories c ON p.category_id = c.category_id
+                WHERE p.stock_quantity < 10
+                ORDER BY p.stock_quantity ASC";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Product product = new Product
+                                {
+                                    id = reader.GetInt32("product_id"),
+                                    productName = reader.GetString("product_name"),
+                                    category = reader.GetString("category_name"),
+                                    stockQuantity = reader.GetInt32("stock_quantity")
+                                };
+
+                                products.Add(product);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving low stock products: " + ex.ToString());
+            }
+
+            return products;
+        }
+
     }
 }

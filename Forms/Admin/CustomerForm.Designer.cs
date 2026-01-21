@@ -279,6 +279,7 @@
             btnCustomerEdit.TabIndex = 12;
             btnCustomerEdit.Text = "Edit";
             btnCustomerEdit.UseVisualStyleBackColor = false;
+            btnCustomerEdit.Click += btnCustomerEdit_Click;
             // 
             // btnCustomerDelete
             // 
@@ -297,10 +298,16 @@
             btnCustomerDelete.TabIndex = 11;
             btnCustomerDelete.Text = "Delete";
             btnCustomerDelete.UseVisualStyleBackColor = false;
+            btnCustomerDelete.Click += btnCustomerDelete_Click;
             // 
             // tblCustomers
             // 
+            tblCustomers.AllowUserToAddRows = false;
+            tblCustomers.AllowUserToDeleteRows = false;
+            tblCustomers.AllowUserToResizeColumns = false;
+            tblCustomers.AllowUserToResizeRows = false;
             tblCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tblCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblCustomers.BackgroundColor = SystemColors.ControlLightLight;
             tblCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblCustomers.Cursor = Cursors.Hand;
@@ -308,7 +315,9 @@
             tblCustomers.Location = new Point(25, 92);
             tblCustomers.MultiSelect = false;
             tblCustomers.Name = "tblCustomers";
+            tblCustomers.RowHeadersVisible = false;
             tblCustomers.RowHeadersWidth = 51;
+            tblCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tblCustomers.Size = new Size(1332, 450);
             tblCustomers.TabIndex = 10;
             // 
@@ -328,6 +337,7 @@
             btnCustomerSearch.TabIndex = 8;
             btnCustomerSearch.Text = "Search";
             btnCustomerSearch.UseVisualStyleBackColor = false;
+            btnCustomerSearch.Click += btnCustomerSearch_Click;
             // 
             // txtCustomerSearch
             // 
@@ -352,6 +362,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmAdminCustomerForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customers";

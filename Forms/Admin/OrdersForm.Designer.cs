@@ -168,7 +168,7 @@
             btnNavigateOrders.TabIndex = 28;
             btnNavigateOrders.Text = "Orders";
             btnNavigateOrders.UseVisualStyleBackColor = false;
-            btnNavigateOrders.Click += this.btnNavigateOrders_Click;
+            btnNavigateOrders.Click += btnNavigateOrders_Click;
             // 
             // btnNavigateCustomers
             // 
@@ -187,7 +187,7 @@
             btnNavigateCustomers.TabIndex = 27;
             btnNavigateCustomers.Text = "Customers";
             btnNavigateCustomers.UseVisualStyleBackColor = false;
-            btnNavigateCustomers.Click += this.btnNavigateCustomers_Click;
+            btnNavigateCustomers.Click += btnNavigateCustomers_Click;
             // 
             // btnNavigateProducts
             // 
@@ -206,7 +206,7 @@
             btnNavigateProducts.TabIndex = 26;
             btnNavigateProducts.Text = "Products";
             btnNavigateProducts.UseVisualStyleBackColor = false;
-            btnNavigateProducts.Click += this.btnNavigateProducts_Click;
+            btnNavigateProducts.Click += btnNavigateProducts_Click;
             // 
             // btnNavigateDashboard
             // 
@@ -225,7 +225,7 @@
             btnNavigateDashboard.TabIndex = 25;
             btnNavigateDashboard.Text = "Dashboard";
             btnNavigateDashboard.UseVisualStyleBackColor = false;
-            btnNavigateDashboard.Click += this.btnNavigateDashboard_Click;
+            btnNavigateDashboard.Click += btnNavigateDashboard_Click;
             // 
             // lblManageOrdersSub
             // 
@@ -277,10 +277,15 @@
             btnUpdateOrderStatus.TabIndex = 16;
             btnUpdateOrderStatus.Text = "Update Order Status";
             btnUpdateOrderStatus.UseVisualStyleBackColor = false;
+            btnUpdateOrderStatus.Click += btnUpdateOrderStatus_Click;
             // 
             // tblOrders
             // 
+            tblOrders.AllowUserToAddRows = false;
+            tblOrders.AllowUserToDeleteRows = false;
+            tblOrders.AllowUserToResizeRows = false;
             tblOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tblOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrders.BackgroundColor = SystemColors.ControlLightLight;
             tblOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblOrders.Cursor = Cursors.Hand;
@@ -288,7 +293,9 @@
             tblOrders.Location = new Point(27, 91);
             tblOrders.MultiSelect = false;
             tblOrders.Name = "tblOrders";
+            tblOrders.RowHeadersVisible = false;
             tblOrders.RowHeadersWidth = 51;
+            tblOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tblOrders.Size = new Size(1349, 456);
             tblOrders.TabIndex = 15;
             // 
@@ -308,6 +315,7 @@
             btnOrderSearch.TabIndex = 13;
             btnOrderSearch.Text = "Search";
             btnOrderSearch.UseVisualStyleBackColor = false;
+            btnOrderSearch.Click += btnOrderSearch_Click;
             // 
             // txtOrderSearch
             // 
@@ -332,6 +340,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmAdminOrdersForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Orders";

@@ -62,6 +62,7 @@
             pictureBox2 = new PictureBox();
             lblTotalSale = new Label();
             lblTotalSaleHeading = new Label();
+            flowLayoutPanelLowStock = new FlowLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -458,6 +459,7 @@
             groupBox2.Size = new Size(248, 178);
             groupBox2.TabIndex = 15;
             groupBox2.TabStop = false;
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // lblTotalSalesSub
             // 
@@ -500,6 +502,15 @@
             lblTotalSaleHeading.TabIndex = 0;
             lblTotalSaleHeading.Text = "Total Sales";
             // 
+            // flowLayoutPanelLowStock
+            // 
+            flowLayoutPanelLowStock.BackColor = SystemColors.ControlLightLight;
+            flowLayoutPanelLowStock.Location = new Point(312, 463);
+            flowLayoutPanelLowStock.Name = "flowLayoutPanelLowStock";
+            flowLayoutPanelLowStock.Size = new Size(1149, 318);
+            flowLayoutPanelLowStock.TabIndex = 19;
+            flowLayoutPanelLowStock.Paint += flowLayoutPanelLowStock_Paint;
+            // 
             // frmAdminDashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -507,6 +518,7 @@
             AutoScroll = true;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1714, 791);
+            Controls.Add(flowLayoutPanelLowStock);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox5);
@@ -577,5 +589,6 @@
         private PictureBox pictureBox2;
         private Label lblTotalSale;
         private Label lblTotalSaleHeading;
+        private FlowLayoutPanel flowLayoutPanelLowStock;
     }
 }

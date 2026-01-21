@@ -377,6 +377,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmAdminReportsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reports";

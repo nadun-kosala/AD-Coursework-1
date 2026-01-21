@@ -55,7 +55,7 @@ namespace GreenLife_Organic_Store
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-           if(txtProductName.Text == "" || txtPrice.Text == "" || cmbCategory.SelectedIndex == -1 || cmbSupplier.SelectedIndex == -1)
+            if (txtProductName.Text == "" || txtPrice.Text == "" || cmbCategory.SelectedIndex == -1 || cmbSupplier.SelectedIndex == -1)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -133,6 +133,11 @@ namespace GreenLife_Organic_Store
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProductName_Click(object sender, EventArgs e)
         {
 
         }
