@@ -9,6 +9,7 @@ namespace GreenLife_Organic_Store.Models
     public class Customer
     {
         public int customerId { get; set; }
+        public int userId { get; set; }
         public string fullName { get; set; }
         public string email { get; set; }
         public string phoneNumber { get; set; }

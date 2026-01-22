@@ -188,5 +188,21 @@ namespace GreenLife_Organic_Store
         {
 
         }
+
+        private void btnAdminLogout_Click(object sender, EventArgs e)
+        {
+            UserRepository userRepository = new UserRepository();
+            var user = userRepository.getUserById(_loggedUserId);
+            if (user != null && user.userType == "admin")
+            {
+                frmAdminLogin frm = new frmAdminLogin();
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Error logging out. Admin not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

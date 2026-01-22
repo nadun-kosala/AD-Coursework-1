@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Models;
+﻿using GreenLife_Organic_Store.Helpers;
+using GreenLife_Organic_Store.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace GreenLife_Organic_Store.Repositories
 {
     public class OrderRepository
     {
-        private readonly string connectionString = "Server=localhost; Port=3306;Database=greenlife_organic_store;Uid=root;Pwd=root;";
+        private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
 
         public List<Models.Order> getAllOrders()
@@ -173,6 +174,38 @@ namespace GreenLife_Organic_Store.Repositories
             }
 
             return null;
+        }
+
+        public int getActiveOrderCountByCustomerId(int customerId)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"SELECT COUNT(*) FROM orders WHERE customer_id = @id AND order_status NOT IN ('Delivered', 'Cancelled');";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", customerId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return Convert.ToInt32(cmd.ExecuteScalar()); ;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving the order: " + ex.ToString());
+            }
+
+            return 0;
         }
 
         public void updateOrderStatus(Order order)

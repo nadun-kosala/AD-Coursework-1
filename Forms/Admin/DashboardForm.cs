@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Repositories;
+﻿using GreenLife_Organic_Store.Forms.Customer;
+using GreenLife_Organic_Store.Repositories;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -207,6 +208,22 @@ namespace GreenLife_Organic_Store.Forms.Admin
         private void flowLayoutPanelLowStock_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnAdminLogout_Click(object sender, EventArgs e)
+        {
+            UserRepository userRepository = new UserRepository();
+            var user = userRepository.getUserById(_loggedUserId);
+            if (user != null && user.userType == "admin")
+            {
+                frmAdminLogin frm = new frmAdminLogin();
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Error logging out. Admin not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

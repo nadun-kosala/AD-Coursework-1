@@ -86,6 +86,7 @@
             btnAdminLogout.TabIndex = 11;
             btnAdminLogout.Text = "Logout";
             btnAdminLogout.UseVisualStyleBackColor = false;
+            btnAdminLogout.Click += btnAdminLogout_Click;
             // 
             // lblSubHeading
             // 
@@ -261,7 +262,7 @@
             btnAddNewProduct.FlatStyle = FlatStyle.Flat;
             btnAddNewProduct.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddNewProduct.ForeColor = Color.White;
-            btnAddNewProduct.Location = new Point(1351, 172);
+            btnAddNewProduct.Location = new Point(1330, 172);
             btnAddNewProduct.Name = "btnAddNewProduct";
             btnAddNewProduct.Size = new Size(269, 44);
             btnAddNewProduct.TabIndex = 13;

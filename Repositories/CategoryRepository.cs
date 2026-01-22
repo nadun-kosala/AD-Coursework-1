@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Models;
+﻿using GreenLife_Organic_Store.Helpers;
+using GreenLife_Organic_Store.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace GreenLife_Organic_Store.Repositories
 {
     public class CategoryRepository
     {
-        private readonly string connectionString = "Server=localhost; Port=3306;Database=greenlife_organic_store;Uid=root;Pwd=root;";
+        private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
         public List<Category> getAllCategories()
         {

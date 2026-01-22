@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Models;
+﻿using GreenLife_Organic_Store.Helpers;
+using GreenLife_Organic_Store.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace GreenLife_Organic_Store.Repositories
 {
     public class CustomerRepository
     {
-        private readonly string connectionString = "Server=localhost; Port=3306;Database=greenlife_organic_store;Uid=root;Pwd=root;";
+        private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
         public List<Models.Customer> getAllCustomers()
         {
             var customers = new List<Models.Customer>();
@@ -128,6 +129,68 @@ namespace GreenLife_Organic_Store.Repositories
 
             return null;
 
+        }
+
+        public Customer? getCustomerByUserId(int id)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = "SELECT * FROM customers WHERE user_id = @userId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                Customer customer = new Customer();
+                                customer.customerId = reader.GetInt32("customer_id");
+                                customer.fullName = reader.GetString("full_name");
+                                customer.email = reader.GetString("email");
+                                customer.phoneNumber = reader.GetString("phone");
+                                customer.address = reader.GetString("address");
+                                customer.registrationDate = reader.GetDateTime("registration_date");
+                                return customer;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving the product: " + ex.ToString());
+            }
+
+            return null;
+        }
+
+        public void createCustomer(Customer customer)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = "INSERT INTO customers (user_id, full_name, email, phone, address) VALUES (@userId, @customerName, @email, @phoneNumber, @address);";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", customer.userId);
+                        cmd.Parameters.AddWithValue("@customerName", customer.fullName);
+                        cmd.Parameters.AddWithValue("@email", customer.email);
+                        cmd.Parameters.AddWithValue("@phoneNumber", customer.phoneNumber);
+                        cmd.Parameters.AddWithValue("@address", customer.address);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while updating the product: " + ex.ToString());
+            }
         }
 
         public void updateCustomer(Customer customer)

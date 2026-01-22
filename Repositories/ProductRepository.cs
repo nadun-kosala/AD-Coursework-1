@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Models;
+﻿using GreenLife_Organic_Store.Helpers;
+using GreenLife_Organic_Store.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace GreenLife_Organic_Store.Repositories
 {
     public class ProductRepository
     {
-        private readonly string connectionString = "Server=localhost; Port=3306;Database=greenlife_organic_store;Uid=root;Pwd=root;";
+        private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
 
         public List<Models.Product> getAllProducts()
@@ -21,7 +22,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, c.category_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id";
+                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, p.average_rating, p.total_reviews, c.category_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -35,6 +36,65 @@ namespace GreenLife_Organic_Store.Repositories
                                     product.category = reader.GetString("category_name");
                                     product.price = reader.GetDecimal("price");
                                     product.stockQuantity = reader.GetInt32("stock_quantity");
+                                    product.avarageRating = reader.GetDecimal("average_rating");
+                                    product.totalReviews = reader.GetInt32("total_reviews");
+                                    product.description = reader.GetString("description");
+                                    products.Add(product);
+                                }
+                                ;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("An error occurred while retrieving products: " + ex.ToString());
+            }
+            return products;
+        }
+
+        public List<Models.Product> getTopRatingProducts()
+        {
+            var products = new List<Models.Product>();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = @"
+                SELECT 
+                    p.product_id,
+                    p.product_name,
+                    p.price,
+                    p.stock_quantity,
+                    p.description,
+                    p.average_rating,
+                    p.total_reviews,
+                    c.category_name
+                FROM products p
+                INNER JOIN categories c ON p.category_id = c.category_id
+                ORDER BY 
+                    p.average_rating DESC,
+                    p.total_reviews DESC
+                LIMIT 5";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                {
+                                    Product product = new Product();
+                                    product.id = reader.GetInt32("product_id");
+                                    product.productName = reader.GetString("product_name");
+                                    product.category = reader.GetString("category_name");
+                                    product.price = reader.GetDecimal("price");
+                                    product.stockQuantity = reader.GetInt32("stock_quantity");
+                                    product.avarageRating = reader.GetDecimal("average_rating");
+                                    product.totalReviews = reader.GetInt32("total_reviews");
                                     product.description = reader.GetString("description");
                                     products.Add(product);
                                 }

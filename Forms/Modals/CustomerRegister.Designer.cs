@@ -44,7 +44,7 @@
             lblCusRegAddress = new Label();
             txtCusRegConfirmPassword = new TextBox();
             lblCusRegConfirmPassword = new Label();
-            textBox2 = new TextBox();
+            txtCusRegPassword = new TextBox();
             lblCusRegPasswod = new Label();
             btnCusRegBackToLogin = new Button();
             btnCusRegRegister = new Button();
@@ -100,7 +100,7 @@
             // 
             lblCusRegFullName.AutoSize = true;
             lblCusRegFullName.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegFullName.ForeColor = Color.ForestGreen;
+            lblCusRegFullName.ForeColor = Color.DarkGreen;
             lblCusRegFullName.Location = new Point(61, 219);
             lblCusRegFullName.Name = "lblCusRegFullName";
             lblCusRegFullName.Size = new Size(116, 23);
@@ -122,7 +122,7 @@
             // 
             lblCusRegEmail.AutoSize = true;
             lblCusRegEmail.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegEmail.ForeColor = Color.ForestGreen;
+            lblCusRegEmail.ForeColor = Color.DarkGreen;
             lblCusRegEmail.Location = new Point(436, 219);
             lblCusRegEmail.Name = "lblCusRegEmail";
             lblCusRegEmail.Size = new Size(76, 23);
@@ -144,7 +144,7 @@
             // 
             lblCusRegUsername.AutoSize = true;
             lblCusRegUsername.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegUsername.ForeColor = Color.ForestGreen;
+            lblCusRegUsername.ForeColor = Color.DarkGreen;
             lblCusRegUsername.Location = new Point(436, 311);
             lblCusRegUsername.Name = "lblCusRegUsername";
             lblCusRegUsername.Size = new Size(118, 23);
@@ -166,7 +166,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.ForestGreen;
+            label2.ForeColor = Color.DarkGreen;
             label2.Location = new Point(61, 311);
             label2.Name = "label2";
             label2.Size = new Size(81, 23);
@@ -188,7 +188,7 @@
             // 
             lblCusRegAddress.AutoSize = true;
             lblCusRegAddress.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegAddress.ForeColor = Color.ForestGreen;
+            lblCusRegAddress.ForeColor = Color.DarkGreen;
             lblCusRegAddress.Location = new Point(61, 404);
             lblCusRegAddress.Name = "lblCusRegAddress";
             lblCusRegAddress.Size = new Size(98, 23);
@@ -211,30 +211,30 @@
             // 
             lblCusRegConfirmPassword.AutoSize = true;
             lblCusRegConfirmPassword.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegConfirmPassword.ForeColor = Color.ForestGreen;
+            lblCusRegConfirmPassword.ForeColor = Color.DarkGreen;
             lblCusRegConfirmPassword.Location = new Point(436, 499);
             lblCusRegConfirmPassword.Name = "lblCusRegConfirmPassword";
             lblCusRegConfirmPassword.Size = new Size(190, 23);
             lblCusRegConfirmPassword.TabIndex = 18;
             lblCusRegConfirmPassword.Text = "Confirm Password *";
             // 
-            // textBox2
+            // txtCusRegPassword
             // 
-            textBox2.BackColor = SystemColors.InactiveBorder;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(61, 535);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.PlaceholderText = "Min. 6 characters";
-            textBox2.Size = new Size(320, 31);
-            textBox2.TabIndex = 17;
+            txtCusRegPassword.BackColor = SystemColors.InactiveBorder;
+            txtCusRegPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtCusRegPassword.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCusRegPassword.Location = new Point(61, 535);
+            txtCusRegPassword.Name = "txtCusRegPassword";
+            txtCusRegPassword.PasswordChar = '*';
+            txtCusRegPassword.PlaceholderText = "Min. 6 characters";
+            txtCusRegPassword.Size = new Size(320, 31);
+            txtCusRegPassword.TabIndex = 17;
             // 
             // lblCusRegPasswod
             // 
             lblCusRegPasswod.AutoSize = true;
             lblCusRegPasswod.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCusRegPasswod.ForeColor = Color.ForestGreen;
+            lblCusRegPasswod.ForeColor = Color.DarkGreen;
             lblCusRegPasswod.Location = new Point(61, 499);
             lblCusRegPasswod.Name = "lblCusRegPasswod";
             lblCusRegPasswod.Size = new Size(112, 23);
@@ -244,9 +244,12 @@
             // btnCusRegBackToLogin
             // 
             btnCusRegBackToLogin.BackColor = SystemColors.ControlLightLight;
-            btnCusRegBackToLogin.FlatAppearance.BorderColor = Color.LightGreen;
+            btnCusRegBackToLogin.FlatAppearance.BorderColor = Color.LimeGreen;
             btnCusRegBackToLogin.FlatAppearance.BorderSize = 2;
-            btnCusRegBackToLogin.FlatStyle = FlatStyle.Popup;
+            btnCusRegBackToLogin.FlatAppearance.MouseDownBackColor = Color.Ivory;
+            btnCusRegBackToLogin.FlatAppearance.MouseOverBackColor = Color.LightYellow;
+            btnCusRegBackToLogin.FlatStyle = FlatStyle.Flat;
+            btnCusRegBackToLogin.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCusRegBackToLogin.ForeColor = Color.LimeGreen;
             btnCusRegBackToLogin.Location = new Point(61, 659);
             btnCusRegBackToLogin.Name = "btnCusRegBackToLogin";
@@ -254,10 +257,16 @@
             btnCusRegBackToLogin.TabIndex = 21;
             btnCusRegBackToLogin.Text = " Back to Login";
             btnCusRegBackToLogin.UseVisualStyleBackColor = false;
+            btnCusRegBackToLogin.Click += btnCusRegBackToLogin_Click;
             // 
             // btnCusRegRegister
             // 
-            btnCusRegRegister.BackColor = Color.LimeGreen;
+            btnCusRegRegister.BackColor = Color.Green;
+            btnCusRegRegister.FlatAppearance.BorderColor = Color.Green;
+            btnCusRegRegister.FlatAppearance.MouseDownBackColor = Color.ForestGreen;
+            btnCusRegRegister.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnCusRegRegister.FlatStyle = FlatStyle.Flat;
+            btnCusRegRegister.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCusRegRegister.ForeColor = Color.White;
             btnCusRegRegister.Location = new Point(61, 597);
             btnCusRegRegister.Name = "btnCusRegRegister";
@@ -265,6 +274,7 @@
             btnCusRegRegister.TabIndex = 20;
             btnCusRegRegister.Text = "Register";
             btnCusRegRegister.UseVisualStyleBackColor = false;
+            btnCusRegRegister.Click += btnCusRegRegister_Click;
             // 
             // frmCustomerRegister
             // 
@@ -277,7 +287,7 @@
             Controls.Add(btnCusRegRegister);
             Controls.Add(txtCusRegConfirmPassword);
             Controls.Add(lblCusRegConfirmPassword);
-            Controls.Add(textBox2);
+            Controls.Add(txtCusRegPassword);
             Controls.Add(lblCusRegPasswod);
             Controls.Add(txtCusRegAddress);
             Controls.Add(lblCusRegAddress);
@@ -297,6 +307,7 @@
             Name = "frmCustomerRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer Register";
+            Load += frmCustomerRegister_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -319,7 +330,7 @@
         private Label lblCusRegAddress;
         private TextBox txtCusRegConfirmPassword;
         private Label lblCusRegConfirmPassword;
-        private TextBox textBox2;
+        private TextBox txtCusRegPassword;
         private Label lblCusRegPasswod;
         private Button btnCusRegBackToLogin;
         private Button btnCusRegRegister;

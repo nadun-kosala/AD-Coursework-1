@@ -15,6 +15,8 @@ namespace GreenLife_Organic_Store.Models
         public decimal price { get; set; }
         public int stockQuantity { get; set; }
         public int supplierId { get; set; }
+        public decimal avarageRating { get; set; }
+        public int totalReviews { get; set; }
         public string supplierName{ get; set; }
         public string description { get; set; }
 
