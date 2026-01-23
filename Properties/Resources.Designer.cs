@@ -173,6 +173,16 @@ namespace GreenLife_Organic_Store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images__9_ {
+            get {
+                object obj = ResourceManager.GetObject("images (9)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap isolated_green_upward_arrow_depicting_growth_and_success_on_transparent_backdrop_png {
             get {
                 object obj = ResourceManager.GetObject("isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-" +
@@ -197,6 +207,16 @@ namespace GreenLife_Organic_Store.Properties {
         internal static System.Drawing.Bitmap person_user_avatar_user_profile_system_green_plant_symbol_png_clipart {
             get {
                 object obj = ResourceManager.GetObject("person-user-avatar-user-profile-system-green-plant-symbol-png-clipart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_computer_icons_synchronization_refresh_miscellaneous_leaf {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-computer-icons-synchronization-refresh-miscellaneous-leaf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

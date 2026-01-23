@@ -42,6 +42,7 @@
             btnNavigateDashboard = new Button();
             lblTrackOrdersSub = new Label();
             lblTrackOrdersHeading = new Label();
+            flowLayoutShowOrders = new FlowLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -242,6 +243,17 @@
             lblTrackOrdersHeading.TabIndex = 16;
             lblTrackOrdersHeading.Text = "Track Orders";
             // 
+            // flowLayoutShowOrders
+            // 
+            flowLayoutShowOrders.AutoScroll = true;
+            flowLayoutShowOrders.BackColor = Color.Honeydew;
+            flowLayoutShowOrders.FlowDirection = FlowDirection.TopDown;
+            flowLayoutShowOrders.Location = new Point(276, 229);
+            flowLayoutShowOrders.Name = "flowLayoutShowOrders";
+            flowLayoutShowOrders.Size = new Size(1338, 443);
+            flowLayoutShowOrders.TabIndex = 17;
+            flowLayoutShowOrders.WrapContents = false;
+            // 
             // frmCustomerOrderForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -249,6 +261,7 @@
             AutoScroll = true;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1626, 684);
+            Controls.Add(flowLayoutShowOrders);
             Controls.Add(lblTrackOrdersSub);
             Controls.Add(lblTrackOrdersHeading);
             Controls.Add(panel2);
@@ -283,5 +296,6 @@
         private Button btnNavigateDashboard;
         private Label lblTrackOrdersSub;
         private Label lblTrackOrdersHeading;
+        private FlowLayoutPanel flowLayoutShowOrders;
     }
 }

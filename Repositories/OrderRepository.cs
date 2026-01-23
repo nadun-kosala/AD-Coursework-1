@@ -129,6 +129,61 @@ namespace GreenLife_Organic_Store.Repositories
             return orders;
         }
 
+        public List<Models.Order> getAllOrderByCustomerId(int customerId)
+        {
+            var orders = new List<Models.Order>();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"
+                SELECT 
+                    order_id,
+                    order_code,
+                    order_date,
+                    total_amount,
+                    discount_amount,
+                    final_amount,
+                    order_status,
+                    shipping_address
+                FROM orders 
+                WHERE customer_id = @customerId";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@customerId", customerId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                {
+                                    Order order = new Order();
+                                    order.orderId = reader.GetInt32("order_id");
+                                    order.orderCode = reader.GetString("order_code");
+                                    order.orderDate = reader.GetDateTime("order_date");
+                                    order.totalAmount = reader.GetDecimal("total_amount");
+                                    order.discountAmount = reader.GetDecimal("discount_amount");
+                                    order.finalAmount = reader.GetDecimal("final_amount");
+                                    order.orderStatus = reader.GetString("order_status");
+                                    order.shippingAddress = reader.GetString("shipping_address");
+
+                                    orders.Add(order);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving orders: " + ex.ToString());
+            }
+            return orders;
+        }
+
         public Order? getOrderById(int id)
         {
             try
@@ -207,6 +262,44 @@ namespace GreenLife_Organic_Store.Repositories
 
             return 0;
         }
+
+        public int createOrder(Order order)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"
+                    INSERT INTO orders 
+                    (order_code, customer_id, total_amount, discount_amount, final_amount, order_status, shipping_address)
+                    VALUES
+                    (@orderCode, @customerId, @totalAmount, @discountAmount, @finalAmount, @status, @address);
+                    SELECT LAST_INSERT_ID();";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@orderCode", order.orderCode);
+                        cmd.Parameters.AddWithValue("@customerId", order.customerId);
+                        cmd.Parameters.AddWithValue("@totalAmount", order.totalAmount);
+                        cmd.Parameters.AddWithValue("@discountAmount", order.discountAmount);
+                        cmd.Parameters.AddWithValue("@finalAmount", order.finalAmount);
+                        cmd.Parameters.AddWithValue("@status", order.orderStatus);
+                        cmd.Parameters.AddWithValue("@address", order.shippingAddress);
+
+                        return Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+
+            }
+            catch (Exception ex) {
+                Console.WriteLine("An error occurred while creating the order: " + ex.ToString());
+            }
+            return 0;
+
+        }
+
 
         public void updateOrderStatus(Order order)
         {

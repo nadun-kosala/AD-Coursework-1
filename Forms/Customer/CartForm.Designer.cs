@@ -42,7 +42,7 @@
             btnNavigateDashboard = new Button();
             lblShoppingCartSub = new Label();
             lblShoppingCartHeading = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanalForCartItem = new FlowLayoutPanel();
             panel5 = new Panel();
             btnContinueShopping = new Button();
             btnPlaceOrder = new Button();
@@ -258,12 +258,13 @@
             lblShoppingCartHeading.TabIndex = 14;
             lblShoppingCartHeading.Text = "Shopping Cart";
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanalForCartItem
             // 
-            flowLayoutPanel1.Location = new Point(282, 230);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(867, 473);
-            flowLayoutPanel1.TabIndex = 15;
+            flowLayoutPanalForCartItem.AutoScroll = true;
+            flowLayoutPanalForCartItem.Location = new Point(282, 230);
+            flowLayoutPanalForCartItem.Name = "flowLayoutPanalForCartItem";
+            flowLayoutPanalForCartItem.Size = new Size(867, 473);
+            flowLayoutPanalForCartItem.TabIndex = 15;
             // 
             // panel5
             // 
@@ -301,6 +302,7 @@
             btnContinueShopping.TabIndex = 33;
             btnContinueShopping.Text = "Continue Shopping";
             btnContinueShopping.UseVisualStyleBackColor = false;
+            btnContinueShopping.Click += btnContinueShopping_Click;
             // 
             // btnPlaceOrder
             // 
@@ -318,6 +320,7 @@
             btnPlaceOrder.TabIndex = 32;
             btnPlaceOrder.Text = "Place Order";
             btnPlaceOrder.UseVisualStyleBackColor = false;
+            btnPlaceOrder.Click += btnPlaceOrder_Click;
             // 
             // lblDiscountCodeShow
             // 
@@ -421,6 +424,7 @@
             lblSubTotal.Size = new Size(98, 23);
             lblSubTotal.TabIndex = 16;
             lblSubTotal.Text = "13.47 LKR";
+            lblSubTotal.Click += lblSubTotal_Click;
             // 
             // lblSubTotalHead
             // 
@@ -452,7 +456,7 @@
             BackColor = Color.Honeydew;
             ClientSize = new Size(1626, 689);
             Controls.Add(panel5);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(flowLayoutPanalForCartItem);
             Controls.Add(lblShoppingCartSub);
             Controls.Add(lblShoppingCartHeading);
             Controls.Add(panel2);
@@ -489,7 +493,7 @@
         private Button btnNavigateDashboard;
         private Label lblShoppingCartSub;
         private Label lblShoppingCartHeading;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanalForCartItem;
         private Panel panel5;
         private Button btnContinueShopping;
         private Button btnPlaceOrder;

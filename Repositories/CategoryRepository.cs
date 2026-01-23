@@ -15,7 +15,7 @@ namespace GreenLife_Organic_Store.Repositories
 
         public List<Category> getAllCategories()
         {
-            var categories = new List<Category>();
+            List<Category> categories = new List<Category>();
 
             try
             {

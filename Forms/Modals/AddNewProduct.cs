@@ -20,8 +20,8 @@ namespace GreenLife_Organic_Store
         {
             InitializeComponent();
             this.DialogResult = DialogResult.Cancel;
-            LoadCategories();
-            LoadSuppliers();
+            loadCategories();
+            loadSuppliers();
         }
 
         private void btnCustomerRegister_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace GreenLife_Organic_Store
             product.supplierId = Convert.ToInt32(cmbSupplier.SelectedValue);
             product.description = txtDescription.Text;
 
-            var repository = new ProductRepository();
+            ProductRepository repository = new ProductRepository();
 
             if (product.id == 0)
             {
@@ -106,10 +106,10 @@ namespace GreenLife_Organic_Store
             this.DialogResult = DialogResult.OK;
         }
 
-        private void LoadCategories()
+        private void loadCategories()
         {
             var categoryRepo = new CategoryRepository();
-            var categories = categoryRepo.getAllCategories();
+            List<Category> categories = categoryRepo.getAllCategories();
 
             cmbCategory.DataSource = categories;
             cmbCategory.DisplayMember = "categoryName";
@@ -117,10 +117,10 @@ namespace GreenLife_Organic_Store
             cmbCategory.SelectedIndex = -1;
         }
 
-        private void LoadSuppliers()
+        private void loadSuppliers()
         {
             var supplierRepo = new SupplierRepository();
-            var suppliers = supplierRepo.getAllSuppliers();
+            List<Supplier> suppliers = supplierRepo.getAllSuppliers();
 
             cmbSupplier.DataSource = suppliers;
             cmbSupplier.DisplayMember = "supplierName";

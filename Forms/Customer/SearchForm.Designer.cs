@@ -43,11 +43,11 @@
             lblCustomerSearchProductSubHading = new Label();
             lblCustomerSearchProducts = new Label();
             panel3 = new Panel();
+            numericProductMaxPrice = new NumericUpDown();
+            numericProductMinPrice = new NumericUpDown();
             btnFilterProducts = new Button();
             btnSearchProducts = new Button();
             label1 = new Label();
-            txtProductsMaxPrice = new TextBox();
-            txtProductMinPrice = new TextBox();
             label3 = new Label();
             label8 = new Label();
             cmbProductCategory = new ComboBox();
@@ -55,10 +55,13 @@
             label9 = new Label();
             flowLayoutPanalForProducts = new FlowLayoutPanel();
             lblProductCount = new Label();
+            btnRefreshProducts = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericProductMaxPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericProductMinPrice).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -261,11 +264,11 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlLightLight;
+            panel3.Controls.Add(numericProductMaxPrice);
+            panel3.Controls.Add(numericProductMinPrice);
             panel3.Controls.Add(btnFilterProducts);
             panel3.Controls.Add(btnSearchProducts);
             panel3.Controls.Add(label1);
-            panel3.Controls.Add(txtProductsMaxPrice);
-            panel3.Controls.Add(txtProductMinPrice);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(cmbProductCategory);
@@ -275,6 +278,30 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1347, 190);
             panel3.TabIndex = 17;
+            // 
+            // numericProductMaxPrice
+            // 
+            numericProductMaxPrice.BackColor = SystemColors.InactiveBorder;
+            numericProductMaxPrice.BorderStyle = BorderStyle.FixedSingle;
+            numericProductMaxPrice.DecimalPlaces = 2;
+            numericProductMaxPrice.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericProductMaxPrice.Location = new Point(784, 134);
+            numericProductMaxPrice.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numericProductMaxPrice.Name = "numericProductMaxPrice";
+            numericProductMaxPrice.Size = new Size(352, 31);
+            numericProductMaxPrice.TabIndex = 39;
+            // 
+            // numericProductMinPrice
+            // 
+            numericProductMinPrice.BackColor = SystemColors.InactiveBorder;
+            numericProductMinPrice.BorderStyle = BorderStyle.FixedSingle;
+            numericProductMinPrice.DecimalPlaces = 2;
+            numericProductMinPrice.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericProductMinPrice.Location = new Point(396, 134);
+            numericProductMinPrice.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numericProductMinPrice.Name = "numericProductMinPrice";
+            numericProductMinPrice.Size = new Size(352, 31);
+            numericProductMinPrice.TabIndex = 21;
             // 
             // btnFilterProducts
             // 
@@ -292,6 +319,7 @@
             btnFilterProducts.TabIndex = 38;
             btnFilterProducts.Text = "Filter";
             btnFilterProducts.UseVisualStyleBackColor = false;
+            btnFilterProducts.Click += btnFilterProducts_Click;
             // 
             // btnSearchProducts
             // 
@@ -309,6 +337,7 @@
             btnSearchProducts.TabIndex = 37;
             btnSearchProducts.Text = "Search";
             btnSearchProducts.UseVisualStyleBackColor = false;
+            btnSearchProducts.Click += btnSearchProducts_Click;
             // 
             // label1
             // 
@@ -320,26 +349,6 @@
             label1.Size = new Size(147, 23);
             label1.TabIndex = 36;
             label1.Text = "Min Price (LKR)";
-            // 
-            // txtProductsMaxPrice
-            // 
-            txtProductsMaxPrice.BackColor = SystemColors.InactiveBorder;
-            txtProductsMaxPrice.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductsMaxPrice.Location = new Point(787, 134);
-            txtProductsMaxPrice.Name = "txtProductsMaxPrice";
-            txtProductsMaxPrice.PlaceholderText = "100.00";
-            txtProductsMaxPrice.Size = new Size(349, 31);
-            txtProductsMaxPrice.TabIndex = 33;
-            // 
-            // txtProductMinPrice
-            // 
-            txtProductMinPrice.BackColor = SystemColors.InactiveBorder;
-            txtProductMinPrice.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductMinPrice.Location = new Point(405, 134);
-            txtProductMinPrice.Name = "txtProductMinPrice";
-            txtProductMinPrice.PlaceholderText = "0.00";
-            txtProductMinPrice.Size = new Size(349, 31);
-            txtProductMinPrice.TabIndex = 35;
             // 
             // label3
             // 
@@ -417,6 +426,22 @@
             lblProductCount.TabIndex = 19;
             lblProductCount.Text = "8 Products Found";
             // 
+            // btnRefreshProducts
+            // 
+            btnRefreshProducts.BackgroundImage = Properties.Resources.png_clipart_computer_icons_synchronization_refresh_miscellaneous_leaf;
+            btnRefreshProducts.BackgroundImageLayout = ImageLayout.Zoom;
+            btnRefreshProducts.Cursor = Cursors.Hand;
+            btnRefreshProducts.FlatAppearance.BorderColor = Color.Green;
+            btnRefreshProducts.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnRefreshProducts.FlatAppearance.MouseOverBackColor = Color.Green;
+            btnRefreshProducts.FlatStyle = FlatStyle.Popup;
+            btnRefreshProducts.Location = new Point(1537, 142);
+            btnRefreshProducts.Name = "btnRefreshProducts";
+            btnRefreshProducts.Size = new Size(55, 52);
+            btnRefreshProducts.TabIndex = 20;
+            btnRefreshProducts.UseVisualStyleBackColor = true;
+            btnRefreshProducts.Click += btnRefreshProducts_Click;
+            // 
             // frmSearchForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -424,6 +449,7 @@
             AutoScroll = true;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1626, 739);
+            Controls.Add(btnRefreshProducts);
             Controls.Add(lblProductCount);
             Controls.Add(flowLayoutPanalForProducts);
             Controls.Add(panel3);
@@ -444,6 +470,8 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericProductMaxPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericProductMinPrice).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -465,8 +493,6 @@
         private Label lblCustomerSearchProducts;
         private Panel panel3;
         private Label label1;
-        private TextBox txtProductsMaxPrice;
-        private TextBox txtProductMinPrice;
         private Label label3;
         private Label label8;
         private ComboBox cmbProductCategory;
@@ -476,5 +502,8 @@
         private Button btnSearchProducts;
         private FlowLayoutPanel flowLayoutPanalForProducts;
         private Label lblProductCount;
+        private Button btnRefreshProducts;
+        private NumericUpDown numericProductMinPrice;
+        private NumericUpDown numericProductMaxPrice;
     }
 }

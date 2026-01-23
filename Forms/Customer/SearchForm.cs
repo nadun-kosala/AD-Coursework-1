@@ -25,10 +25,32 @@ namespace GreenLife_Organic_Store.Forms.Customer
         {
             flowLayoutPanalForProducts.Controls.Clear();
             flowLayoutPanalForProducts.AutoScroll = true;
+            ToolTip toolTipRefresh = new ToolTip();
+            toolTipRefresh.SetToolTip(
+                btnRefreshProducts,
+                "Refresh products"
+            );
 
             ProductRepository repo = new ProductRepository();
-            var products = repo.getAllProducts();
+            List<Product> products = repo.getAllProducts();
+            loadProducts(products);
+            loadCategories();
 
+        }
+
+        private void loadCategories()
+        {
+            var categoryRepo = new CategoryRepository();
+            List<Category> categories = categoryRepo.getAllCategories();
+
+            cmbProductCategory.DataSource = categories;
+            cmbProductCategory.DisplayMember = "categoryName";
+            cmbProductCategory.ValueMember = "categoryId";
+            cmbProductCategory.SelectedIndex = -1;
+        }
+
+        private void loadProducts(List<Product> products)
+        {
             if (products == null || products.Count == 0)
             {
                 Label lblNoProducts = new Label();
@@ -48,7 +70,6 @@ namespace GreenLife_Organic_Store.Forms.Customer
             }
             var productCount = products.Count;
             lblProductCount.Text = $"{productCount.ToString()} product{(productCount == 1 ? "" : "s")} found";
-
         }
 
         private Panel createProductCard(Product product)
@@ -155,7 +176,21 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
             btnAddToCart.Click += (s, e) =>
             {
-                MessageBox.Show($"{product.productName} added to cart");
+                Cart cart = new Cart();
+                cart.productId = product.id;
+                cart.customerId = getLoggedInCustomer();
+                if(product.stockQuantity >= 1)
+                {
+                    CartRepository cartRepository = new CartRepository();
+                    cartRepository.createCartItem(cart);
+                    MessageBox.Show($"{product.productName} added to cart", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"{product.productName} not available right now", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+           
             };
 
             card.Controls.Add(btnAddToCart);
@@ -163,11 +198,56 @@ namespace GreenLife_Organic_Store.Forms.Customer
             return card;
         }
 
+        private int getLoggedInCustomer()
+        {
+            CustomerRepository customerRepository = new CustomerRepository();
+            var cus =  customerRepository.getCustomerByUserId(_loggedUserId);
+            return cus.customerId;
+        }
+
         private string getStarText(decimal rating)
         {
             int fullStars = (int)Math.Round(rating);
             return new string('★', fullStars) + new string('☆', 5 - fullStars);
         }
+
+        private bool validateProductFilters(out int? categoryId, out decimal? minPrice, out decimal? maxPrice)
+        {
+            categoryId = null;
+            minPrice = null;
+            maxPrice = null;
+
+            if (cmbProductCategory.SelectedIndex != -1)
+            {
+                categoryId = Convert.ToInt32(cmbProductCategory.SelectedValue);
+            }
+
+            decimal min = numericProductMinPrice.Value;
+            decimal max = numericProductMaxPrice.Value;
+
+            if (min == 0 && max == 0)
+                return true;
+
+            if (max > 0 && min > max)
+            {
+                MessageBox.Show(
+                    "Minimum price cannot be greater than maximum price.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+
+            if (min > 0)
+                minPrice = min;
+
+            if (max > 0)
+                maxPrice = max;
+
+            return true;
+        }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -228,6 +308,38 @@ namespace GreenLife_Organic_Store.Forms.Customer
         private void flowLayoutPanalForProducts_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnSearchProducts_Click(object sender, EventArgs e)
+        {
+            if (txtSearchProducts.Text == "")
+            {
+                MessageBox.Show("Please enter a product name to search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string searchTerm = txtSearchProducts.Text.Trim();
+            flowLayoutPanalForProducts.Controls.Clear();
+            flowLayoutPanalForProducts.AutoScroll = true;
+            ProductRepository repo = new ProductRepository();
+            List<Product> products = repo.getAllProductsByName(searchTerm);
+            loadProducts(products);
+        }
+
+        private void btnRefreshProducts_Click(object sender, EventArgs e)
+        {
+            frmSearchForm_Load(sender, e);
+        }
+
+        private void btnFilterProducts_Click(object sender, EventArgs e)
+        {
+            if (!validateProductFilters(out int? categoryId, out decimal? minPrice, out decimal? maxPrice))
+                return;
+
+            flowLayoutPanalForProducts.Controls.Clear();
+            flowLayoutPanalForProducts.AutoScroll = true;
+            ProductRepository repo = new ProductRepository();
+            List<Product> products = repo.getFilteredProducts(categoryId, minPrice, maxPrice);
+            loadProducts(products);
         }
     }
 }
