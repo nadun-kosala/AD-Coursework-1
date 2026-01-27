@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,10 +38,9 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             flowLayoutOrderDetails.Controls.Clear();
 
-            OrderDetailRepository orderDetailRepository = new OrderDetailRepository();
+            IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
             List<OrderDetail> items = orderDetailRepository.getOrderDetailsByOrderId(_orderId);
 
-            // ===== Header =====
             Label lblHeader = new Label
             {
                 Text = "Items",
@@ -54,14 +54,12 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             decimal total = 0m;
 
-            // ===== Item Cards =====
             foreach (var item in items)
             {
                 total += item.subTotal;
                 flowLayoutOrderDetails.Controls.Add(createOrderItemCard(item));
             }
 
-            // ===== Total Row =====
             flowLayoutOrderDetails.Controls.Add(createTotalRow(total));
         }
 
@@ -76,7 +74,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 Margin = new Padding(0, 0, 0, 8)
             };
 
-            // Product Name
             Label lblName = new Label
             {
                 Text = item.productName,
@@ -86,7 +83,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 Location = new Point(10, 8)
             };
 
-            // Quantity
             Label lblQty = new Label
             {
                 Text = $"Quantity: {item.quantity}",
@@ -96,7 +92,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 Location = new Point(10, 30)
             };
 
-            // Sub Total (Right aligned)
             Label lblPrice = new Label
             {
                 Text = $"LKR { item.subTotal.ToString()}",
@@ -105,7 +100,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 AutoSize = true
             };
 
-            // Move price to right
             lblPrice.Location = new Point(card.Width - lblPrice.PreferredWidth - 15, 22);
 
             card.Controls.Add(lblName);
@@ -156,7 +150,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
         private void showOrderMainData()
         {
-            OrderRepository orderRepository = new OrderRepository();
+            IOrderRepository orderRepository = new OrderRepository();
             Order? order = orderRepository.getOrderById(_orderId);
             if (order != null)
             {

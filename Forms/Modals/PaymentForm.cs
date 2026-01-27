@@ -1,4 +1,6 @@
-﻿using GreenLife_Organic_Store.Helpers;
+﻿using GreenLife_Organic_Store.Forms.Customer;
+using GreenLife_Organic_Store.Helpers;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,21 +19,24 @@ namespace GreenLife_Organic_Store.Forms.Modals
         private int _loggedUserId;
         private int _customerId;
         private string _customerAddress;
-        public frmPaymentForm(int userId)
+        private decimal _subTotal;
+        public frmPaymentForm(int userId, decimal subTotal)
         {
             InitializeComponent();
-            this.DialogResult = DialogResult.Cancel;
             _loggedUserId = userId;
+            _subTotal = subTotal;
         }
 
         private void frmPaymentForm_Load(object sender, EventArgs e)
         {
-            CustomerRepository customerRepository = new CustomerRepository();
+            ICustomerRepository customerRepository = new CustomerRepository();
             var cus = customerRepository.getCustomerByUserId(_loggedUserId);
             if (cus != null)
             {
                 _customerId = cus.customerId;
                 _customerAddress = cus.address;
+
+                lblTotalAmountShow.Text = $"LKR {_subTotal:F2}";
             }
             else
             {
@@ -45,6 +50,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+
         }
 
         private void btnPayNow_Click(object sender, EventArgs e)
@@ -65,10 +71,16 @@ namespace GreenLife_Organic_Store.Forms.Modals
             try
             {
                 var payment = new ProcessPayment(_customerId, shippingAddress);
-                payment.Process();
+                payment.process();
 
                 MessageBox.Show("Order placed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.Close();
+                //frmCustomerOrderForm frmOrderDetails = new frmCustomerOrderForm(_loggedUserId);
+                //frmOrderDetails.Show();
+                //frmCartForm frmCartForm = new frmCartForm(_loggedUserId);
+                //frmCartForm.Close();
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {

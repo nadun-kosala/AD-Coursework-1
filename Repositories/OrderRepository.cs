@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GreenLife_Organic_Store.Repositories
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
@@ -239,29 +240,27 @@ namespace GreenLife_Organic_Store.Repositories
                 {
                     con.Open();
 
-                    string query = @"SELECT COUNT(*) FROM orders WHERE customer_id = @id AND order_status NOT IN ('Delivered', 'Cancelled');";
+                    string query = @"SELECT COUNT(*) 
+                                    FROM orders 
+                                    WHERE customer_id = @id 
+                                      AND order_status NOT IN ('Delivered', 'Cancelled');";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@id", customerId);
 
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                return Convert.ToInt32(cmd.ExecuteScalar()); ;
-                            }
-                        }
+                        return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred while retrieving the order: " + ex.ToString());
+                Console.WriteLine("An error occurred while retrieving active order count: " + ex);
             }
 
             return 0;
         }
+
 
         public int createOrder(Order order)
         {
@@ -439,6 +438,114 @@ namespace GreenLife_Organic_Store.Repositories
             }
 
             return 0;
+        }
+
+        public List<Order> getSalesReport(DateTime startDate, DateTime endDate)
+        {
+            var list = new List<Order>();
+
+            using (var con = new MySqlConnection(connectionString))
+            {
+                con.Open();
+
+                string query = @"
+        SELECT 
+            o.order_code,
+            DATE(o.order_date) AS order_date,
+            c.full_name,
+            o.total_amount,
+            o.discount_amount,
+            o.final_amount
+        FROM orders o
+        INNER JOIN customers c ON c.customer_id = o.customer_id
+        WHERE o.order_status = 'Delivered'
+        AND DATE(o.order_date) BETWEEN @startDate AND @endDate
+        ORDER BY o.order_date ASC";
+
+                using (var cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@startDate", startDate.Date);
+                    cmd.Parameters.AddWithValue("@endDate", endDate.Date);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new Order
+                            {
+                                orderCode = reader.GetString("order_code"),
+                                orderDate = reader.GetDateTime("order_date"),
+                                customerName = reader.GetString("full_name"),
+                                totalAmount = reader.GetDecimal("total_amount"),
+                                discountAmount = reader.GetDecimal("discount_amount"),
+                                finalAmount = reader.GetDecimal("final_amount")
+                            });
+                        }
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public List<Order> getOrdersByCustomerIdAndDateRange(int customerId, DateTime startDate, DateTime endDate)
+        {
+            var orders = new List<Order>();
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = @"
+                SELECT 
+                    order_id,
+                    order_code,
+                    order_date,
+                    total_amount,
+                    discount_amount,
+                    final_amount,
+                    order_status,
+                    shipping_address
+                FROM orders
+                WHERE customer_id = @customerId
+                  AND DATE(order_date) BETWEEN @startDate AND @endDate
+                ORDER BY order_date DESC;
+            ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@customerId", customerId);
+                        cmd.Parameters.AddWithValue("@startDate", startDate.Date);
+                        cmd.Parameters.AddWithValue("@endDate", endDate.Date);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                orders.Add(new Order
+                                {
+                                    orderId = reader.GetInt32("order_id"),
+                                    orderCode = reader.GetString("order_code"),
+                                    orderDate = reader.GetDateTime("order_date"),
+                                    totalAmount = reader.GetDecimal("total_amount"),
+                                    discountAmount = reader.GetDecimal("discount_amount"),
+                                    finalAmount = reader.GetDecimal("final_amount"),
+                                    orderStatus = reader.GetString("order_status"),
+                                    shippingAddress = reader.GetString("shipping_address")
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving customer order history: " + ex);
+            }
+
+            return orders;
         }
 
     }

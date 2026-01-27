@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Forms.Admin;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -16,6 +17,7 @@ namespace GreenLife_Organic_Store
     public partial class frmAdminProductFrom : Form
     {
         private int _loggedUserId;
+        private readonly IProductRepository _productRepository = new ProductRepository();
         public frmAdminProductFrom(int userId)
         {
             InitializeComponent();
@@ -38,8 +40,7 @@ namespace GreenLife_Organic_Store
             dataTable.Columns.Add("Stock");
             dataTable.Columns.Add("Description");
 
-            var productRepository = new ProductRepository();
-            var products = productRepository.getAllProducts();
+            var products = _productRepository.getAllProducts();
 
             foreach (var product in products)
             {
@@ -69,8 +70,7 @@ namespace GreenLife_Organic_Store
 
             var searchTerm = txtProductSearch.Text.Trim();
 
-            var productRepository = new ProductRepository();
-            var products = productRepository.getAllProductsByName(searchTerm);
+            var products = _productRepository.getAllProductsByName(searchTerm);
 
             foreach (var product in products)
             {
@@ -104,8 +104,7 @@ namespace GreenLife_Organic_Store
 
             int productId = int.Parse(val);
 
-            var repository = new ProductRepository();
-            var product = repository.getProductById(productId);
+            var product = _productRepository.getProductById(productId);
 
             if (product == null) return;
 
@@ -131,8 +130,7 @@ namespace GreenLife_Organic_Store
                 return;
             }
 
-            var repository = new ProductRepository();
-            repository.deleteProduct(productId);
+            _productRepository.deleteProduct(productId);
 
             readProducts();
 
@@ -191,7 +189,7 @@ namespace GreenLife_Organic_Store
 
         private void btnAdminLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             var user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "admin")
             {

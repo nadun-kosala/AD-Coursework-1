@@ -45,7 +45,10 @@
             btnAddProduct = new Button();
             numericStockQuantity = new NumericUpDown();
             cmbSupplier = new ComboBox();
+            numericLowStockThreshold = new NumericUpDown();
+            lblLowStockThreshold = new Label();
             ((System.ComponentModel.ISupportInitialize)numericStockQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericLowStockThreshold).BeginInit();
             SuspendLayout();
             // 
             // lblSubHeading
@@ -76,7 +79,7 @@
             lblCusRegEmail.AutoSize = true;
             lblCusRegEmail.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCusRegEmail.ForeColor = SystemColors.ControlText;
-            lblCusRegEmail.Location = new Point(387, 112);
+            lblCusRegEmail.Location = new Point(387, 94);
             lblCusRegEmail.Name = "lblCusRegEmail";
             lblCusRegEmail.Size = new Size(104, 23);
             lblCusRegEmail.TabIndex = 16;
@@ -87,7 +90,7 @@
             txtProductName.BackColor = SystemColors.InactiveBorder;
             txtProductName.BorderStyle = BorderStyle.FixedSingle;
             txtProductName.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductName.Location = new Point(12, 148);
+            txtProductName.Location = new Point(12, 130);
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(320, 31);
             txtProductName.TabIndex = 15;
@@ -97,7 +100,7 @@
             lblProductName.AutoSize = true;
             lblProductName.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProductName.ForeColor = SystemColors.ControlText;
-            lblProductName.Location = new Point(12, 112);
+            lblProductName.Location = new Point(12, 94);
             lblProductName.Name = "lblProductName";
             lblProductName.Size = new Size(153, 23);
             lblProductName.TabIndex = 14;
@@ -110,7 +113,7 @@
             cmbCategory.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Items.AddRange(new object[] { "Fruits", "Vegitable", "Grains", "Dairy", "Dairy Alternatives", "Sweeteners" });
-            cmbCategory.Location = new Point(387, 148);
+            cmbCategory.Location = new Point(387, 130);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(320, 31);
             cmbCategory.TabIndex = 22;
@@ -121,7 +124,7 @@
             txtPrice.BackColor = SystemColors.InactiveBorder;
             txtPrice.BorderStyle = BorderStyle.FixedSingle;
             txtPrice.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPrice.Location = new Point(12, 245);
+            txtPrice.Location = new Point(12, 215);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(320, 31);
             txtPrice.TabIndex = 24;
@@ -131,7 +134,7 @@
             lblPrice.AutoSize = true;
             lblPrice.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPrice.ForeColor = SystemColors.ControlText;
-            lblPrice.Location = new Point(12, 209);
+            lblPrice.Location = new Point(12, 179);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(128, 23);
             lblPrice.TabIndex = 23;
@@ -142,18 +145,18 @@
             lblStockQuantity.AutoSize = true;
             lblStockQuantity.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblStockQuantity.ForeColor = SystemColors.ControlText;
-            lblStockQuantity.Location = new Point(387, 209);
+            lblStockQuantity.Location = new Point(387, 179);
             lblStockQuantity.Name = "lblStockQuantity";
-            lblStockQuantity.Size = new Size(156, 23);
+            lblStockQuantity.Size = new Size(143, 23);
             lblStockQuantity.TabIndex = 25;
-            lblStockQuantity.Text = "Stock Quantity *";
+            lblStockQuantity.Text = "Stock Quantity";
             // 
             // lblSupplier
             // 
             lblSupplier.AutoSize = true;
             lblSupplier.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSupplier.ForeColor = SystemColors.ControlText;
-            lblSupplier.Location = new Point(12, 302);
+            lblSupplier.Location = new Point(12, 277);
             lblSupplier.Name = "lblSupplier";
             lblSupplier.Size = new Size(101, 23);
             lblSupplier.TabIndex = 27;
@@ -164,7 +167,7 @@
             txtDescription.BackColor = SystemColors.InactiveBorder;
             txtDescription.BorderStyle = BorderStyle.FixedSingle;
             txtDescription.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDescription.Location = new Point(12, 430);
+            txtDescription.Location = new Point(12, 417);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(695, 31);
             txtDescription.TabIndex = 30;
@@ -174,7 +177,7 @@
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDescription.ForeColor = SystemColors.ControlText;
-            lblDescription.Location = new Point(12, 394);
+            lblDescription.Location = new Point(12, 381);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(116, 23);
             lblDescription.TabIndex = 29;
@@ -219,7 +222,7 @@
             numericStockQuantity.BackColor = SystemColors.InactiveBorder;
             numericStockQuantity.BorderStyle = BorderStyle.FixedSingle;
             numericStockQuantity.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericStockQuantity.Location = new Point(387, 245);
+            numericStockQuantity.Location = new Point(387, 215);
             numericStockQuantity.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericStockQuantity.Name = "numericStockQuantity";
             numericStockQuantity.Size = new Size(320, 31);
@@ -231,10 +234,32 @@
             cmbSupplier.BackColor = SystemColors.InactiveBorder;
             cmbSupplier.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbSupplier.FormattingEnabled = true;
-            cmbSupplier.Location = new Point(14, 343);
+            cmbSupplier.Location = new Point(12, 320);
             cmbSupplier.Name = "cmbSupplier";
-            cmbSupplier.Size = new Size(693, 31);
+            cmbSupplier.Size = new Size(320, 31);
             cmbSupplier.TabIndex = 34;
+            // 
+            // numericLowStockThreshold
+            // 
+            numericLowStockThreshold.BackColor = SystemColors.InactiveBorder;
+            numericLowStockThreshold.BorderStyle = BorderStyle.FixedSingle;
+            numericLowStockThreshold.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericLowStockThreshold.Location = new Point(387, 320);
+            numericLowStockThreshold.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericLowStockThreshold.Name = "numericLowStockThreshold";
+            numericLowStockThreshold.Size = new Size(320, 31);
+            numericLowStockThreshold.TabIndex = 36;
+            // 
+            // lblLowStockThreshold
+            // 
+            lblLowStockThreshold.AutoSize = true;
+            lblLowStockThreshold.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLowStockThreshold.ForeColor = SystemColors.ControlText;
+            lblLowStockThreshold.Location = new Point(387, 277);
+            lblLowStockThreshold.Name = "lblLowStockThreshold";
+            lblLowStockThreshold.Size = new Size(200, 23);
+            lblLowStockThreshold.TabIndex = 35;
+            lblLowStockThreshold.Text = "Low Stock Threshold";
             // 
             // frmAddNewProduct
             // 
@@ -243,6 +268,8 @@
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(735, 562);
+            Controls.Add(numericLowStockThreshold);
+            Controls.Add(lblLowStockThreshold);
             Controls.Add(cmbSupplier);
             Controls.Add(numericStockQuantity);
             Controls.Add(btnProductCancel);
@@ -267,6 +294,7 @@
             Text = "Add New Product";
             Load += frmAddNewProduct_Load;
             ((System.ComponentModel.ISupportInitialize)numericStockQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericLowStockThreshold).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -290,5 +318,7 @@
         private Button btnAddProduct;
         private NumericUpDown numericStockQuantity;
         private ComboBox cmbSupplier;
+        private NumericUpDown numericLowStockThreshold;
+        private Label lblLowStockThreshold;
     }
 }

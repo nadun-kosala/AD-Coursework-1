@@ -505,11 +505,14 @@
             // 
             // flowLayoutPanelLowStock
             // 
+            flowLayoutPanelLowStock.AutoScroll = true;
             flowLayoutPanelLowStock.BackColor = SystemColors.ControlLightLight;
+            flowLayoutPanelLowStock.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanelLowStock.Location = new Point(312, 463);
             flowLayoutPanelLowStock.Name = "flowLayoutPanelLowStock";
             flowLayoutPanelLowStock.Size = new Size(1149, 318);
             flowLayoutPanelLowStock.TabIndex = 19;
+            flowLayoutPanelLowStock.WrapContents = false;
             flowLayoutPanelLowStock.Paint += flowLayoutPanelLowStock_Paint;
             // 
             // frmAdminDashboardForm

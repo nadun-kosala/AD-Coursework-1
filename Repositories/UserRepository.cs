@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GreenLife_Organic_Store.Repositories
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
@@ -59,7 +60,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = @"SELECT username, user_type, is_active
+                    string query = @"SELECT username, password, user_type, is_active
                                      FROM users 
                                      WHERE user_id = @userId
                                      LIMIT 1";
@@ -72,6 +73,7 @@ namespace GreenLife_Organic_Store.Repositories
                             {
                                 User user = new User();
                                 user.username = reader.GetString("username");
+                                user.password = reader.GetString("password");
                                 user.userType = reader.GetString("user_type");
                                 user.isActive = reader.GetBoolean("is_active");
                                 return user;
@@ -121,6 +123,33 @@ namespace GreenLife_Organic_Store.Repositories
                 Console.WriteLine("An error occurred while creating the user: " + ex.ToString());
             }
             return 0;
+        }
+
+        public bool updateUserPassword(int userId, string newPassword)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = @"
+                UPDATE users 
+                SET password = @password
+                WHERE user_id = @userId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@password", newPassword);
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while updating the user password: " + ex.ToString());
+            }
+            return false;
         }
 
     }

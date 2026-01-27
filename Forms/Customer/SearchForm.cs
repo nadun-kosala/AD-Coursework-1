@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,12 @@ namespace GreenLife_Organic_Store.Forms.Customer
     public partial class frmSearchForm : Form
     {
         private int _loggedUserId;
+        private readonly ProductRepository _productRepository;
         public frmSearchForm(int userId)
         {
             InitializeComponent();
             _loggedUserId = userId;
+            _productRepository = new ProductRepository();
         }
 
         private void frmSearchForm_Load(object sender, EventArgs e)
@@ -31,8 +34,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 "Refresh products"
             );
 
-            ProductRepository repo = new ProductRepository();
-            List<Product> products = repo.getAllProducts();
+            List<Product> products = _productRepository.getAllProducts();
             loadProducts(products);
             loadCategories();
 
@@ -40,7 +42,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void loadCategories()
         {
-            var categoryRepo = new CategoryRepository();
+            ICategoryRepository categoryRepo = new CategoryRepository();
             List<Category> categories = categoryRepo.getAllCategories();
 
             cmbProductCategory.DataSource = categories;
@@ -155,7 +157,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
             Label lblStock = new Label();
             lblStock.Text = $"Stock: {product.stockQuantity}";
             lblStock.Font = new Font("Segoe UI", 8);
-            lblStock.ForeColor = product.stockQuantity >= 10 ? Color.Black : Color.Red;
+            lblStock.ForeColor = product.stockQuantity >= product.lowStockThreshold ? Color.Black : Color.Red;
             lblStock.Left = 15;
             lblStock.Top = y;
             lblStock.AutoSize = true;
@@ -181,7 +183,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 cart.customerId = getLoggedInCustomer();
                 if(product.stockQuantity >= 1)
                 {
-                    CartRepository cartRepository = new CartRepository();
+                    ICartRepository cartRepository = new CartRepository();
                     cartRepository.createCartItem(cart);
                     MessageBox.Show($"{product.productName} added to cart", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -200,7 +202,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private int getLoggedInCustomer()
         {
-            CustomerRepository customerRepository = new CustomerRepository();
+            ICustomerRepository customerRepository = new CustomerRepository();
             var cus =  customerRepository.getCustomerByUserId(_loggedUserId);
             return cus.customerId;
         }
@@ -291,7 +293,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void btnCustomerLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             User? user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "customer")
             {
@@ -320,8 +322,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
             string searchTerm = txtSearchProducts.Text.Trim();
             flowLayoutPanalForProducts.Controls.Clear();
             flowLayoutPanalForProducts.AutoScroll = true;
-            ProductRepository repo = new ProductRepository();
-            List<Product> products = repo.getAllProductsByName(searchTerm);
+            List<Product> products = _productRepository.getAllProductsByName(searchTerm);
             loadProducts(products);
         }
 
@@ -337,8 +338,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
             flowLayoutPanalForProducts.Controls.Clear();
             flowLayoutPanalForProducts.AutoScroll = true;
-            ProductRepository repo = new ProductRepository();
-            List<Product> products = repo.getFilteredProducts(categoryId, minPrice, maxPrice);
+            List<Product> products = _productRepository.getFilteredProducts(categoryId, minPrice, maxPrice);
             loadProducts(products);
         }
     }

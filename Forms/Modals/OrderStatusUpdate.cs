@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             try
             {
-                var repository = new OrderRepository();
+                IOrderRepository repository = new OrderRepository();
                 repository.updateOrderStatus(order);
 
                 MessageBox.Show(

@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using MySql.Data.MySqlClient;
 using System;
@@ -48,6 +49,7 @@ namespace GreenLife_Organic_Store
             this.txtPrice.Text = product.price.ToString();
             this.numericStockQuantity.Value = product.stockQuantity;
             this.cmbSupplier.Text = product.supplierName;
+            this.numericLowStockThreshold.Value = product.lowStockThreshold;
             this.txtDescription.Text = product.description;
 
             this.id = product.id;
@@ -88,11 +90,12 @@ namespace GreenLife_Organic_Store
             product.productName = txtProductName.Text;
             product.categoryId = Convert.ToInt32(cmbCategory.SelectedValue);
             product.price = decimal.Parse(txtPrice.Text);
-            product.stockQuantity = (int)numericStockQuantity.Value;
+            product.stockQuantity = Convert.ToInt32(numericStockQuantity.Value);
             product.supplierId = Convert.ToInt32(cmbSupplier.SelectedValue);
+            product.lowStockThreshold = Convert.ToInt32(numericLowStockThreshold.Value);
             product.description = txtDescription.Text;
 
-            ProductRepository repository = new ProductRepository();
+            IProductRepository repository = new ProductRepository();
 
             if (product.id == 0)
             {
@@ -108,7 +111,7 @@ namespace GreenLife_Organic_Store
 
         private void loadCategories()
         {
-            var categoryRepo = new CategoryRepository();
+            ICategoryRepository categoryRepo = new CategoryRepository();
             List<Category> categories = categoryRepo.getAllCategories();
 
             cmbCategory.DataSource = categories;
@@ -119,7 +122,7 @@ namespace GreenLife_Organic_Store
 
         private void loadSuppliers()
         {
-            var supplierRepo = new SupplierRepository();
+            ISupplierRepository supplierRepo = new SupplierRepository();
             List<Supplier> suppliers = supplierRepo.getAllSuppliers();
 
             cmbSupplier.DataSource = suppliers;

@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GreenLife_Organic_Store.Repositories
 {
-    public class SupplierRepository
+    public class SupplierRepository : ISupplierRepository
     {
         private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
         public List<Supplier> getAllSuppliers()

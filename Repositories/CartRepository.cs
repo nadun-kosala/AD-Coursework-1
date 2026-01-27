@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GreenLife_Organic_Store.Repositories
 {
-    public class CartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 

@@ -1,4 +1,6 @@
-﻿using GreenLife_Organic_Store.Repositories;
+﻿using GreenLife_Organic_Store.Controllers;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
+using GreenLife_Organic_Store.Repositories;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -74,7 +76,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void btnAdminLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             var user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "admin")
             {
@@ -86,6 +88,17 @@ namespace GreenLife_Organic_Store.Forms.Admin
             {
                 MessageBox.Show("Error logging out. Admin not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            string reportType = cmbReportType.Text;
+            DateTime startDate = dtStartDate.Value;
+            DateTime endDate = dtEndDate.Value;
+
+
+            ReportController reportController = new ReportController();
+            reportController.generateSalesReport(reportType, startDate, endDate);
         }
     }
 }

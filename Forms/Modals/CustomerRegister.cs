@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Forms.Customer;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ namespace GreenLife_Organic_Store
 
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(plainPassword);
 
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
 
             var isUsernameTaken = userRepository.getUser(txtCusRegUsername.Text);
             if (isUsernameTaken != null)
@@ -96,7 +97,7 @@ namespace GreenLife_Organic_Store
             customer.address = txtCusRegAddress.Text;
             customer.userId = userId;
 
-            CustomerRepository repository = new CustomerRepository();
+            ICustomerRepository repository = new CustomerRepository();
             repository.createCustomer(customer);
 
             MessageBox.Show("Registration Successful! You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

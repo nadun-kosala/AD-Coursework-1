@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Repositories;
+﻿using GreenLife_Organic_Store.RepoistoryInterfaces;
+using GreenLife_Organic_Store.Repositories;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
     public partial class frmAdminCustomerForm : Form
     {
         private int _loggedUserId;
+        private readonly ICustomerRepository _customerRepository = new CustomerRepository();
         public frmAdminCustomerForm(int userId)
         {
             InitializeComponent();
@@ -36,8 +38,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
             dataTable.Columns.Add("Phone Number");
             dataTable.Columns.Add("Address");
 
-            var customerRepository = new CustomerRepository();
-            var customers = customerRepository.getAllCustomers();
+            var customers = _customerRepository.getAllCustomers();
 
             foreach (var customer in customers)
             {
@@ -65,8 +66,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
             var searchTerm = txtCustomerSearch.Text.Trim();
 
-            var customerRepository = new CustomerRepository();
-            var customers = customerRepository.getAllCustomersByNameOrEmail(searchTerm);
+            var customers = _customerRepository.getAllCustomersByNameOrEmail(searchTerm);
 
             foreach (var customer in customers)
             {
@@ -135,8 +135,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
             int customerId = int.Parse(val);
 
-            var repository = new CustomerRepository();
-            var customer = repository.getCustomerById(customerId);
+            var customer = _customerRepository.getCustomerById(customerId);
 
             if (customer == null) return;
 
@@ -161,8 +160,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
                 return;
             }
 
-            var repository = new CustomerRepository();
-            repository.deleteCustomer(customerId);
+            _customerRepository.deleteCustomer(customerId);
 
             readCustomers();
 
@@ -170,7 +168,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void btnAdminLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             var user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "admin")
             {

@@ -49,7 +49,7 @@
             lblProfileAddress = new Label();
             lblProfilePhoneNumber = new Label();
             lblProfileEmail = new Label();
-            lblProfilEmail = new Label();
+            lblProfileEmailHead = new Label();
             pictureBox7 = new PictureBox();
             lblProfileName = new Label();
             panel7 = new Panel();
@@ -63,7 +63,7 @@
             lblChangePasswordSub = new Label();
             lblChangePassword = new Label();
             panel6 = new Panel();
-            button2 = new Button();
+            btnEditProfile = new Button();
             txtProfileAddress = new TextBox();
             lblCusRegAddress = new Label();
             txtProfilePhone = new TextBox();
@@ -293,7 +293,7 @@
             panel4.Controls.Add(lblProfileAddress);
             panel4.Controls.Add(lblProfilePhoneNumber);
             panel4.Controls.Add(lblProfileEmail);
-            panel4.Controls.Add(lblProfilEmail);
+            panel4.Controls.Add(lblProfileEmailHead);
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(lblProfileName);
             panel4.Location = new Point(277, 226);
@@ -368,17 +368,17 @@
             lblProfileEmail.Text = "emily.j@email.com";
             lblProfileEmail.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblProfilEmail
+            // lblProfileEmailHead
             // 
-            lblProfilEmail.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblProfilEmail.ForeColor = SystemColors.ControlDark;
-            lblProfilEmail.Location = new Point(3, 236);
-            lblProfilEmail.Name = "lblProfilEmail";
-            lblProfilEmail.Size = new Size(362, 30);
-            lblProfilEmail.TabIndex = 20;
-            lblProfilEmail.Text = "emily.j@email.com";
-            lblProfilEmail.TextAlign = ContentAlignment.MiddleCenter;
-            lblProfilEmail.Click += lblProfilEmail_Click;
+            lblProfileEmailHead.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProfileEmailHead.ForeColor = SystemColors.ControlDark;
+            lblProfileEmailHead.Location = new Point(3, 236);
+            lblProfileEmailHead.Name = "lblProfileEmailHead";
+            lblProfileEmailHead.Size = new Size(362, 30);
+            lblProfileEmailHead.TabIndex = 20;
+            lblProfileEmailHead.Text = "emily.j@email.com";
+            lblProfileEmailHead.TextAlign = ContentAlignment.MiddleCenter;
+            lblProfileEmailHead.Click += lblProfilEmail_Click;
             // 
             // pictureBox7
             // 
@@ -446,7 +446,6 @@
             txtConfirmNewPassword.Location = new Point(18, 326);
             txtConfirmNewPassword.Name = "txtConfirmNewPassword";
             txtConfirmNewPassword.PasswordChar = '*';
-            txtConfirmNewPassword.ReadOnly = true;
             txtConfirmNewPassword.Size = new Size(813, 31);
             txtConfirmNewPassword.TabIndex = 35;
             // 
@@ -469,7 +468,6 @@
             txtNewPassword.Location = new Point(18, 226);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PasswordChar = '*';
-            txtNewPassword.ReadOnly = true;
             txtNewPassword.Size = new Size(813, 31);
             txtNewPassword.TabIndex = 33;
             // 
@@ -492,7 +490,6 @@
             txtCurrentPassword.Location = new Point(18, 135);
             txtCurrentPassword.Name = "txtCurrentPassword";
             txtCurrentPassword.PasswordChar = '*';
-            txtCurrentPassword.ReadOnly = true;
             txtCurrentPassword.Size = new Size(813, 31);
             txtCurrentPassword.TabIndex = 31;
             // 
@@ -532,7 +529,7 @@
             // panel6
             // 
             panel6.BackColor = SystemColors.ControlLightLight;
-            panel6.Controls.Add(button2);
+            panel6.Controls.Add(btnEditProfile);
             panel6.Controls.Add(txtProfileAddress);
             panel6.Controls.Add(lblCusRegAddress);
             panel6.Controls.Add(txtProfilePhone);
@@ -548,23 +545,24 @@
             panel6.Size = new Size(893, 397);
             panel6.TabIndex = 22;
             // 
-            // button2
+            // btnEditProfile
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.AutoSize = true;
-            button2.BackColor = SystemColors.ControlLightLight;
-            button2.FlatAppearance.BorderColor = Color.LimeGreen;
-            button2.FlatAppearance.MouseDownBackColor = Color.Ivory;
-            button2.FlatAppearance.MouseOverBackColor = Color.Honeydew;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.LimeGreen;
-            button2.Location = new Point(717, 23);
-            button2.Name = "button2";
-            button2.Size = new Size(143, 44);
-            button2.TabIndex = 30;
-            button2.Text = "Edit Profile";
-            button2.UseVisualStyleBackColor = false;
+            btnEditProfile.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditProfile.AutoSize = true;
+            btnEditProfile.BackColor = SystemColors.ControlLightLight;
+            btnEditProfile.FlatAppearance.BorderColor = Color.LimeGreen;
+            btnEditProfile.FlatAppearance.MouseDownBackColor = Color.Ivory;
+            btnEditProfile.FlatAppearance.MouseOverBackColor = Color.Honeydew;
+            btnEditProfile.FlatStyle = FlatStyle.Flat;
+            btnEditProfile.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditProfile.ForeColor = Color.LimeGreen;
+            btnEditProfile.Location = new Point(717, 23);
+            btnEditProfile.Name = "btnEditProfile";
+            btnEditProfile.Size = new Size(143, 44);
+            btnEditProfile.TabIndex = 30;
+            btnEditProfile.Text = "Edit Profile";
+            btnEditProfile.UseVisualStyleBackColor = false;
+            btnEditProfile.Click += btnEditProfile_Click;
             // 
             // txtProfileAddress
             // 
@@ -740,7 +738,7 @@
         private Label lblProfileAddress;
         private Label lblProfilePhoneNumber;
         private Label lblProfileEmail;
-        private Label lblProfilEmail;
+        private Label lblProfileEmailHead;
         private PictureBox pictureBox7;
         private Label lblProfileName;
         private Panel panel7;
@@ -764,6 +762,6 @@
         private Label lblCusRegFullName;
         private Label lblProfileInformationSub;
         private Label lblProfileInformation;
-        private Button button2;
+        private Button btnEditProfile;
     }
 }

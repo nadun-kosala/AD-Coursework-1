@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GreenLife_Organic_Store.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly string connectionString = ConfigurationHelper.GetConnectionString("MyAppConnection");
 
@@ -22,7 +23,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, p.average_rating, p.total_reviews, c.category_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id";
+                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, p.average_rating, p.total_reviews, p.low_stock_threshold, c.category_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -38,6 +39,7 @@ namespace GreenLife_Organic_Store.Repositories
                                     product.stockQuantity = reader.GetInt32("stock_quantity");
                                     product.avarageRating = reader.GetDecimal("average_rating");
                                     product.totalReviews = reader.GetInt32("total_reviews");
+                                    product.lowStockThreshold = reader.GetInt32("low_stock_threshold");
                                     product.description = reader.GetString("description");
                                     products.Add(product);
                                 }
@@ -69,6 +71,7 @@ namespace GreenLife_Organic_Store.Repositories
                     p.product_name,
                     p.price,
                     p.stock_quantity,
+                    p.low_stock_threshold,
                     p.description,
                     p.average_rating,
                     p.total_reviews,
@@ -95,6 +98,7 @@ namespace GreenLife_Organic_Store.Repositories
                                     product.stockQuantity = reader.GetInt32("stock_quantity");
                                     product.avarageRating = reader.GetDecimal("average_rating");
                                     product.totalReviews = reader.GetInt32("total_reviews");
+                                    product.lowStockThreshold = reader.GetInt32("low_stock_threshold");
                                     product.description = reader.GetString("description");
                                     products.Add(product);
                                 }
@@ -232,7 +236,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, c.category_name, s.supplier_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN suppliers s ON p.supplier_id = s.supplier_id WHERE p.product_id = @id";
+                    string query = "SELECT p.product_id, p.product_name, p.price, p.stock_quantity, p.description, p.low_stock_threshold, c.category_name, s.supplier_name FROM products p INNER JOIN categories c ON p.category_id = c.category_id INNER JOIN suppliers s ON p.supplier_id = s.supplier_id WHERE p.product_id = @id";
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
@@ -247,6 +251,7 @@ namespace GreenLife_Organic_Store.Repositories
                                 product.price = reader.GetDecimal("price");
                                 product.stockQuantity = reader.GetInt32("stock_quantity");
                                 product.supplierName = reader.GetString("supplier_name");
+                                product.lowStockThreshold = reader.GetInt32("low_stock_threshold");
                                 product.description = reader.GetString("description");
                                 return product;
                             }
@@ -273,7 +278,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "INSERT INTO products (product_name, category_id, price, stock_quantity, supplier_id, description) VALUES (@productName, @categoryId, @price, @stockQuantity, @supplierId, @description)";
+                    string query = "INSERT INTO products (product_name, category_id, price, stock_quantity, supplier_id, low_stock_threshold, description) VALUES (@productName, @categoryId, @price, @stockQuantity, @supplierId, @lowStockThreshold, @description)";
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@productName", product.productName);
@@ -281,6 +286,7 @@ namespace GreenLife_Organic_Store.Repositories
                         cmd.Parameters.AddWithValue("@price", product.price);
                         cmd.Parameters.AddWithValue("@stockQuantity", product.stockQuantity);
                         cmd.Parameters.AddWithValue("@supplierId", product.supplierId);
+                        cmd.Parameters.AddWithValue("@lowStockThreshold", product.lowStockThreshold);
                         cmd.Parameters.AddWithValue("@description", product.description);
                         cmd.ExecuteNonQuery();
                     }
@@ -301,7 +307,7 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "UPDATE products SET product_name = @productName, category_id = @categoryId, price = @price, stock_quantity = @stockQuantity, supplier_id = @supplierId, description = @description WHERE product_id = @id";
+                    string query = "UPDATE products SET product_name = @productName, category_id = @categoryId, price = @price, stock_quantity = @stockQuantity, supplier_id = @supplierId, low_stock_threshold = @lowStockThreshold, description = @description WHERE product_id = @id";
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@productName", product.productName);
@@ -309,6 +315,7 @@ namespace GreenLife_Organic_Store.Repositories
                         cmd.Parameters.AddWithValue("@price", product.price);
                         cmd.Parameters.AddWithValue("@stockQuantity", product.stockQuantity);
                         cmd.Parameters.AddWithValue("@supplierId", product.supplierId);
+                        cmd.Parameters.AddWithValue("@lowStockThreshold", product.lowStockThreshold);
                         cmd.Parameters.AddWithValue("@description", product.description);
                         cmd.Parameters.AddWithValue("@id", product.id);
                         cmd.ExecuteNonQuery();
@@ -406,15 +413,16 @@ namespace GreenLife_Organic_Store.Repositories
                     con.Open();
 
                     string query = @"
-                SELECT 
+               SELECT 
                     p.product_id,
                     p.product_name,
                     c.category_name,
-                    p.stock_quantity
+                    p.stock_quantity,
+                    p.low_stock_threshold
                 FROM products p
                 INNER JOIN categories c ON p.category_id = c.category_id
-                WHERE p.stock_quantity < 10
-                ORDER BY p.stock_quantity ASC";
+                WHERE p.stock_quantity < p.low_stock_threshold
+                ORDER BY p.stock_quantity ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {

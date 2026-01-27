@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Forms.Customer;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
             try
             {
-                UserRepository userRepository = new UserRepository();
+                IUserRepository userRepository = new UserRepository();
                 var user = userRepository.getUser(inputUsername);
 
                 if (user != null && user.userType == "admin" && user.isActive && validatePassword(inputPassword, user.password))

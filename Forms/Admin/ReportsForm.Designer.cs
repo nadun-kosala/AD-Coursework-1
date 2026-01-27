@@ -285,6 +285,7 @@
             btnGenerateReport.TabIndex = 22;
             btnGenerateReport.Text = "Generate Report";
             btnGenerateReport.UseVisualStyleBackColor = false;
+            btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // lblEndDate
             // 

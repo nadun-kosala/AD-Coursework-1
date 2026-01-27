@@ -13,11 +13,18 @@ namespace GreenLife_Organic_Store.Helpers
 
         static ConfigurationHelper()
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            try
+            {
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-            _configuration = builder.Build();
+                _configuration = builder.Build();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading configuration: {ex.Message}");
+            }
         }
 
         public static string GetConnectionString(string name)

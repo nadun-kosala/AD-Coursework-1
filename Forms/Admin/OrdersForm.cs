@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Forms.Modals;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -17,6 +18,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
     public partial class frmAdminOrdersForm : Form
     {
         private int _loggedUserId;
+        private readonly IOrderRepository _orderRepository = new OrderRepository();
         public frmAdminOrdersForm(int userId)
         {
             InitializeComponent();
@@ -37,9 +39,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
             dataTable.Columns.Add("Status");
             dataTable.Columns.Add("Shipping Address");
 
-
-            var orderRepository = new OrderRepository();
-            var orders = orderRepository.getAllOrders();
+            var orders = _orderRepository.getAllOrders();
 
             foreach (var order in orders)
             {
@@ -74,8 +74,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
             dataTable.Columns.Add("Shipping Address");
 
             var searchTerm = txtOrderSearch.Text.Trim();
-            var orderRepository = new OrderRepository();
-            var orders = orderRepository.getAllOrderByOrderCode(searchTerm);
+            var orders = _orderRepository.getAllOrderByOrderCode(searchTerm);
 
             foreach (var order in orders)
             {
@@ -155,8 +154,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
             int orderId = int.Parse(val);
 
-            var repository = new OrderRepository();
-            var order = repository.getOrderById(orderId);
+            var order = _orderRepository.getOrderById(orderId);
 
             if (order == null) return;
 
@@ -170,7 +168,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void btnAdminLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             var user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "admin")
             {

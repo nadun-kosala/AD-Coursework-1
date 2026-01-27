@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Forms.Modals;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,13 @@ namespace GreenLife_Organic_Store.Forms.Customer
     {
 
         private int _loggedUserId;
-        CartRepository cartRepository = new CartRepository();
+        private readonly ICartRepository _cartRepository;
         private decimal _subTotal = 0m;
         public frmCartForm(int userId)
         {
             InitializeComponent();
             _loggedUserId = userId;
+            _cartRepository = new CartRepository();
 
         }
 
@@ -50,14 +52,14 @@ namespace GreenLife_Organic_Store.Forms.Customer
         }
         private GreenLife_Organic_Store.Models.Customer? getLoggedInCustomer()
         {
-            CustomerRepository customerRepository = new CustomerRepository();
+            ICustomerRepository customerRepository = new CustomerRepository();
             return customerRepository.getCustomerByUserId(_loggedUserId);
         }
 
         private void loadCartItems(int customerId)
         {
             flowLayoutPanalForCartItem.Controls.Clear();
-            List<Cart> cartItems = cartRepository.getCartProductsByCustomer(customerId);
+            List<Cart> cartItems = _cartRepository.getCartProductsByCustomer(customerId);
             showTotalCountOfCartItem(cartItems.Count());
 
             if (cartItems.Count == 0)
@@ -189,7 +191,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 lblQty.Text = item.cartQuantity.ToString();
                 lblTotal.Text = $"LKR {item.price * item.cartQuantity:0.00}";
 
-                cartRepository.updateCartQuantity(item.cartId, item.cartQuantity);
+                _cartRepository.updateCartQuantity(item.cartId, item.cartQuantity);
 
                 _subTotal += item.price;
                 updateTotals();
@@ -204,7 +206,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 lblQty.Text = item.cartQuantity.ToString();
                 lblTotal.Text = $"LKR {item.price * item.cartQuantity:0.00}";
 
-                cartRepository.updateCartQuantity(item.cartId, item.cartQuantity);
+                _cartRepository.updateCartQuantity(item.cartId, item.cartQuantity);
 
                 _subTotal -= item.price;
                 updateTotals();
@@ -222,7 +224,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 {
                     _subTotal -= item.price * item.cartQuantity;
 
-                    cartRepository.deleteCartItem(item.cartId);
+                    _cartRepository.deleteCartItem(item.cartId);
 
                     flowLayoutPanalForCartItem.Controls.Remove(card);
 
@@ -342,7 +344,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void btnCustomerLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             User? user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "customer")
             {
@@ -370,15 +372,24 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            frmPaymentForm frm = new frmPaymentForm(_loggedUserId);
-            frm.Show();
+            btnPlaceOrder.Enabled = false;
 
-            if (frm.DialogResult == DialogResult.OK)
+            using (frmPaymentForm frm = new frmPaymentForm(_loggedUserId, _subTotal))
             {
-               frmCustomerOrderForm orderFrm = new frmCustomerOrderForm(_loggedUserId);
-               orderFrm.Show();
-               this.Hide();
+                var result = frm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    frmCustomerOrderForm frmCustomerOrder = new frmCustomerOrderForm(_loggedUserId);
+                    frmCustomerOrder.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    btnPlaceOrder.Enabled = true;
+                }
             }
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -44,12 +45,12 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private GreenLife_Organic_Store.Models.Customer? getLoggedInCustomer()
         {
-            CustomerRepository customerRepository = new CustomerRepository();
+            ICustomerRepository customerRepository = new CustomerRepository();
             return customerRepository.getCustomerByUserId(_loggedUserId);
         }
         private void updateCartItemCount(int customerId)
         {
-            CartRepository cartRepository = new CartRepository();
+            ICartRepository cartRepository = new CartRepository();
             int cartItemsCount = cartRepository.getCartItemCountByCustomer(customerId);
 
             lblDashboardCartItem.Text = $"{cartItemsCount} item{(cartItemsCount == 1 ? "" : "s")} in cart";
@@ -62,7 +63,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void updateActiveOrderCount(int customerId)
         {
-            OrderRepository orderRepository = new OrderRepository();
+            IOrderRepository orderRepository = new OrderRepository();
             int activeOrderCount = orderRepository.getActiveOrderCountByCustomerId(customerId);
             lblDashboardActiveOrders.Text = $"{activeOrderCount} active order{(activeOrderCount == 1 ? "" : "s")}";
         }
@@ -72,7 +73,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
             flowLayoutPanalTopRateProducts.Controls.Clear();
             flowLayoutPanalTopRateProducts.AutoScroll = true;
 
-            ProductRepository repo = new ProductRepository();
+            IProductRepository repo = new ProductRepository();
             var products = repo.getTopRatingProducts();
 
             if (products == null || products.Count == 0)
@@ -251,7 +252,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void btnCustomerLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             User? user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "customer")
             {

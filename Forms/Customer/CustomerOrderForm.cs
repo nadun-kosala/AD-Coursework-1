@@ -1,5 +1,6 @@
 ﻿using GreenLife_Organic_Store.Forms.Modals;
 using GreenLife_Organic_Store.Models;
+using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
             }
             int customerId = customer.customerId;
      
-            OrderRepository orderRepository = new OrderRepository();
+            IOrderRepository orderRepository = new OrderRepository();
             List<Order> orders = orderRepository.getAllOrderByCustomerId(customerId);
           
 
@@ -191,7 +192,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private GreenLife_Organic_Store.Models.Customer? getLoggedInCustomer()
         {
-            CustomerRepository customerRepository = new CustomerRepository();
+            ICustomerRepository customerRepository = new CustomerRepository();
             return customerRepository.getCustomerByUserId(_loggedUserId);
         }
         private void btnNavigateDashboard_Click(object sender, EventArgs e)
@@ -231,7 +232,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private void btnCustomerLogout_Click(object sender, EventArgs e)
         {
-            UserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository();
             User? user = userRepository.getUserById(_loggedUserId);
             if (user != null && user.userType == "customer")
             {
