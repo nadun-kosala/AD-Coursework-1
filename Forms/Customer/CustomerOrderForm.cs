@@ -17,6 +17,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
     public partial class frmCustomerOrderForm : Form
     {
         private int _loggedUserId;
+        private int _customerId;
         public frmCustomerOrderForm(int userId)
         {
             InitializeComponent();
@@ -33,10 +34,10 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 MessageBox.Show("Error loading customer data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int customerId = customer.customerId;
+            _customerId = customer.customerId;
      
             IOrderRepository orderRepository = new OrderRepository();
-            List<Order> orders = orderRepository.getAllOrderByCustomerId(customerId);
+            List<Order> orders = orderRepository.getAllOrderByCustomerId(_customerId);
           
 
             foreach (var order in orders)
@@ -108,7 +109,8 @@ namespace GreenLife_Organic_Store.Forms.Customer
             btnView.FlatAppearance.BorderColor = Color.Green;
             btnView.Click += (s, e) =>
             {
-                frmViewOrderDetails frm = new frmViewOrderDetails(_loggedUserId, order.orderId);
+
+                frmViewOrderDetails frm = new frmViewOrderDetails(_customerId, order.orderId);
                 frm.ShowDialog();
             };
 

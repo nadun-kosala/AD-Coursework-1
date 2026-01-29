@@ -81,7 +81,7 @@ namespace GreenLife_Organic_Store
             }
 
             User user = new User();
-            user.username = txtCusRegFullName.Text;
+            user.username = txtCusRegUsername.Text;
             user.password = hashedPassword;
             user.userType = "customer";
             user.isActive = true;

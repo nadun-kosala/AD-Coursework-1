@@ -98,7 +98,7 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
 
             ReportController reportController = new ReportController();
-            reportController.generateSalesReport(reportType, startDate, endDate);
+            reportController.generateReport(reportType, startDate, endDate);
         }
     }
 }

@@ -17,8 +17,8 @@ namespace GreenLife_Organic_Store
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmCustomerLogin());
             //Application.Run(new frmCustomerDashboardForm(2));
-            //Application.Run(new frmSearchForm(3));
-            Application.Run(new frmAdminDashboardForm(1));
+            Application.Run(new frmSearchForm(3));
+            //Application.Run(new frmAdminDashboardForm(1));
 
         }
     }

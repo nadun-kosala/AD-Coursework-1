@@ -63,6 +63,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 lblNoProducts.Margin = new Padding(20);
 
                 flowLayoutPanalForProducts.Controls.Add(lblNoProducts);
+                lblProductCount.Text = "0 product found";
                 return;
             }
 
@@ -184,6 +185,14 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 if(product.stockQuantity >= 1)
                 {
                     ICartRepository cartRepository = new CartRepository();
+
+                    bool exists = cartRepository.isProductInCart(product.id, cart.customerId);
+                    if (exists)
+                    {
+                        MessageBox.Show($"{product.productName} is already in your cart", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     cartRepository.createCartItem(cart);
                     MessageBox.Show($"{product.productName} added to cart", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

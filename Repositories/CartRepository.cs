@@ -95,6 +95,8 @@ namespace GreenLife_Organic_Store.Repositories
             return items;
         }
 
+
+
         public void createCartItem(Cart cart)
         {
             try
@@ -195,6 +197,30 @@ namespace GreenLife_Organic_Store.Repositories
                 Console.WriteLine("Error clearing cart items: " + ex.ToString());
             }
            
+        }
+
+        public bool isProductInCart(int productId, int customerId)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = "SELECT COUNT(*) FROM carts WHERE product_id = @productId AND customer_id = @customerId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@productId", productId);
+                        cmd.Parameters.AddWithValue("@customerId", customerId);
+                        var count = Convert.ToInt32(cmd.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error checking product in cart: " + ex.ToString());
+                return false;
+            }
         }
 
     }

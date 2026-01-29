@@ -9,7 +9,7 @@ namespace GreenLife_Organic_Store.Helpers
 {
     public static class ConfigurationHelper
     {
-        private static IConfiguration _configuration;
+        private static IConfiguration? _configuration;
 
         static ConfigurationHelper()
         {
@@ -23,6 +23,7 @@ namespace GreenLife_Organic_Store.Helpers
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Something went wrong", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine($"Error loading configuration: {ex.Message}");
             }
         }

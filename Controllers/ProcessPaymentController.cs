@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GreenLife_Organic_Store.Helpers
+namespace GreenLife_Organic_Store.Controllers
 {
-    public class ProcessPayment
+    public class ProcessPaymentController
     {
         private readonly int _customerId;
         private readonly string _shippingAddress;
@@ -19,7 +19,7 @@ namespace GreenLife_Organic_Store.Helpers
         private readonly IOrderDetailRepository _orderDetailRepo = new OrderDetailRepository();
         private readonly IProductRepository _productRepo = new ProductRepository();
 
-        public ProcessPayment(int customerId, string shippingAddress)
+        public ProcessPaymentController(int customerId, string shippingAddress)
         {
             _customerId = customerId;
             _shippingAddress = shippingAddress;

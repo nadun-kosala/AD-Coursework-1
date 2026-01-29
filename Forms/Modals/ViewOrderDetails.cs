@@ -17,11 +17,14 @@ namespace GreenLife_Organic_Store.Forms.Modals
     {
         private int _customerId;
         private int _orderId;
+        private string _orderStatus;
+        private List<OrderDetail>? _orderDetails;
         public frmViewOrderDetails(int customerId, int orderId)
         {
             InitializeComponent();
-             _customerId = customerId;
+            _customerId = customerId;
             _orderId = orderId;
+
         }
 
         private void frmViewOrderDetails_Load(object sender, EventArgs e)
@@ -34,12 +37,11 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
         public void loadOrderDetails()
         {
-         
 
             flowLayoutOrderDetails.Controls.Clear();
 
             IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
-            List<OrderDetail> items = orderDetailRepository.getOrderDetailsByOrderId(_orderId);
+            _orderDetails = orderDetailRepository.getOrderDetailsByOrderId(_orderId);
 
             Label lblHeader = new Label
             {
@@ -54,7 +56,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             decimal total = 0m;
 
-            foreach (var item in items)
+            foreach (var item in _orderDetails)
             {
                 total += item.subTotal;
                 flowLayoutOrderDetails.Controls.Add(createOrderItemCard(item));
@@ -94,7 +96,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             Label lblPrice = new Label
             {
-                Text = $"LKR { item.subTotal.ToString()}",
+                Text = $"LKR {item.subTotal.ToString()}",
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 ForeColor = Color.Black,
                 AutoSize = true
@@ -163,6 +165,8 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 lblOrderStatus.AutoSize = true;
                 lblOrderStatus.TextAlign = ContentAlignment.MiddleCenter;
                 lblOrderStatus.Padding = new Padding(8, 4, 8, 4);
+
+                _orderStatus = order.orderStatus;
             }
             else
             {
@@ -192,6 +196,20 @@ namespace GreenLife_Organic_Store.Forms.Modals
             }
         }
 
+        private void btnGiveReview_Click(object sender, EventArgs e)
+        {
 
+            if(_orderStatus != "Delivered")
+            {
+                MessageBox.Show("You can only give reviews for delivered orders.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            }
+            else
+            {
+                frmGiveReview frm = new frmGiveReview(_customerId, _orderDetails);
+                frm.Show();
+            }
+           
+        }
     }
 }

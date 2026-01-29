@@ -97,6 +97,7 @@
             btnGiveReview.TabIndex = 15;
             btnGiveReview.Text = "Give Review";
             btnGiveReview.UseVisualStyleBackColor = false;
+            btnGiveReview.Click += btnGiveReview_Click;
             // 
             // lblOrderStatus
             // 

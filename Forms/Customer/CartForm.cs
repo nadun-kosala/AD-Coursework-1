@@ -374,6 +374,22 @@ namespace GreenLife_Organic_Store.Forms.Customer
         {
             btnPlaceOrder.Enabled = false;
 
+            var customer = getLoggedInCustomer();
+            if (customer == null)
+            {
+                MessageBox.Show("Error retrieving customer. Please login again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnPlaceOrder.Enabled = true;
+                return;
+            }
+
+            int cartCount = _cartRepository.getCartItemCountByCustomer(customer.customerId);
+            if (cartCount <= 0)
+            {
+                MessageBox.Show("Your cart is empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnPlaceOrder.Enabled = true;
+                return;
+            }
+
             using (frmPaymentForm frm = new frmPaymentForm(_loggedUserId, _subTotal))
             {
                 var result = frm.ShowDialog();

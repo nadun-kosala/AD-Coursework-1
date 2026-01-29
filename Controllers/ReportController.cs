@@ -19,7 +19,7 @@ namespace GreenLife_Organic_Store.Controllers
         public ReportController() {
         }
 
-        public void generateSalesReport(string reportType, DateTime startDate, DateTime endDate)
+        public void generateReport(string reportType, DateTime startDate, DateTime endDate)
         {
 
             try

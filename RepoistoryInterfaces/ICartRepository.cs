@@ -11,5 +11,6 @@ namespace GreenLife_Organic_Store.RepoistoryInterfaces
         void updateCartQuantity(int cartId, int quantity);
         void deleteCartItem(int cartId);
         void clearCartByCustomer(int customerId);
+        bool isProductInCart(int productId, int customerId);
     }
 }

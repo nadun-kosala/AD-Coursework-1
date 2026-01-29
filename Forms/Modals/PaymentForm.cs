@@ -1,4 +1,5 @@
-﻿using GreenLife_Organic_Store.Forms.Customer;
+﻿using GreenLife_Organic_Store.Controllers;
+using GreenLife_Organic_Store.Forms.Customer;
 using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
@@ -70,15 +71,10 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
             try
             {
-                var payment = new ProcessPayment(_customerId, shippingAddress);
+                var payment = new ProcessPaymentController(_customerId, shippingAddress);
                 payment.process();
 
                 MessageBox.Show("Order placed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
-                //frmCustomerOrderForm frmOrderDetails = new frmCustomerOrderForm(_loggedUserId);
-                //frmOrderDetails.Show();
-                //frmCartForm frmCartForm = new frmCartForm(_loggedUserId);
-                //frmCartForm.Close();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
