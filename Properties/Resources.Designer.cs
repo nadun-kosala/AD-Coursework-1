@@ -63,9 +63,181 @@ namespace GreenLife_Organic_Store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _293058_middle {
+            get {
+                object obj = ResourceManager.GetObject("293058-middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3da7b352e0afb625e50ee95a6470c2e7 {
+            get {
+                object obj = ResourceManager.GetObject("3da7b352e0afb625e50ee95a6470c2e7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _663_6632602_green_address_icon_png {
+            get {
+                object obj = ResourceManager.GetObject("663-6632602_green-address-icon-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _9309051 {
+            get {
+                object obj = ResourceManager.GetObject("9309051", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images__1_ {
             get {
                 object obj = ResourceManager.GetObject("images (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__2_ {
+            get {
+                object obj = ResourceManager.GetObject("images (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__3_ {
+            get {
+                object obj = ResourceManager.GetObject("images (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__4_ {
+            get {
+                object obj = ResourceManager.GetObject("images (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__5_ {
+            get {
+                object obj = ResourceManager.GetObject("images (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__7_ {
+            get {
+                object obj = ResourceManager.GetObject("images (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__8_ {
+            get {
+                object obj = ResourceManager.GetObject("images (8)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__9_ {
+            get {
+                object obj = ResourceManager.GetObject("images (9)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap isolated_green_upward_arrow_depicting_growth_and_success_on_transparent_backdrop_png {
+            get {
+                object obj = ResourceManager.GetObject("isolated-green-upward-arrow-depicting-growth-and-success-on-transparent-backdrop-" +
+                        "png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paper_cardboard_box_green_png_favpng_xRbZH9Y9aFcMr7tAMPUetKHcu {
+            get {
+                object obj = ResourceManager.GetObject("paper-cardboard-box-green-png-favpng-xRbZH9Y9aFcMr7tAMPUetKHcu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap person_user_avatar_user_profile_system_green_plant_symbol_png_clipart {
+            get {
+                object obj = ResourceManager.GetObject("person-user-avatar-user-profile-system-green-plant-symbol-png-clipart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_computer_icons_synchronization_refresh_miscellaneous_leaf {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-computer-icons-synchronization-refresh-miscellaneous-leaf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_multi_user_end_user_users_group_information_others_miscellaneous_leaf {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-multi-user-end-user-users-group-information-others-miscellaneous-leaf" +
+                        "", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_location_icon_png_image_994727 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-location-icon-png-image_994727", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
