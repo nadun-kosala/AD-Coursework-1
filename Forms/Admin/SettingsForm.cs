@@ -1,7 +1,6 @@
-﻿using GreenLife_Organic_Store.Controllers;
+﻿using GreenLife_Organic_Store.Forms.Modals;
 using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,59 +13,59 @@ using System.Windows.Forms;
 
 namespace GreenLife_Organic_Store.Forms.Admin
 {
-    public partial class frmAdminReportsForm : Form
+    public partial class frmSettingsForm : Form
     {
         private int _loggedUserId;
-        public frmAdminReportsForm(int userId)
+        public frmSettingsForm(int userId)
         {
             InitializeComponent();
             _loggedUserId = userId;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void frmSettingsForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void frmAdminReportsForm_Load(object sender, EventArgs e)
+
+
+        private void btnNavigateSettings_Click(object sender, EventArgs e)
         {
+            frmSettingsForm frm = new frmSettingsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnNavigateCustomers_Click_1(object sender, EventArgs e)
+        private void btnNavigateCustomers_Click(object sender, EventArgs e)
         {
             frmAdminCustomerForm frm = new frmAdminCustomerForm(_loggedUserId);
             frm.Show();
             this.Hide();
         }
 
-        private void btnNavigateProducts_Click_1(object sender, EventArgs e)
+        private void btnNavigateProducts_Click(object sender, EventArgs e)
         {
             frmAdminProductFrom frm = new frmAdminProductFrom(_loggedUserId);
             frm.Show();
             this.Hide();
         }
 
-        private void btnNavigateDashboard_Click_1(object sender, EventArgs e)
+        private void btnNavigateDashboard_Click(object sender, EventArgs e)
         {
             frmAdminDashboardForm frm = new frmAdminDashboardForm(_loggedUserId);
             frm.Show();
             this.Hide();
         }
 
-        private void btnNavigateOrders_Click_1(object sender, EventArgs e)
+        private void btnNavigateOrders_Click(object sender, EventArgs e)
         {
             frmAdminOrdersForm frm = new frmAdminOrdersForm(_loggedUserId);
             frm.Show();
             this.Hide();
         }
 
-        private void btnNavigateReports_Click_1(object sender, EventArgs e)
+        private void btnNavigateReports_Click(object sender, EventArgs e)
         {
             frmAdminReportsForm frm = new frmAdminReportsForm(_loggedUserId);
             frm.Show();
@@ -74,11 +73,27 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         }
 
-        private void btnNavigateSettings_Click(object sender, EventArgs e)
+        private void frmSettingsForm_Load_1(object sender, EventArgs e)
         {
-            frmSettingsForm frm = new frmSettingsForm(_loggedUserId);
-            frm.Show();
-            this.Hide();
+
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            frmCategoryDetails frmCategoryDetails = new frmCategoryDetails();
+            frmCategoryDetails.ShowDialog();
+        }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            frmSupplierDetails frmSupplierDetails = new frmSupplierDetails();
+            frmSupplierDetails.Show();
+        }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            frmDiscountDetails frmDiscountDetails = new frmDiscountDetails();
+            frmDiscountDetails.Show();
         }
 
         private void btnAdminLogout_Click(object sender, EventArgs e)
@@ -95,17 +110,6 @@ namespace GreenLife_Organic_Store.Forms.Admin
             {
                 MessageBox.Show("Error logging out. Admin not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnGenerateReport_Click(object sender, EventArgs e)
-        {
-            string reportType = cmbReportType.Text;
-            DateTime startDate = dtStartDate.Value;
-            DateTime endDate = dtEndDate.Value;
-
-
-            ReportController reportController = new ReportController();
-            reportController.generateReport(reportType, startDate, endDate);
         }
     }
 }

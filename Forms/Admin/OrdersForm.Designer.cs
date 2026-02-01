@@ -47,6 +47,7 @@
             tblOrders = new DataGridView();
             btnOrderSearch = new Button();
             txtOrderSearch = new TextBox();
+            btnNavigateSettings = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -123,6 +124,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLightLight;
+            panel2.Controls.Add(btnNavigateSettings);
             panel2.Controls.Add(btnNavigateReports);
             panel2.Controls.Add(btnNavigateOrders);
             panel2.Controls.Add(btnNavigateCustomers);
@@ -328,6 +330,25 @@
             txtOrderSearch.Size = new Size(514, 31);
             txtOrderSearch.TabIndex = 12;
             // 
+            // btnNavigateSettings
+            // 
+            btnNavigateSettings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnNavigateSettings.AutoSize = true;
+            btnNavigateSettings.BackColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.MouseOverBackColor = Color.Green;
+            btnNavigateSettings.FlatStyle = FlatStyle.Flat;
+            btnNavigateSettings.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNavigateSettings.ForeColor = Color.White;
+            btnNavigateSettings.Location = new Point(21, 387);
+            btnNavigateSettings.Name = "btnNavigateSettings";
+            btnNavigateSettings.Size = new Size(227, 44);
+            btnNavigateSettings.TabIndex = 41;
+            btnNavigateSettings.Text = "Settings";
+            btnNavigateSettings.UseVisualStyleBackColor = false;
+            btnNavigateSettings.Click += btnNavigateSettings_Click;
+            // 
             // frmAdminOrdersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -378,5 +399,6 @@
         private TextBox txtOrderSearch;
         private DataGridView tblOrders;
         private Button btnUpdateOrderStatus;
+        private Button btnNavigateSettings;
     }
 }

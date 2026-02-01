@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,6 +39,11 @@ namespace GreenLife_Organic_Store
             if (txtCusRegFullName.Text == "" || txtCusRegEmail.Text == "" || txtCusRegUsername.Text == "" || txtCusRegPhone.Text == "" || txtCusRegAddress.Text == "" || txtCusRegPassword.Text == "" || txtCusRegConfirmPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsValidEmail(txtCusRegEmail.Text.Trim()))
+            {
                 return;
             }
 
@@ -112,6 +118,25 @@ namespace GreenLife_Organic_Store
         private void frmCustomerRegister_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new MailAddress(email);
+                if (addr.Address != email)
+                {
+                    MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

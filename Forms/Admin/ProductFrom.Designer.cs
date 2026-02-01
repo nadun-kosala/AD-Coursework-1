@@ -49,6 +49,7 @@
             btnDeleteProducts = new Button();
             btnProductSearch = new Button();
             txtProductSearch = new TextBox();
+            btnNavigateSettings = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -125,6 +126,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlLightLight;
+            panel3.Controls.Add(btnNavigateSettings);
             panel3.Controls.Add(btnNavigateReports);
             panel3.Controls.Add(btnNavigateOrders);
             panel3.Controls.Add(btnNavigateCustomers);
@@ -262,7 +264,7 @@
             btnAddNewProduct.FlatStyle = FlatStyle.Flat;
             btnAddNewProduct.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddNewProduct.ForeColor = Color.White;
-            btnAddNewProduct.Location = new Point(1330, 172);
+            btnAddNewProduct.Location = new Point(1309, 172);
             btnAddNewProduct.Name = "btnAddNewProduct";
             btnAddNewProduct.Size = new Size(269, 44);
             btnAddNewProduct.TabIndex = 13;
@@ -370,6 +372,25 @@
             txtProductSearch.Size = new Size(514, 31);
             txtProductSearch.TabIndex = 2;
             // 
+            // btnNavigateSettings
+            // 
+            btnNavigateSettings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnNavigateSettings.AutoSize = true;
+            btnNavigateSettings.BackColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnNavigateSettings.FlatAppearance.MouseOverBackColor = Color.Green;
+            btnNavigateSettings.FlatStyle = FlatStyle.Flat;
+            btnNavigateSettings.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNavigateSettings.ForeColor = Color.White;
+            btnNavigateSettings.Location = new Point(19, 390);
+            btnNavigateSettings.Name = "btnNavigateSettings";
+            btnNavigateSettings.Size = new Size(227, 44);
+            btnNavigateSettings.TabIndex = 41;
+            btnNavigateSettings.Text = "Settings";
+            btnNavigateSettings.UseVisualStyleBackColor = false;
+            btnNavigateSettings.Click += btnNavigateSettings_Click;
+            // 
             // frmAdminProductFrom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -423,5 +444,6 @@
         private Button btnNavigateOrders;
         private Button btnNavigateCustomers;
         private Button btnNavigateProducts;
+        private Button btnNavigateSettings;
     }
 }

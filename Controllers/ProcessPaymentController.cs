@@ -27,43 +27,51 @@ namespace GreenLife_Organic_Store.Controllers
 
         public bool process()
         {
-            var cartItems = _cartRepo.getCartProductsByCustomer(_customerId);
-
-            if (cartItems.Count == 0)
-                throw new Exception("Cart is empty");
-
-            decimal totalAmount = cartItems.Sum(i => i.subTotal);
-            decimal discountAmount = 0m;
-            decimal finalAmount = totalAmount - discountAmount;
-
-            int orderId = _orderRepo.createOrder(new Order
+            try
             {
-                customerId = _customerId,
-                orderCode = generateOrderCode(),
-                totalAmount = totalAmount,
-                discountAmount = discountAmount,
-                finalAmount = finalAmount,
-                orderStatus = "Pending",
-                shippingAddress = _shippingAddress
-            });
+                var cartItems = _cartRepo.getCartProductsByCustomer(_customerId);
 
-            foreach (var item in cartItems)
-            {
-                _orderDetailRepo.createOrderDetail(new OrderDetail
+                if (cartItems.Count == 0)
+                    throw new Exception("Cart is empty");
+
+                decimal totalAmount = cartItems.Sum(i => i.subTotal);
+                decimal discountAmount = 0m;
+                decimal finalAmount = totalAmount - discountAmount;
+
+                int orderId = _orderRepo.createOrder(new Order
                 {
-                    orderId = orderId,
-                    productId = item.productId,
-                    quantity = item.cartQuantity,
-                    unitPrice = item.price,
-                    subTotal = item.subTotal
+                    customerId = _customerId,
+                    orderCode = generateOrderCode(),
+                    totalAmount = totalAmount,
+                    discountAmount = discountAmount,
+                    finalAmount = finalAmount,
+                    orderStatus = "Pending",
+                    shippingAddress = _shippingAddress
                 });
 
-                _productRepo.reduceStock(item.productId, item.cartQuantity);
+                foreach (var item in cartItems)
+                {
+                    _orderDetailRepo.createOrderDetail(new OrderDetail
+                    {
+                        orderId = orderId,
+                        productId = item.productId,
+                        quantity = item.cartQuantity,
+                        unitPrice = item.price,
+                        subTotal = item.subTotal
+                    });
+
+                    _productRepo.reduceStock(item.productId, item.cartQuantity);
+                }
+
+                _cartRepo.clearCartByCustomer(_customerId);
+
+                return true;
             }
-
-            _cartRepo.clearCartByCustomer(_customerId);
-
-            return true;
+            catch (Exception ex)
+            {
+                throw new Exception("Payment processing failed: " + ex.Message);
+            }
+         
         }
 
         private string generateOrderCode()

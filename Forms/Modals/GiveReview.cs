@@ -28,11 +28,9 @@ namespace GreenLife_Organic_Store.Forms.Modals
 
         private void frmGiveReview_Load(object sender, EventArgs e)
         {
-            // populate product combo from order details
             cmbProductName.Items.Clear();
             if (_orderDetails != null)
             {
-                // set datasource to a list of anonymous objects so we can store productId as ValueMember-like
                 var products = _orderDetails.Select(od => new { Id = od.productId, Name = od.productName }).ToList();
                 cmbProductName.DataSource = products;
                 cmbProductName.DisplayMember = "Name";
@@ -40,7 +38,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 cmbProductName.SelectedIndex = -1;
             }
 
-            // populate rating combo 1-5
             cmbRating.Items.Clear();
             for (int i = 1; i <= 5; i++) cmbRating.Items.Add(i);
             cmbRating.SelectedIndex = -1;
@@ -64,7 +61,6 @@ namespace GreenLife_Organic_Store.Forms.Modals
             int rating = Convert.ToInt32(cmbRating.SelectedItem);
             string reviewText = txtReview.Text?.Trim() ?? string.Empty;
 
-            //check if review exists
             bool exists = _reviewRepository.checkExistingReview(productId, _customerId);
             if (exists)
             {

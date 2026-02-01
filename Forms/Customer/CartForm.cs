@@ -19,7 +19,11 @@ namespace GreenLife_Organic_Store.Forms.Customer
 
         private int _loggedUserId;
         private readonly ICartRepository _cartRepository;
+        private readonly IDiscountRepository _discountRepository = new DiscountRepository();
         private decimal _subTotal = 0m;
+        private Discount? _appliedDiscount = null;
+        private decimal _finalAmount = 0m;
+
         public frmCartForm(int userId)
         {
             InitializeComponent();
@@ -35,7 +39,23 @@ namespace GreenLife_Organic_Store.Forms.Customer
             {
                 loadCartItems(customer.customerId);
             }
+            showDiscountCode();
 
+            lblDiscountAmount.Text = "0 LKR";
+        }
+
+        private void showDiscountCode()
+        {
+            Discount? discount = _discountRepository.getActiveDiscount();
+            if (discount != null)
+            {
+                lblDiscountCodeShow.Text = $"Try code: {discount.discountCode} for {discount.percentage}% off";
+                return;
+            }
+            else
+            {
+                lblDiscountCodeShow.Text = $"No active discount at this time";
+            }
         }
 
         private void showTotalCountOfCartItem(int itemCount)
@@ -251,8 +271,41 @@ namespace GreenLife_Organic_Store.Forms.Customer
             if (_subTotal < 0) _subTotal = 0m;
             lblSubTotal.Text = $"{_subTotal:0.00} LKR";
 
-            // This should be update with discount price later-----------------------------------------------------------
-            lblFinalAmmount.Text = $"{_subTotal:0.00} LKR";
+            applyDiscountToTotals();
+        }
+
+        private void applyDiscountToTotals()
+        {
+            try
+            {
+                if (_subTotal <= 0)
+                {
+                    _appliedDiscount = null;
+                    lblDiscountAmount.Text = "0 LKR";
+                    _finalAmount = _subTotal;
+                    lblFinalAmmount.Text = $"{_finalAmount:0.00} LKR";
+                    return;
+                }
+
+                if (_appliedDiscount == null)
+                {
+                    lblDiscountAmount.Text = "0 LKR";
+                    _finalAmount = _subTotal;
+                    lblFinalAmmount.Text = $"{_finalAmount:0.00} LKR";
+                    return;
+                }
+
+                decimal discountAmount = Math.Round((_subTotal * _appliedDiscount.percentage) / 100m, 2);
+                _finalAmount = _subTotal - discountAmount;
+
+                lblDiscountAmount.Text = $"{discountAmount:0.00} LKR";
+                lblFinalAmmount.Text = $"{_finalAmount:0.00} LKR";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error applying discount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void showEmptyCartUI()
@@ -390,7 +443,7 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 return;
             }
 
-            using (frmPaymentForm frm = new frmPaymentForm(_loggedUserId, _subTotal))
+            using (frmPaymentForm frm = new frmPaymentForm(_loggedUserId, _finalAmount, _appliedDiscount))
             {
                 var result = frm.ShowDialog();
 
@@ -406,6 +459,33 @@ namespace GreenLife_Organic_Store.Forms.Customer
                 }
             }
 
+        }
+
+        private void btnDiscountApply_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDiscountCode.Text))
+            {
+                MessageBox.Show("Please enter a discount code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Discount? discount = _discountRepository.getActiveDiscount();
+            if (discount != null && txtDiscountCode.Text.Trim().Equals(discount.discountCode, StringComparison.OrdinalIgnoreCase))
+            {
+                if (_appliedDiscount != null && _appliedDiscount.discountCode.Equals(discount.discountCode, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("You have already applied this discount.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                _appliedDiscount = discount;
+                applyDiscountToTotals();
+                MessageBox.Show($"Discount code applied! You saved {(Math.Round((_subTotal * discount.percentage) / 100m, 2)):0.00} LKR.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Invalid discount code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

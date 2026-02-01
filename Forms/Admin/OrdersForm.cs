@@ -142,6 +142,13 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         }
 
+        private void btnNavigateSettings_Click(object sender, EventArgs e)
+        {
+            frmSettingsForm frm = new frmSettingsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
         private void btnOrderSearch_Click(object sender, EventArgs e)
         {
             searchOrders();
@@ -149,21 +156,30 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void btnUpdateOrderStatus_Click(object sender, EventArgs e)
         {
-            var val = this.tblOrders.SelectedRows[0].Cells[0].Value.ToString();
-            if (val == null || val.Length == 0) return;
-
-            int orderId = int.Parse(val);
-
-            var order = _orderRepository.getOrderById(orderId);
-
-            if (order == null) return;
-
-            frmOrderStatusUpdate frm = new frmOrderStatusUpdate();
-            frm.updateStatus(order);
-            if (frm.ShowDialog() == DialogResult.OK)
+            try
             {
-                readOrders();
+                var val = this.tblOrders.SelectedRows[0].Cells[0].Value.ToString();
+                if (val == null || val.Length == 0) return;
+
+                int orderId = int.Parse(val);
+
+                var order = _orderRepository.getOrderById(orderId);
+
+                if (order == null) return;
+
+                frmOrderStatusUpdate frm = new frmOrderStatusUpdate();
+                frm.updateStatus(order);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    readOrders();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
         }
 
         private void btnAdminLogout_Click(object sender, EventArgs e)

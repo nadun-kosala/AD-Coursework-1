@@ -10,5 +10,6 @@ namespace GreenLife_Organic_Store.RepoistoryInterfaces
     public interface ISupplierRepository
     {
         List<Supplier> getAllSuppliers();
+        void createSupplier(Supplier supplier);
     }
 }

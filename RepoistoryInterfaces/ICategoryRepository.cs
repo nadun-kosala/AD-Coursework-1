@@ -6,5 +6,6 @@ namespace GreenLife_Organic_Store.RepoistoryInterfaces
     public interface ICategoryRepository
     {
         List<Category> getAllCategories();
+        void createCategory(Category category);
     }
 }

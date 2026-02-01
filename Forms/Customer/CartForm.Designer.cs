@@ -49,7 +49,7 @@
             lblDiscountCodeShow = new Label();
             btnDiscountApply = new Button();
             txtDiscountCode = new TextBox();
-            lblDiscountAmmount = new Label();
+            lblDiscountAmount = new Label();
             label13 = new Label();
             lblFinalAmmount = new Label();
             label11 = new Label();
@@ -274,7 +274,7 @@
             panel5.Controls.Add(lblDiscountCodeShow);
             panel5.Controls.Add(btnDiscountApply);
             panel5.Controls.Add(txtDiscountCode);
-            panel5.Controls.Add(lblDiscountAmmount);
+            panel5.Controls.Add(lblDiscountAmount);
             panel5.Controls.Add(label13);
             panel5.Controls.Add(lblFinalAmmount);
             panel5.Controls.Add(label11);
@@ -348,6 +348,7 @@
             btnDiscountApply.TabIndex = 30;
             btnDiscountApply.Text = "Apply";
             btnDiscountApply.UseVisualStyleBackColor = false;
+            btnDiscountApply.Click += btnDiscountApply_Click;
             // 
             // txtDiscountCode
             // 
@@ -359,16 +360,16 @@
             txtDiscountCode.Size = new Size(228, 31);
             txtDiscountCode.TabIndex = 28;
             // 
-            // lblDiscountAmmount
+            // lblDiscountAmount
             // 
-            lblDiscountAmmount.AutoSize = true;
-            lblDiscountAmmount.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDiscountAmmount.ForeColor = Color.Green;
-            lblDiscountAmmount.Location = new Point(289, 105);
-            lblDiscountAmmount.Name = "lblDiscountAmmount";
-            lblDiscountAmmount.Size = new Size(94, 23);
-            lblDiscountAmmount.TabIndex = 21;
-            lblDiscountAmmount.Text = "-1.35 LKR";
+            lblDiscountAmount.AutoSize = true;
+            lblDiscountAmount.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDiscountAmount.ForeColor = Color.Green;
+            lblDiscountAmount.Location = new Point(289, 105);
+            lblDiscountAmount.Name = "lblDiscountAmount";
+            lblDiscountAmount.Size = new Size(94, 23);
+            lblDiscountAmount.TabIndex = 21;
+            lblDiscountAmount.Text = "-1.35 LKR";
             // 
             // label13
             // 
@@ -500,7 +501,7 @@
         private Label lblDiscountCodeShow;
         private Button btnDiscountApply;
         private TextBox txtDiscountCode;
-        private Label lblDiscountAmmount;
+        private Label lblDiscountAmount;
         private Label label13;
         private Label lblFinalAmmount;
         private Label label11;

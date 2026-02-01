@@ -99,40 +99,57 @@ namespace GreenLife_Organic_Store
 
         private void btnEditProducts_Click(object sender, EventArgs e)
         {
-            var val = this.tblProducts.SelectedRows[0].Cells[0].Value.ToString();
-            if (val == null || val.Length == 0) return;
-
-            int productId = int.Parse(val);
-
-            var product = _productRepository.getProductById(productId);
-
-            if (product == null) return;
-
-            frmAddNewProduct frm = new frmAddNewProduct();
-            frm.editProduct(product);
-            if (frm.ShowDialog() == DialogResult.OK)
+            try
             {
-                readProducts();
+                var val = this.tblProducts.SelectedRows[0].Cells[0].Value.ToString();
+                if (val == null || val.Length == 0) return;
+
+                int productId = int.Parse(val);
+
+                var product = _productRepository.getProductById(productId);
+
+                if (product == null) return;
+
+                frmAddNewProduct frm = new frmAddNewProduct();
+                frm.editProduct(product);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    readProducts();
+                }
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            
         }
 
         private void btnDeleteProducts_Click(object sender, EventArgs e)
         {
-            var val = this.tblProducts.SelectedRows[0].Cells[0].Value.ToString();
-            if (val == null || val.Length == 0) return;
-
-            int productId = int.Parse(val);
-
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dialogResult == DialogResult.No)
+            try
             {
+                var val = this.tblProducts.SelectedRows[0].Cells[0].Value.ToString();
+                if (val == null || val.Length == 0) return;
+
+                int productId = int.Parse(val);
+
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                _productRepository.deleteProduct(productId);
+
+                readProducts();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            _productRepository.deleteProduct(productId);
-
-            readProducts();
 
         }
 
@@ -182,6 +199,13 @@ namespace GreenLife_Organic_Store
 
         }
 
+        private void btnNavigateSettings_Click(object sender, EventArgs e)
+        {
+            frmSettingsForm frm = new frmSettingsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -202,5 +226,7 @@ namespace GreenLife_Organic_Store
                 MessageBox.Show("Error logging out. Admin not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+     
     }
 }

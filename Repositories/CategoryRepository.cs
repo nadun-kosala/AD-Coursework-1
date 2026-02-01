@@ -39,7 +39,7 @@ namespace GreenLife_Organic_Store.Repositories
                             }
                         }
                     }
-                   
+
                 }
             }
             catch (Exception ex)
@@ -49,6 +49,29 @@ namespace GreenLife_Organic_Store.Repositories
             }
 
             return categories;
+        }
+
+        public void createCategory(Category category)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = "INSERT INTO categories (category_name, description) VALUES (@name, @description)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@name", category.categoryName);
+                        cmd.Parameters.AddWithValue("@description", category.description ?? string.Empty);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while creating category: " + ex.ToString());
+                throw;
+            }
         }
     }
 }

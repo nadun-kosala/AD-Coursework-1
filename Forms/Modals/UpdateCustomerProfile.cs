@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +48,25 @@ namespace GreenLife_Organic_Store
             this.DialogResult = DialogResult.Cancel;
         }
 
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new MailAddress(email);
+                if (addr.Address != email)
+                {
+                    MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private void btnUpdateProfileConfirm_Click(object sender, EventArgs e)
         {
             if (txtProfileFullName.Text == "" || txtProfileEmail.Text == "" || txtProfileAddress.Text == "")
@@ -55,6 +75,10 @@ namespace GreenLife_Organic_Store
                 return;
             }
 
+            if (!IsValidEmail(txtProfileEmail.Text.Trim()))
+            {
+                return;
+            }
 
             Customer customer = new Customer();
             customer.customerId = this.id;

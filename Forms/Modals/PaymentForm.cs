@@ -3,6 +3,7 @@ using GreenLife_Organic_Store.Forms.Customer;
 using GreenLife_Organic_Store.Helpers;
 using GreenLife_Organic_Store.RepoistoryInterfaces;
 using GreenLife_Organic_Store.Repositories;
+using GreenLife_Organic_Store.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +20,20 @@ namespace GreenLife_Organic_Store.Forms.Modals
     {
         private int _loggedUserId;
         private int _customerId;
-        private string _customerAddress;
-        private decimal _subTotal;
-        public frmPaymentForm(int userId, decimal subTotal)
+        private string? _customerAddress;
+        private decimal _finalAmount;
+        private Discount? _appliedDiscount;
+
+        public frmPaymentForm(int userId, decimal finalAmount)
         {
             InitializeComponent();
             _loggedUserId = userId;
-            _subTotal = subTotal;
+            _finalAmount = finalAmount;
+        }
+
+        public frmPaymentForm(int userId, decimal finalAmount, Discount? appliedDiscount) : this(userId, finalAmount)
+        {
+            _appliedDiscount = appliedDiscount;
         }
 
         private void frmPaymentForm_Load(object sender, EventArgs e)
@@ -37,7 +45,7 @@ namespace GreenLife_Organic_Store.Forms.Modals
                 _customerId = cus.customerId;
                 _customerAddress = cus.address;
 
-                lblTotalAmountShow.Text = $"LKR {_subTotal:F2}";
+                lblTotalAmountShow.Text = $"LKR {_finalAmount:F2}";
             }
             else
             {
@@ -73,6 +81,19 @@ namespace GreenLife_Organic_Store.Forms.Modals
             {
                 var payment = new ProcessPaymentController(_customerId, shippingAddress);
                 payment.process();
+
+                if (_appliedDiscount != null)
+                {
+                    try
+                    {
+                        IDiscountRepository discountRepo = new DiscountRepository();
+                        discountRepo.incrementUsage(_appliedDiscount.discountId);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Failed to update discount usage: " + ex.ToString());
+                    }
+                }
 
                 MessageBox.Show("Order placed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

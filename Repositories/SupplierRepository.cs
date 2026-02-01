@@ -21,7 +21,7 @@ namespace GreenLife_Organic_Store.Repositories
             {
                 con.Open();
 
-                string query = "SELECT supplier_id, supplier_name FROM suppliers";
+                string query = "SELECT supplier_id, supplier_name, contact_person, email, phone, address FROM suppliers";
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
 
                 {
@@ -32,15 +32,45 @@ namespace GreenLife_Organic_Store.Repositories
                             Supplier supplier = new Supplier();
                             supplier.supplierId = reader.GetInt32("supplier_id");
                             supplier.supplierName = reader.GetString("supplier_name");
+                            supplier.contactPerson = reader.IsDBNull(reader.GetOrdinal("contact_person")) ? string.Empty : reader.GetString("contact_person");
+                            supplier.email = reader.IsDBNull(reader.GetOrdinal("email")) ? string.Empty : reader.GetString("email");
+                            supplier.phoneNumber = reader.IsDBNull(reader.GetOrdinal("phone")) ? string.Empty : reader.GetString("phone");
+                            supplier.address = reader.IsDBNull(reader.GetOrdinal("address")) ? string.Empty : reader.GetString("address");
                             suppliers.Add(supplier);
                             ;
                         }
                     }
                 }
-               
+
             }
 
             return suppliers;
+        }
+
+        public void createSupplier(Supplier supplier)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    string query = @"INSERT INTO suppliers (supplier_name, contact_person, email, phone, address) VALUES (@name, @contact, @email, @phone, @address)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@name", supplier.supplierName);
+                        cmd.Parameters.AddWithValue("@contact", supplier.contactPerson ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@email", supplier.email ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@phone", supplier.phoneNumber ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@address", supplier.address ?? string.Empty);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error creating supplier: " + ex.ToString());
+                throw;
+            }
         }
     }
 }

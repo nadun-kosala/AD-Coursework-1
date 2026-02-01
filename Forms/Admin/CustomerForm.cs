@@ -31,55 +31,70 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void readCustomers()
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Full Name");
-            dataTable.Columns.Add("Email");
-            dataTable.Columns.Add("Phone Number");
-            dataTable.Columns.Add("Address");
-
-            var customers = _customerRepository.getAllCustomers();
-
-            foreach (var customer in customers)
+            try
             {
-                var row = dataTable.NewRow();
-                row["ID"] = customer.customerId;
-                row["Full Name"] = customer.fullName;
-                row["Email"] = customer.email;
-                row["Phone Number"] = customer.phoneNumber;
-                row["Address"] = customer.address;
-                dataTable.Rows.Add(row);
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("ID");
+                dataTable.Columns.Add("Full Name");
+                dataTable.Columns.Add("Email");
+                dataTable.Columns.Add("Phone Number");
+                dataTable.Columns.Add("Address");
+
+                var customers = _customerRepository.getAllCustomers();
+
+                foreach (var customer in customers)
+                {
+                    var row = dataTable.NewRow();
+                    row["ID"] = customer.customerId;
+                    row["Full Name"] = customer.fullName;
+                    row["Email"] = customer.email;
+                    row["Phone Number"] = customer.phoneNumber;
+                    row["Address"] = customer.address;
+                    dataTable.Rows.Add(row);
+                }
+
+                this.tblCustomers.DataSource = dataTable;
             }
-
-            this.tblCustomers.DataSource = dataTable;
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void searchCustomers()
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Full Name");
-            dataTable.Columns.Add("Email");
-            dataTable.Columns.Add("Phone Number");
-            dataTable.Columns.Add("Address");
-
-            var searchTerm = txtCustomerSearch.Text.Trim();
-
-            var customers = _customerRepository.getAllCustomersByNameOrEmail(searchTerm);
-
-            foreach (var customer in customers)
+            try
             {
-                var row = dataTable.NewRow();
-                row["ID"] = customer.customerId;
-                row["Full Name"] = customer.fullName;
-                row["Email"] = customer.email;
-                row["Phone Number"] = customer.phoneNumber;
-                row["Address"] = customer.address;
-                dataTable.Rows.Add(row);
-            }
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("ID");
+                dataTable.Columns.Add("Full Name");
+                dataTable.Columns.Add("Email");
+                dataTable.Columns.Add("Phone Number");
+                dataTable.Columns.Add("Address");
 
-            this.tblCustomers.DataSource = dataTable;
+                var searchTerm = txtCustomerSearch.Text.Trim();
+
+                var customers = _customerRepository.getAllCustomersByNameOrEmail(searchTerm);
+
+                foreach (var customer in customers)
+                {
+                    var row = dataTable.NewRow();
+                    row["ID"] = customer.customerId;
+                    row["Full Name"] = customer.fullName;
+                    row["Email"] = customer.email;
+                    row["Phone Number"] = customer.phoneNumber;
+                    row["Address"] = customer.address;
+                    dataTable.Rows.Add(row);
+                }
+
+                this.tblCustomers.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
         }
 
@@ -123,6 +138,12 @@ namespace GreenLife_Organic_Store.Forms.Admin
             this.Hide();
         }
 
+        private void btnNavigateSettings_Click(object sender, EventArgs e)
+        {
+            frmSettingsForm frm = new frmSettingsForm(_loggedUserId);
+            frm.Show();
+            this.Hide();
+        }
         private void btnCustomerSearch_Click(object sender, EventArgs e)
         {
             searchCustomers();
@@ -130,39 +151,56 @@ namespace GreenLife_Organic_Store.Forms.Admin
 
         private void btnCustomerEdit_Click(object sender, EventArgs e)
         {
-            var val = this.tblCustomers.SelectedRows[0].Cells[0].Value.ToString();
-            if (val == null || val.Length == 0) return;
-
-            int customerId = int.Parse(val);
-
-            var customer = _customerRepository.getCustomerById(customerId);
-
-            if (customer == null) return;
-
-            frmUpdateCustomerProfile frm = new frmUpdateCustomerProfile();
-            frm.editCustomer(customer);
-            if (frm.ShowDialog() == DialogResult.OK)
+            try
             {
-                readCustomers();
+                var val = this.tblCustomers.SelectedRows[0].Cells[0].Value.ToString();
+                if (val == null || val.Length == 0) return;
+
+                int customerId = int.Parse(val);
+
+                var customer = _customerRepository.getCustomerById(customerId);
+
+                if (customer == null) return;
+
+                frmUpdateCustomerProfile frm = new frmUpdateCustomerProfile();
+                frm.editCustomer(customer);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    readCustomers();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
         }
 
         private void btnCustomerDelete_Click(object sender, EventArgs e)
         {
-            var val = this.tblCustomers.SelectedRows[0].Cells[0].Value.ToString();
-            if (val == null || val.Length == 0) return;
-
-            int customerId = int.Parse(val);
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dialogResult == DialogResult.No)
+            try
             {
+                var val = this.tblCustomers.SelectedRows[0].Cells[0].Value.ToString();
+                if (val == null || val.Length == 0) return;
+
+                int customerId = int.Parse(val);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                _customerRepository.deleteCustomer(customerId);
+
+                readCustomers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            _customerRepository.deleteCustomer(customerId);
-
-            readCustomers();
 
         }
 
