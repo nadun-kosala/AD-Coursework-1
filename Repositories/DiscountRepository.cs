@@ -108,20 +108,44 @@ namespace GreenLife_Organic_Store.Repositories
                 using (MySqlConnection con = new MySqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = @"INSERT INTO discounts (discount_code, discount_percentage, max_usage_count, current_usage_count, is_active) VALUES (@code, @percentage, @maxUsage, @currentUsage, @isActive)";
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+
+                    using (var trx = con.BeginTransaction())
                     {
-                        cmd.Parameters.AddWithValue("@code", discount.discountCode);
-                        cmd.Parameters.AddWithValue("@percentage", discount.percentage);
-                        if (discount.maxUsageCount > 0)
-                            cmd.Parameters.AddWithValue("@maxUsage", discount.maxUsageCount);
-                        else
-                            cmd.Parameters.AddWithValue("@maxUsage", DBNull.Value);
+                        try
+                        {
+                            if (discount.isActive)
+                            {
+                                string deactivate = "UPDATE discounts SET is_active = FALSE WHERE is_active = TRUE";
+                                using (var cmd = new MySqlCommand(deactivate, con, trx))
+                                {
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
 
-                        cmd.Parameters.AddWithValue("@currentUsage", discount.currentUsageCount);
-                        cmd.Parameters.AddWithValue("@isActive", discount.isActive);
+                            string insert = @"INSERT INTO discounts (discount_code, discount_percentage, max_usage_count, current_usage_count, is_active) VALUES (@code, @percentage, @maxUsage, @currentUsage, @isActive)";
 
-                        cmd.ExecuteNonQuery();
+                            using (MySqlCommand cmd = new MySqlCommand(insert, con, trx))
+                            {
+                                cmd.Parameters.AddWithValue("@code", discount.discountCode);
+                                cmd.Parameters.AddWithValue("@percentage", discount.percentage);
+                                if (discount.maxUsageCount > 0)
+                                    cmd.Parameters.AddWithValue("@maxUsage", discount.maxUsageCount);
+                                else
+                                    cmd.Parameters.AddWithValue("@maxUsage", DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@currentUsage", discount.currentUsageCount);
+                                cmd.Parameters.AddWithValue("@isActive", discount.isActive);
+
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            trx.Commit();
+                        }
+                        catch
+                        {
+                            try { trx.Rollback(); } catch { }
+                            throw;
+                        }
                     }
                 }
             }
